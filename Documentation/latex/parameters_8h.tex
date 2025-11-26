@@ -1,0 +1,32 @@
+\doxysection{Référence du fichier parameters.\+h}
+\hypertarget{parameters_8h}{}\label{parameters_8h}\index{parameters.h@{parameters.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{parameters_8h_a5eeb999d0ba590f6ecfe76cbf64fc5da}{ADVANCED}}~0
+\begin{DoxyCompactList}\small\item\em Cette macro influe sur l\textquotesingle{}affichage des automates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{parameters_8h_doc-define-members}
+\doxysubsection{Documentation des macros}
+\Hypertarget{parameters_8h_a5eeb999d0ba590f6ecfe76cbf64fc5da}\index{parameters.h@{parameters.h}!ADVANCED@{ADVANCED}}
+\index{ADVANCED@{ADVANCED}!parameters.h@{parameters.h}}
+\doxysubsubsection{\texorpdfstring{ADVANCED}{ADVANCED}}
+{\footnotesize\ttfamily \label{parameters_8h_a5eeb999d0ba590f6ecfe76cbf64fc5da} 
+\#define ADVANCED~0}
+
+
+
+Cette macro influe sur l\textquotesingle{}affichage des automates. 
+
+
+\begin{DoxyItemize}
+\item Si elle est définie à 0, les transitions dont les extrémités sont les mêmes sont affichées comme plusieurs flèches (autant de flèches que de transitions).
+\item Sinon, les transitions de mêmes extrémités sont regroupées en une seule flèche.
+\end{DoxyItemize}
+
+Pour utiliser la deuxième option, il est nécessaire d\textquotesingle{}avoir écrit la fonction \doxylink{graphs_8c_a4aaba843a99c319619e056acfbc9f951}{ngraph\+\_\+to\+\_\+multi\+\_\+edges()} du fichier \doxylink{graphs_8c}{graphs.\+c}. 
+
+Définition à la ligne \mbox{\hyperlink{parameters_8h_source_l00018}{18}} du fichier \mbox{\hyperlink{parameters_8h_source}{parameters.\+h}}.
+

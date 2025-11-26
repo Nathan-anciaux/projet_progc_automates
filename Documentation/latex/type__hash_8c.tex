@@ -1,0 +1,138 @@
+\doxysection{Référence du fichier type\+\_\+hash.\+c}
+\hypertarget{type__hash_8c}{}\label{type__hash_8c}\index{type\_hash.c@{type\_hash.c}}
+{\ttfamily \#include "{}type\+\_\+hash.\+h"{}}\newline
+{\ttfamily \#include "{}alloc.\+h"{}}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{type__hash_8c_ad6486b7480d1fb73104b75574171f95d}{create\+\_\+hash\+\_\+table}} (int element\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Crée une nouvelle table de hachage vide. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{type__hash_8c_aeb90c0d72995394b700a2afefeb55a26}{delete\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*}ht)
+\begin{DoxyCompactList}\small\item\em Supprime une table de hachage. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{type__hash_8c_a07f2610579ac3789f4cc7771cc387190}{hash\+\_\+function}} (int \texorpdfstring{$\ast$}{*}elements, int size, int hash\+\_\+capacity)
+\item 
+static void \mbox{\hyperlink{type__hash_8c_a090ce0abaa9bde56947457856485f3b9}{hash\+\_\+table\+\_\+rehash}} (\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*}ht, int \texorpdfstring{$\ast$}{*}elements)
+\item 
+static bool \mbox{\hyperlink{type__hash_8c_abf68700652d0e1f9ed38591d11dd3d98}{hash\+\_\+array\+\_\+compare}} (int \texorpdfstring{$\ast$}{*}a, int \texorpdfstring{$\ast$}{*}b, int size)
+\item 
+bool \mbox{\hyperlink{type__hash_8c_abe3067dfabb310d4df5f31db1983bd17}{hash\+\_\+table\+\_\+insert}} (\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*}ht, int \texorpdfstring{$\ast$}{*}elements, int i, int \texorpdfstring{$\ast$}{*}ret)
+\begin{DoxyCompactList}\small\item\em Tente d\textquotesingle{}insérer un élément dans la table de hachage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{type__hash_8c_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{type__hash_8c_ad6486b7480d1fb73104b75574171f95d}\index{type\_hash.c@{type\_hash.c}!create\_hash\_table@{create\_hash\_table}}
+\index{create\_hash\_table@{create\_hash\_table}!type\_hash.c@{type\_hash.c}}
+\doxysubsubsection{\texorpdfstring{create\_hash\_table()}{create\_hash\_table()}}
+{\footnotesize\ttfamily \label{type__hash_8c_ad6486b7480d1fb73104b75574171f95d} 
+\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*} create\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{int}]{element\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Crée une nouvelle table de hachage vide. 
+
+\begin{DoxyReturn}{Renvoie}
+La table de hachage vide créée. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em element\+\_\+size} & Nombre de valeurs utilisées pour encoder un seul élément dans le tableau de stockage externe. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8c_source_l00005}{5}} du fichier \mbox{\hyperlink{type__hash_8c_source}{type\+\_\+hash.\+c}}.
+
+\Hypertarget{type__hash_8c_aeb90c0d72995394b700a2afefeb55a26}\index{type\_hash.c@{type\_hash.c}!delete\_hash\_table@{delete\_hash\_table}}
+\index{delete\_hash\_table@{delete\_hash\_table}!type\_hash.c@{type\_hash.c}}
+\doxysubsubsection{\texorpdfstring{delete\_hash\_table()}{delete\_hash\_table()}}
+{\footnotesize\ttfamily \label{type__hash_8c_aeb90c0d72995394b700a2afefeb55a26} 
+void delete\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{ht}{}\end{DoxyParamCaption})}
+
+
+
+Supprime une table de hachage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ht} & La table de hachage à supprimer. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8c_source_l00025}{25}} du fichier \mbox{\hyperlink{type__hash_8c_source}{type\+\_\+hash.\+c}}.
+
+\Hypertarget{type__hash_8c_a07f2610579ac3789f4cc7771cc387190}\index{type\_hash.c@{type\_hash.c}!hash\_function@{hash\_function}}
+\index{hash\_function@{hash\_function}!type\_hash.c@{type\_hash.c}}
+\doxysubsubsection{\texorpdfstring{hash\_function()}{hash\_function()}}
+{\footnotesize\ttfamily \label{type__hash_8c_a07f2610579ac3789f4cc7771cc387190} 
+int hash\+\_\+function (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{elements}{, }\item[{int}]{size}{, }\item[{int}]{hash\+\_\+capacity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em elements} & The element to hash.  \\
+\hline
+{\em size} & Size of the element (number of integers).  \\
+\hline
+{\em hash\+\_\+capacity} & Capacity of the hash table. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8c_source_l00036}{36}} du fichier \mbox{\hyperlink{type__hash_8c_source}{type\+\_\+hash.\+c}}.
+
+\Hypertarget{type__hash_8c_a090ce0abaa9bde56947457856485f3b9}\index{type\_hash.c@{type\_hash.c}!hash\_table\_rehash@{hash\_table\_rehash}}
+\index{hash\_table\_rehash@{hash\_table\_rehash}!type\_hash.c@{type\_hash.c}}
+\doxysubsubsection{\texorpdfstring{hash\_table\_rehash()}{hash\_table\_rehash()}}
+{\footnotesize\ttfamily \label{type__hash_8c_a090ce0abaa9bde56947457856485f3b9} 
+void hash\+\_\+table\+\_\+rehash (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{ht}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{elements}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8c_source_l00049}{49}} du fichier \mbox{\hyperlink{type__hash_8c_source}{type\+\_\+hash.\+c}}.
+
+\Hypertarget{type__hash_8c_abf68700652d0e1f9ed38591d11dd3d98}\index{type\_hash.c@{type\_hash.c}!hash\_array\_compare@{hash\_array\_compare}}
+\index{hash\_array\_compare@{hash\_array\_compare}!type\_hash.c@{type\_hash.c}}
+\doxysubsubsection{\texorpdfstring{hash\_array\_compare()}{hash\_array\_compare()}}
+{\footnotesize\ttfamily \label{type__hash_8c_abf68700652d0e1f9ed38591d11dd3d98} 
+bool hash\+\_\+array\+\_\+compare (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{int}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8c_source_l00087}{87}} du fichier \mbox{\hyperlink{type__hash_8c_source}{type\+\_\+hash.\+c}}.
+
+\Hypertarget{type__hash_8c_abe3067dfabb310d4df5f31db1983bd17}\index{type\_hash.c@{type\_hash.c}!hash\_table\_insert@{hash\_table\_insert}}
+\index{hash\_table\_insert@{hash\_table\_insert}!type\_hash.c@{type\_hash.c}}
+\doxysubsubsection{\texorpdfstring{hash\_table\_insert()}{hash\_table\_insert()}}
+{\footnotesize\ttfamily \label{type__hash_8c_abe3067dfabb310d4df5f31db1983bd17} 
+bool hash\+\_\+table\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{ht}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{elements}{, }\item[{int}]{i}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{ret}{}\end{DoxyParamCaption})}
+
+
+
+Tente d\textquotesingle{}insérer un élément dans la table de hachage. 
+
+Si l\textquotesingle{}élément est déjà présent dans la table de hachage, l\textquotesingle{}insertion n\textquotesingle{}est pas effectuée. De plus l\textquotesingle{}indice du premier élément identique trouvé est stocké dans la variable pointée par ret (si ret n\textquotesingle{}est pas NULL).
+
+\begin{DoxyRemark}{Remarques}
+L\textquotesingle{}indice i fait référence à la position de l\textquotesingle{}élément dans le tableau de stockage externe. Puisque chaque élément est encodé comme une séquence d\textquotesingle{}entiers de taille fixe (le champ element\+\_\+size), la table de hachage va en fait examiner la séquence de element\+\_\+size valeurs entières commençant à la position i \texorpdfstring{$\ast$}{*} element\+\_\+size dans le tableau de stockage externe.
+\end{DoxyRemark}
+\begin{DoxyReturn}{Renvoie}
+true si l\textquotesingle{}élément a été inséré, false s\textquotesingle{}il était déjà présent. Dans ce dernier cas, la table de hachage n\textquotesingle{}est pas modifiée. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em ht} & La table de hachage.  \\
+\hline
+{\em elements} & Tableau de stockage externe contenant tous les éléments.  \\
+\hline
+{\em i} & Indice de l\textquotesingle{}élément à insérer dans le tableau de stockage externe.  \\
+\hline
+{\em ret} & Pointeur vers un entier où sera stocké l\textquotesingle{}indice de l\textquotesingle{}élément existant (si déjà présent). \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8c_source_l00096}{96}} du fichier \mbox{\hyperlink{type__hash_8c_source}{type\+\_\+hash.\+c}}.
+

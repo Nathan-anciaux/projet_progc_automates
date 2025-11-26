@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LEA:  Fichier source de nfa.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="extra.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">LEA
+   </div>
+   <div id="projectbrief">LEA : Logique, Expressions, Automates</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('nfa_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">nfa.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="nfa_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef NFA_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define NFA_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="graphs_8h.html">graphs.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="type__basic_8h.html">type_basic.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="type__boolarray_8h.html">type_boolarray.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdarg.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structnfa.html">   41</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structnfa.html#a70e2887027709640e3d42750b86c1c37">   43</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structnfa.html#a70e2887027709640e3d42750b86c1c37">nb_states</a>;       </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structnfa.html#a0a13e58d0cd63c8843c8337d37bb6e51">   44</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structnfa.html#a0a13e58d0cd63c8843c8337d37bb6e51">nb_letters</a>;      </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structnfa.html#ad6f85ffd8ea365d542382b729ebfc7ca">   45</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structnfa.html#ad6f85ffd8ea365d542382b729ebfc7ca">eps_trans</a>;      </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structnfa.html#af3996008460589a009e4980aa8ab203d">   46</a></span>    <a class="code hl_struct" href="structngraph.html">ngraph</a> *<a class="code hl_variable" href="structnfa.html#af3996008460589a009e4980aa8ab203d">transitions</a>; </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structnfa.html#a35b5adb955e031cb07501b324d90e15b">   47</a></span>    <span class="keywordtype">int</span> *<a class="code hl_variable" href="structnfa.html#a35b5adb955e031cb07501b324d90e15b">initials</a>;       </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structnfa.html#ab4b137d1adde3eba1d6c5f856f2f293c">   48</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structnfa.html#ab4b137d1adde3eba1d6c5f856f2f293c">nb_initials</a>;     </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structnfa.html#abe98e28564cc8b586f08cba6138c0b21">   49</a></span>    <span class="keywordtype">int</span> *<a class="code hl_variable" href="structnfa.html#abe98e28564cc8b586f08cba6138c0b21">finals</a>;         </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structnfa.html#a714025236e3afdb64c718b1b9e911eaf">   50</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structnfa.html#a714025236e3afdb64c718b1b9e911eaf">nb_finals</a>;       </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structnfa.html#ab49df3856068af8cc07c31a6ccd466e2">   51</a></span>    <span class="keywordtype">char</span> *<a class="code hl_variable" href="structnfa.html#ab49df3856068af8cc07c31a6ccd466e2">letter_names</a>;  </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">/* Optionnel*/</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structnfa.html#aede9833ae37b956b6b973c41a6c477f2">   54</a></span>    <span class="keywordtype">char</span> **<a class="code hl_variable" href="structnfa.html#aede9833ae37b956b6b973c41a6c477f2">state_names</a>; </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>} <a class="code hl_struct" href="structnfa.html">nfa</a>;</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/********************/</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">/* Gestion des noms */</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/********************/</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">void</span> <a class="code hl_function" href="nfa_8h.html#a6e2d782f90b7018353b137bca3d4a01a">nfa_reset_state_names</a>(<a class="code hl_struct" href="structnfa.html">nfa</a> * <span class="comment">// Le NFA</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">/*********************************/</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">/* Initialisation et suppression */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/*********************************/</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><a class="code hl_struct" href="structnfa.html">nfa</a> *<a class="code hl_function" href="nfa_8h.html#a04f187cff60afe911b2aec756a3ddcba">create_emptylang</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><a class="code hl_struct" href="structnfa.html">nfa</a> *<a class="code hl_function" href="nfa_8h.html#a75d11e7a188d5db803ad24c593b3006a">create_sing_epsilon</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><a class="code hl_struct" href="structnfa.html">nfa</a> *<a class="code hl_function" href="nfa_8h.html#a6000adf7d77804674d3cb61ad2fe28ca">create_sing_letter</a>(<span class="keywordtype">char</span> letter <span class="comment">// !&lt; La lettre.</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keywordtype">void</span> <a class="code hl_function" href="nfa_8h.html#a1a085588c679456ab197713c076338a1">nfa_delete</a>(<a class="code hl_struct" href="structnfa.html">nfa</a> *A <span class="comment">// !&lt; Le NFA.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">/***********************************/</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">/* Opérations simples sur les NFAs */</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">/***********************************/</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><a class="code hl_struct" href="structnfa.html">nfa</a> *<a class="code hl_function" href="nfa_8h.html#a9cc81761bacd5d4103e0d4e6649e542b">nfa_copy</a>(<a class="code hl_struct" href="structnfa.html">nfa</a> *A <span class="comment">// !&lt; Le NFA à copier.</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><a class="code hl_struct" href="structnfa.html">nfa</a> *<a class="code hl_function" href="nfa_8h.html#a43b8e39812326934901249dacf4336f5">nfa_union</a>(<a class="code hl_struct" href="structnfa.html">nfa</a> *A1, <span class="comment">// !&lt; Le premier NFA.</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>               <a class="code hl_struct" href="structnfa.html">nfa</a> *A2  <span class="comment">// !&lt; Le second NFA.</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><a class="code hl_struct" href="structnfa.html">nfa</a> *<a class="code hl_function" href="nfa_8h.html#ad8f120a3266401ef6734ae81fb7ef615">nfa_concat</a>(<a class="code hl_struct" href="structnfa.html">nfa</a> *A1, <span class="comment">// !&lt; Le premier NFA.</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                <a class="code hl_struct" href="structnfa.html">nfa</a> *A2  <span class="comment">// !&lt; Le second NFA.</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><a class="code hl_struct" href="structnfa.html">nfa</a> *<a class="code hl_function" href="nfa_8h.html#a728440aa88d4a6d5365bda1d99978008">nfa_star</a>(<a class="code hl_struct" href="structnfa.html">nfa</a> *A <span class="comment">// !&lt; Le NFA.</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><a class="code hl_struct" href="structnfa.html">nfa</a> *<a class="code hl_function" href="nfa_8h.html#adc44efee9d5b32ca30765f5dc7766096">nfa_trim</a>(<a class="code hl_struct" href="structnfa.html">nfa</a> *A <span class="comment">// !&lt; Le NFA.</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><a class="code hl_struct" href="structnfa.html">nfa</a> *<a class="code hl_function" href="nfa_8h.html#ab9ecaf224c8159848596f1702dc220a3">nfa_mirror</a>(<a class="code hl_struct" href="structnfa.html">nfa</a> *A <span class="comment">// !&lt; Le NFA.</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><a class="code hl_struct" href="structnfa.html">nfa</a> *<a class="code hl_function" href="nfa_8h.html#ae070d986130909a0e7a28b5437a95557">nfa_elimeps</a>(<a class="code hl_struct" href="structnfa.html">nfa</a> *A <span class="comment">// !&lt; Le NFA.</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">/***********************/</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">/* Information sur nfa */</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">/***********************/</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><a class="code hl_struct" href="structbarray.html">barray</a> *<a class="code hl_function" href="nfa_8h.html#a9370cb47566408d404edd9afb58ff87d">nfa_compute_runs</a>(<a class="code hl_struct" href="structnfa.html">nfa</a> *A,       <span class="comment">// !&lt; Le NFA.</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                         <span class="keyword">const</span> <span class="keywordtype">char</span> *w <span class="comment">// !&lt; Le mot.</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="agraphs_8h_html"><div class="ttname"><a href="graphs_8h.html">graphs.h</a></div><div class="ttdoc">Implémentation des graphes étiquetés.</div></div>
+<div class="ttc" id="anfa_8h_html_a04f187cff60afe911b2aec756a3ddcba"><div class="ttname"><a href="nfa_8h.html#a04f187cff60afe911b2aec756a3ddcba">create_emptylang</a></div><div class="ttdeci">nfa * create_emptylang(void)</div><div class="ttdoc">Crée un NFA qui reconnaît le langage vide.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00024">nfa.c:24</a></div></div>
+<div class="ttc" id="anfa_8h_html_a1a085588c679456ab197713c076338a1"><div class="ttname"><a href="nfa_8h.html#a1a085588c679456ab197713c076338a1">nfa_delete</a></div><div class="ttdeci">void nfa_delete(nfa *A)</div><div class="ttdoc">Suppression d&#39;un NFA.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00039">nfa.c:39</a></div></div>
+<div class="ttc" id="anfa_8h_html_a43b8e39812326934901249dacf4336f5"><div class="ttname"><a href="nfa_8h.html#a43b8e39812326934901249dacf4336f5">nfa_union</a></div><div class="ttdeci">nfa * nfa_union(nfa *A1, nfa *A2)</div><div class="ttdoc">Union de deux NFAs.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00053">nfa.c:53</a></div></div>
+<div class="ttc" id="anfa_8h_html_a6000adf7d77804674d3cb61ad2fe28ca"><div class="ttname"><a href="nfa_8h.html#a6000adf7d77804674d3cb61ad2fe28ca">create_sing_letter</a></div><div class="ttdeci">nfa * create_sing_letter(char letter)</div><div class="ttdoc">Créé un NFA qui reconnaît un singleton contenant un mot d&#39;une seule lettre.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00034">nfa.c:34</a></div></div>
+<div class="ttc" id="anfa_8h_html_a6e2d782f90b7018353b137bca3d4a01a"><div class="ttname"><a href="nfa_8h.html#a6e2d782f90b7018353b137bca3d4a01a">nfa_reset_state_names</a></div><div class="ttdeci">void nfa_reset_state_names(nfa *)</div><div class="ttdoc">Efface les noms des états d&#39;un NFA (si il y en a).</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00004">nfa.c:4</a></div></div>
+<div class="ttc" id="anfa_8h_html_a728440aa88d4a6d5365bda1d99978008"><div class="ttname"><a href="nfa_8h.html#a728440aa88d4a6d5365bda1d99978008">nfa_star</a></div><div class="ttdeci">nfa * nfa_star(nfa *A)</div><div class="ttdoc">Étoile de Kleene d&#39;un NFA.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00063">nfa.c:63</a></div></div>
+<div class="ttc" id="anfa_8h_html_a75d11e7a188d5db803ad24c593b3006a"><div class="ttname"><a href="nfa_8h.html#a75d11e7a188d5db803ad24c593b3006a">create_sing_epsilon</a></div><div class="ttdeci">nfa * create_sing_epsilon(void)</div><div class="ttdoc">Créé un NFA qui reconnaît le singleton {epsilon}.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00029">nfa.c:29</a></div></div>
+<div class="ttc" id="anfa_8h_html_a9370cb47566408d404edd9afb58ff87d"><div class="ttname"><a href="nfa_8h.html#a9370cb47566408d404edd9afb58ff87d">nfa_compute_runs</a></div><div class="ttdeci">barray * nfa_compute_runs(nfa *A, const char *w)</div><div class="ttdoc">Calcule l&#39;ensemble des états qui sont atteints par un mot dans un NFA.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00083">nfa.c:83</a></div></div>
+<div class="ttc" id="anfa_8h_html_a9cc81761bacd5d4103e0d4e6649e542b"><div class="ttname"><a href="nfa_8h.html#a9cc81761bacd5d4103e0d4e6649e542b">nfa_copy</a></div><div class="ttdeci">nfa * nfa_copy(nfa *A)</div><div class="ttdoc">Création d&#39;une copie d&#39;un NFA.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00048">nfa.c:48</a></div></div>
+<div class="ttc" id="anfa_8h_html_ab9ecaf224c8159848596f1702dc220a3"><div class="ttname"><a href="nfa_8h.html#ab9ecaf224c8159848596f1702dc220a3">nfa_mirror</a></div><div class="ttdeci">nfa * nfa_mirror(nfa *A)</div><div class="ttdoc">Miroir d&#39;un NFA.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00073">nfa.c:73</a></div></div>
+<div class="ttc" id="anfa_8h_html_ad8f120a3266401ef6734ae81fb7ef615"><div class="ttname"><a href="nfa_8h.html#ad8f120a3266401ef6734ae81fb7ef615">nfa_concat</a></div><div class="ttdeci">nfa * nfa_concat(nfa *A1, nfa *A2)</div><div class="ttdoc">Concaténation de deux NFAs.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00058">nfa.c:58</a></div></div>
+<div class="ttc" id="anfa_8h_html_adc44efee9d5b32ca30765f5dc7766096"><div class="ttname"><a href="nfa_8h.html#adc44efee9d5b32ca30765f5dc7766096">nfa_trim</a></div><div class="ttdeci">nfa * nfa_trim(nfa *A)</div><div class="ttdoc">Élimination des états inutiles.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00068">nfa.c:68</a></div></div>
+<div class="ttc" id="anfa_8h_html_ae070d986130909a0e7a28b5437a95557"><div class="ttname"><a href="nfa_8h.html#ae070d986130909a0e7a28b5437a95557">nfa_elimeps</a></div><div class="ttdeci">nfa * nfa_elimeps(nfa *A)</div><div class="ttdoc">Élimination des transitions epsilon d&#39;un NFA.</div><div class="ttdef"><b>Definition</b> <a href="nfa_8c_source.html#l00078">nfa.c:78</a></div></div>
+<div class="ttc" id="astructbarray_html"><div class="ttname"><a href="structbarray.html">barray</a></div><div class="ttdoc">Type utilisé pour représenter un tableau de Booléens.</div><div class="ttdef"><b>Definition</b> <a href="type__boolarray_8h_source.html#l00023">type_boolarray.h:24</a></div></div>
+<div class="ttc" id="astructnfa_html"><div class="ttname"><a href="structnfa.html">nfa</a></div><div class="ttdoc">Type utilisé pour représenter un NFA.</div><div class="ttdef"><b>Definition</b> <a href="#l00041">nfa.h:42</a></div></div>
+<div class="ttc" id="astructnfa_html_a0a13e58d0cd63c8843c8337d37bb6e51"><div class="ttname"><a href="structnfa.html#a0a13e58d0cd63c8843c8337d37bb6e51">nfa::nb_letters</a></div><div class="ttdeci">int nb_letters</div><div class="ttdoc">Le nombre de lettres.</div><div class="ttdef"><b>Definition</b> <a href="#l00044">nfa.h:44</a></div></div>
+<div class="ttc" id="astructnfa_html_a35b5adb955e031cb07501b324d90e15b"><div class="ttname"><a href="structnfa.html#a35b5adb955e031cb07501b324d90e15b">nfa::initials</a></div><div class="ttdeci">int * initials</div><div class="ttdoc">Le tableau des états initiaux.</div><div class="ttdef"><b>Definition</b> <a href="#l00047">nfa.h:47</a></div></div>
+<div class="ttc" id="astructnfa_html_a70e2887027709640e3d42750b86c1c37"><div class="ttname"><a href="structnfa.html#a70e2887027709640e3d42750b86c1c37">nfa::nb_states</a></div><div class="ttdeci">int nb_states</div><div class="ttdoc">Le nombre d&#39;états (identique à transitions-&gt;nb_states).</div><div class="ttdef"><b>Definition</b> <a href="#l00043">nfa.h:43</a></div></div>
+<div class="ttc" id="astructnfa_html_a714025236e3afdb64c718b1b9e911eaf"><div class="ttname"><a href="structnfa.html#a714025236e3afdb64c718b1b9e911eaf">nfa::nb_finals</a></div><div class="ttdeci">int nb_finals</div><div class="ttdoc">Le nombre d&#39;états finaux.</div><div class="ttdef"><b>Definition</b> <a href="#l00050">nfa.h:50</a></div></div>
+<div class="ttc" id="astructnfa_html_ab49df3856068af8cc07c31a6ccd466e2"><div class="ttname"><a href="structnfa.html#ab49df3856068af8cc07c31a6ccd466e2">nfa::letter_names</a></div><div class="ttdeci">char * letter_names</div><div class="ttdoc">Le tableau des noms des lettres.</div><div class="ttdef"><b>Definition</b> <a href="#l00051">nfa.h:51</a></div></div>
+<div class="ttc" id="astructnfa_html_ab4b137d1adde3eba1d6c5f856f2f293c"><div class="ttname"><a href="structnfa.html#ab4b137d1adde3eba1d6c5f856f2f293c">nfa::nb_initials</a></div><div class="ttdeci">int nb_initials</div><div class="ttdoc">Le nombre d&#39;états initiaux.</div><div class="ttdef"><b>Definition</b> <a href="#l00048">nfa.h:48</a></div></div>
+<div class="ttc" id="astructnfa_html_abe98e28564cc8b586f08cba6138c0b21"><div class="ttname"><a href="structnfa.html#abe98e28564cc8b586f08cba6138c0b21">nfa::finals</a></div><div class="ttdeci">int * finals</div><div class="ttdoc">Le tableau des états finaux.</div><div class="ttdef"><b>Definition</b> <a href="#l00049">nfa.h:49</a></div></div>
+<div class="ttc" id="astructnfa_html_ad6f85ffd8ea365d542382b729ebfc7ca"><div class="ttname"><a href="structnfa.html#ad6f85ffd8ea365d542382b729ebfc7ca">nfa::eps_trans</a></div><div class="ttdeci">bool eps_trans</div><div class="ttdoc">Indique si l&#39;automate possède des transitions epsilon.</div><div class="ttdef"><b>Definition</b> <a href="#l00045">nfa.h:45</a></div></div>
+<div class="ttc" id="astructnfa_html_aede9833ae37b956b6b973c41a6c477f2"><div class="ttname"><a href="structnfa.html#aede9833ae37b956b6b973c41a6c477f2">nfa::state_names</a></div><div class="ttdeci">char ** state_names</div><div class="ttdoc">Le tableau des noms des états (NULL si pas utilisé).</div><div class="ttdef"><b>Definition</b> <a href="#l00054">nfa.h:54</a></div></div>
+<div class="ttc" id="astructnfa_html_af3996008460589a009e4980aa8ab203d"><div class="ttname"><a href="structnfa.html#af3996008460589a009e4980aa8ab203d">nfa::transitions</a></div><div class="ttdeci">ngraph * transitions</div><div class="ttdoc">Le graphe des transitions.</div><div class="ttdef"><b>Definition</b> <a href="#l00046">nfa.h:46</a></div></div>
+<div class="ttc" id="astructngraph_html"><div class="ttname"><a href="structngraph.html">ngraph</a></div><div class="ttdoc">Type utilisé pour représenter un graphe orienté et étiqueté.</div><div class="ttdef"><b>Definition</b> <a href="graphs_8h_source.html#l00052">graphs.h:52</a></div></div>
+<div class="ttc" id="atype__basic_8h_html"><div class="ttname"><a href="type__basic_8h.html">type_basic.h</a></div><div class="ttdoc">Définitions des types basiques.</div></div>
+<div class="ttc" id="atype__boolarray_8h_html"><div class="ttname"><a href="type__boolarray_8h.html">type_boolarray.h</a></div><div class="ttdoc">Implémentation des tableaux de Booléens.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="nfa_8h.html">nfa.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+\doxysection{graphs.\+h}
+\hypertarget{graphs_8h_source}{}\label{graphs_8h_source}\mbox{\hyperlink{graphs_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00011}00011\ \textcolor{preprocessor}{\#ifndef\ GRAPHS\_H}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00012}00012\ \textcolor{preprocessor}{\#define\ GRAPHS\_H}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00014}00014\ \textcolor{comment}{/*\ \ \ \_\_\_\_\ \_\_\_\_\ \ \ \ \ \ \_\ \ \ \ \_\_\_\_\ \ \_\ \ \ \_\ \_\_\_\_\_\ \_\_\_\_\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00015}00015\ \textcolor{comment}{/*\ \ /\ \_\_\_|\ \ \_\ \(\backslash\)\ \ \ \ /\ \(\backslash\)\ \ |\ \ \_\ \(\backslash\)|\ |\ |\ |\ \_\_\_\_/\ \_\_\_|\ \ */}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00016}00016\ \textcolor{comment}{/*\ |\ |\ \ \_|\ |\_)\ |\ \ /\ \_\ \(\backslash\)\ |\ |\_)\ |\ |\_|\ |\ \ \_|\ \(\backslash\)\_\_\_\ \(\backslash\)\ \ */}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00017}00017\ \textcolor{comment}{/*\ |\ |\_|\ |\ \ \_\ <\ \ /\ \_\_\_\ \(\backslash\)|\ \ \_\_/|\ \ \_\ \ |\ |\_\_\_\ \_\_\_)\ |\ */}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00018}00018\ \textcolor{comment}{/*\ \ \(\backslash\)\_\_\_\_|\_|\ \(\backslash\)\_\(\backslash\)/\_/\ \ \ \(\backslash\)\_\(\backslash\)\_|\ \ \ |\_|\ |\_|\_\_\_\_\_|\_\_\_\_/\ \ */}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{type__basic_8h}{type\_basic.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{type__boolarray_8h}{type\_boolarray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00027}00027\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00028}00028\ \textcolor{comment}{/*+\ Représentations\ par\ des\ tableaux\ (type\ utilisé\ dans\ les\ NFAs)\ +*/}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00029}00029\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00052}\mbox{\hyperlink{structngraph}{00052}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structngraph}{ngraph}}\ \{}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00053}\mbox{\hyperlink{structngraph_a70e2887027709640e3d42750b86c1c37}{00053}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structngraph_a70e2887027709640e3d42750b86c1c37}{nb\_states}};\ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00054}\mbox{\hyperlink{structngraph_a3f774ff39aaf3c4628164bd93ca5a000}{00054}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structngraph_a3f774ff39aaf3c4628164bd93ca5a000}{nb\_labels}};\ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00055}\mbox{\hyperlink{structngraph_a5cb488d5e25b7a310b43bad70f1057fc}{00055}}\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{structngraph_a5cb488d5e25b7a310b43bad70f1057fc}{to\_array}};\ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00059}\mbox{\hyperlink{structngraph_a150e87d6653816cc67407aef7bffe4f6}{00059}}\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{structngraph_a150e87d6653816cc67407aef7bffe4f6}{intervals}};\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00063}\mbox{\hyperlink{graphs_8h_a2495134869c3421fcb3d1ce7c5f6671e}{00063}}\ \}\ \mbox{\hyperlink{structngraph}{ngraph}};}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00065}00065\ \textcolor{comment}{/********************************************/}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00066}00066\ \textcolor{comment}{/*+\ Représentation\ par\ une\ liste\ d'arrêtes\ +*/}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00067}00067\ \textcolor{comment}{/********************************************/}}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00074}\mbox{\hyperlink{structone__edge}{00074}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00075}\mbox{\hyperlink{structone__edge_a16d981023742d3bd53f1385790714190}{00075}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structone__edge_a16d981023742d3bd53f1385790714190}{from}};\ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00076}\mbox{\hyperlink{structone__edge_ac0ed249f3db34b8135fd2717bda56844}{00076}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structone__edge_ac0ed249f3db34b8135fd2717bda56844}{to}};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00077}\mbox{\hyperlink{structone__edge_a512bd2c8e2a962b00a6a6926befc170c}{00077}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structone__edge_a512bd2c8e2a962b00a6a6926befc170c}{label}};\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00078}00078\ \}\ \mbox{\hyperlink{structone__edge}{one\_edge}};}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00094}00094\ \mbox{\hyperlink{structone__edge}{one\_edge}}\ *\mbox{\hyperlink{graphs_8h_a64ed6517e0b82a3d327ec1384a4a301b}{ngraph\_to\_edge\_list}}(}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00095}00095\ \ \ \ \ \mbox{\hyperlink{structngraph}{ngraph}}\ *G,\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{int}\ *size\ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00097}00097\ );}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00111}00111\ \mbox{\hyperlink{structngraph}{ngraph}}\ *}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00112}00112\ \mbox{\hyperlink{graphs_8h_a18fad7be58ac9e8a3be5a6ed5b908624}{edge\_list\_to\_ngraph}}(\mbox{\hyperlink{structone__edge}{one\_edge}}\ *edges,\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nb\_states,\ \ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nb\_labels\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00116}00116\ );}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00133}\mbox{\hyperlink{structmulti__edge}{00133}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00134}\mbox{\hyperlink{structmulti__edge_a26aeebe75887b4360c73659342f5dc61}{00134}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structmulti__edge_a26aeebe75887b4360c73659342f5dc61}{in}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00135}\mbox{\hyperlink{structmulti__edge_a8f140e937ea94d61be3e70d3c43534ef}{00135}}\ \ \ \ \ \mbox{\hyperlink{structbarray}{barray}}\ *\mbox{\hyperlink{structmulti__edge_a8f140e937ea94d61be3e70d3c43534ef}{lab}};\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00136}\mbox{\hyperlink{structmulti__edge_aa8000eda101cade7c6c4b913fce0cc9c}{00136}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structmulti__edge_aa8000eda101cade7c6c4b913fce0cc9c}{out}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00137}00137\ \}\ \mbox{\hyperlink{structmulti__edge}{multi\_edge}};}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00151}00151\ \mbox{\hyperlink{structmulti__edge}{multi\_edge}}\ *\mbox{\hyperlink{graphs_8h_a76d0cc79faa0170ac09cd30b602b95a2}{ngraph\_to\_multi\_edges}}(}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{structngraph}{ngraph}}\ *G,\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00153}00153\ \ \ \ \ \textcolor{keywordtype}{int}\ *size\ \ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00154}00154\ );}
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{graphs_8h_source_l00156}00156\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

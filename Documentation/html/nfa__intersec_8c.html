@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LEA: Référence du fichier nfa_intersec.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="extra.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">LEA
+   </div>
+   <div id="projectbrief">LEA : Logique, Expressions, Automates</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('nfa__intersec_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier nfa_intersec.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="nfa__intersec_8h_source.html">nfa_intersec.h</a>&quot;</code><br />
+<code>#include &quot;printing.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="type__hash_8h_source.html">type_hash.h</a>&quot;</code><br />
+</div>
+<p><a href="nfa__intersec_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a35d6831b9e0fa65e52a0d5be492fcad8" id="r_a35d6831b9e0fa65e52a0d5be492fcad8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structnfa.html">nfa</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35d6831b9e0fa65e52a0d5be492fcad8">nfa_intersect</a> (<a class="el" href="structnfa.html">nfa</a> *, <a class="el" href="structnfa.html">nfa</a> *, bool)</td></tr>
+<tr class="memdesc:a35d6831b9e0fa65e52a0d5be492fcad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intersection de deux automates.  <br /></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a35d6831b9e0fa65e52a0d5be492fcad8" name="a35d6831b9e0fa65e52a0d5be492fcad8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35d6831b9e0fa65e52a0d5be492fcad8">&#9670;&#160;</a></span>nfa_intersect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structnfa.html">nfa</a> * nfa_intersect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structnfa.html">nfa</a> *</td>          <td class="paramname"><span class="paramname"><em>A1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structnfa.html">nfa</a> *</td>          <td class="paramname"><span class="paramname"><em>A2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>names</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Intersection de deux automates. </p>
+<p>L'algorithme est basé sur l'automate produit: chaque état de l'automate qu'on construit correspond à une paire <span class="tt">(q1,q2)</span> où <span class="tt">q1</span> est un état du premier automate passé en entrée et <span class="tt">q2</span> est un état du second automate passé en entrée.</p>
+<dl class="section remark"><dt>Remarques</dt><dd>Le Booléen passé en paramètre indique si on souhaite enregistrer les noms des états de l'automate déterminisé pour l'affichage. Le nom d'un état de l'automate déterminisé est la paire d'états des automates passés en entrée auquel il correspond. On devra donc construire ces noms lors de l'intersection et les stocker dans le tableau des noms des états de l'automate produit sous la forme d'une chaîne de caractères.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>On ne générera QUE les états accessibles depuis un état initial de l'automate produit qu'on construit.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'automate qui réalise l'intersection. </dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A1</td><td>Le premier NFA à intersecter.  </td></tr>
+    <tr><td class="paramname">A2</td><td>Le second NFA à intersecter.  </td></tr>
+    <tr><td class="paramname">names</td><td>Un Booléen indiquant si on souhaite enregistrer les noms des états. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="nfa__intersec_8c_source.html#l00009">9</a> du fichier <a class="el" href="nfa__intersec_8c_source.html">nfa_intersec.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="nfa__intersec_8c.html">nfa_intersec.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

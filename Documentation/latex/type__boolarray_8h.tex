@@ -1,0 +1,201 @@
+\doxysection{Référence du fichier type\+\_\+boolarray.\+h}
+\hypertarget{type__boolarray_8h}{}\label{type__boolarray_8h}\index{type\_boolarray.h@{type\_boolarray.h}}
+
+
+Implémentation des tableaux de Booléens.  
+
+
+{\ttfamily \#include "{}tools.\+h"{}}\newline
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbarray}{barray}}
+\begin{DoxyCompactList}\small\item\em Type utilisé pour représenter un tableau de Booléens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{type__boolarray_8h_a12833b3bcb6b46f57a3ffd1187eb09cb}{create\+\_\+barray}} (int)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}un tableau de Booléens. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{type__boolarray_8h_a4b4ab9e5df2ad3ace3e81febcaee99d3}{getsize\+\_\+barray}} (\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Récupération de la taille d\textquotesingle{}un tableau de Booléens. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{type__boolarray_8h_a89919ad213a8de128905bdfb15fab8eb}{delete\+\_\+barray}} (\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Libération d\textquotesingle{}un tableau de Booléens. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{type__boolarray_8h_a6249a62facaeef6716fa2b5c98de1da6}{settrue\+\_\+barray}} (\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}, int)
+\begin{DoxyCompactList}\small\item\em Affectation de la valeur {\ttfamily true} dans une cellule d\textquotesingle{}un tableau de Booléens. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{type__boolarray_8h_a6043b212e7b5dd497c589c7d7e5aeabb}{setfalse\+\_\+barray}} (\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}, int)
+\begin{DoxyCompactList}\small\item\em Affectation de la valeur {\ttfamily false} dans une cellule d\textquotesingle{}un tableau de Booléens. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{type__boolarray_8h_af29a03248d8a72f63a67214e6848fe83}{getval\+\_\+barray}} (\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}, int)
+\begin{DoxyCompactList}\small\item\em Affectation de la valeur "{}true"{} dans une cellule d\textquotesingle{}un tableau de Booléens. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{type__boolarray_8h_a23a8ee477565ee4e94f04d6f953eac77}{or\+\_\+barray}} (\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Disjonction (OU bit à bit) cellule par cellule de deux tableaux de Booléens de même taille. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{type__boolarray_8h_aa890d901d5a8e64d95f2f93630cc472e}{and\+\_\+barray}} (\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Conjonction (ET bit à bit) cellule par cellule de deux tableaux de Booléens de même taille. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{type__boolarray_8h_a96204fc2b111a78968e978f43123a3f3}{copy\+\_\+barray}} (\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Copie d\textquotesingle{}un tableau de Booléens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des tableaux de Booléens. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{type__boolarray_8h_source}{type\+\_\+boolarray.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{type__boolarray_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{type__boolarray_8h_a12833b3bcb6b46f57a3ffd1187eb09cb}\index{type\_boolarray.h@{type\_boolarray.h}!create\_barray@{create\_barray}}
+\index{create\_barray@{create\_barray}!type\_boolarray.h@{type\_boolarray.h}}
+\doxysubsubsection{\texorpdfstring{create\_barray()}{create\_barray()}}
+{\footnotesize\ttfamily \label{type__boolarray_8h_a12833b3bcb6b46f57a3ffd1187eb09cb} 
+\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*} create\+\_\+barray (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}un tableau de Booléens. 
+
+\begin{DoxyAttention}{Attention}
+Toutes les cellules du tableau créé doivent être initialisées à la valeur {\ttfamily false}.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+Le tableau créé. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8c_source_l00003}{3}} du fichier \mbox{\hyperlink{type__boolarray_8c_source}{type\+\_\+boolarray.\+c}}.
+
+\Hypertarget{type__boolarray_8h_a4b4ab9e5df2ad3ace3e81febcaee99d3}\index{type\_boolarray.h@{type\_boolarray.h}!getsize\_barray@{getsize\_barray}}
+\index{getsize\_barray@{getsize\_barray}!type\_boolarray.h@{type\_boolarray.h}}
+\doxysubsubsection{\texorpdfstring{getsize\_barray()}{getsize\_barray()}}
+{\footnotesize\ttfamily \label{type__boolarray_8h_a4b4ab9e5df2ad3ace3e81febcaee99d3} 
+int getsize\+\_\+barray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Récupération de la taille d\textquotesingle{}un tableau de Booléens. 
+
+\begin{DoxyRemark}{Remarques}
+On parle ici du nombre de Booléens stockés (pas de la taille réelle du tableau).
+\end{DoxyRemark}
+\begin{DoxyReturn}{Renvoie}
+La taille du tableau de Booléens. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8c_source_l00008}{8}} du fichier \mbox{\hyperlink{type__boolarray_8c_source}{type\+\_\+boolarray.\+c}}.
+
+\Hypertarget{type__boolarray_8h_a89919ad213a8de128905bdfb15fab8eb}\index{type\_boolarray.h@{type\_boolarray.h}!delete\_barray@{delete\_barray}}
+\index{delete\_barray@{delete\_barray}!type\_boolarray.h@{type\_boolarray.h}}
+\doxysubsubsection{\texorpdfstring{delete\_barray()}{delete\_barray()}}
+{\footnotesize\ttfamily \label{type__boolarray_8h_a89919ad213a8de128905bdfb15fab8eb} 
+void delete\+\_\+barray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Libération d\textquotesingle{}un tableau de Booléens. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8c_source_l00013}{13}} du fichier \mbox{\hyperlink{type__boolarray_8c_source}{type\+\_\+boolarray.\+c}}.
+
+\Hypertarget{type__boolarray_8h_a6249a62facaeef6716fa2b5c98de1da6}\index{type\_boolarray.h@{type\_boolarray.h}!settrue\_barray@{settrue\_barray}}
+\index{settrue\_barray@{settrue\_barray}!type\_boolarray.h@{type\_boolarray.h}}
+\doxysubsubsection{\texorpdfstring{settrue\_barray()}{settrue\_barray()}}
+{\footnotesize\ttfamily \label{type__boolarray_8h_a6249a62facaeef6716fa2b5c98de1da6} 
+void settrue\+\_\+barray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})}
+
+
+
+Affectation de la valeur {\ttfamily true} dans une cellule d\textquotesingle{}un tableau de Booléens. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{type__boolarray_8c_source}{type\+\_\+boolarray.\+c}}.
+
+\Hypertarget{type__boolarray_8h_a6043b212e7b5dd497c589c7d7e5aeabb}\index{type\_boolarray.h@{type\_boolarray.h}!setfalse\_barray@{setfalse\_barray}}
+\index{setfalse\_barray@{setfalse\_barray}!type\_boolarray.h@{type\_boolarray.h}}
+\doxysubsubsection{\texorpdfstring{setfalse\_barray()}{setfalse\_barray()}}
+{\footnotesize\ttfamily \label{type__boolarray_8h_a6043b212e7b5dd497c589c7d7e5aeabb} 
+void setfalse\+\_\+barray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})}
+
+
+
+Affectation de la valeur {\ttfamily false} dans une cellule d\textquotesingle{}un tableau de Booléens. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{type__boolarray_8c_source}{type\+\_\+boolarray.\+c}}.
+
+\Hypertarget{type__boolarray_8h_af29a03248d8a72f63a67214e6848fe83}\index{type\_boolarray.h@{type\_boolarray.h}!getval\_barray@{getval\_barray}}
+\index{getval\_barray@{getval\_barray}!type\_boolarray.h@{type\_boolarray.h}}
+\doxysubsubsection{\texorpdfstring{getval\_barray()}{getval\_barray()}}
+{\footnotesize\ttfamily \label{type__boolarray_8h_af29a03248d8a72f63a67214e6848fe83} 
+bool getval\+\_\+barray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})}
+
+
+
+Affectation de la valeur "{}true"{} dans une cellule d\textquotesingle{}un tableau de Booléens. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8c_source_l00028}{28}} du fichier \mbox{\hyperlink{type__boolarray_8c_source}{type\+\_\+boolarray.\+c}}.
+
+\Hypertarget{type__boolarray_8h_a23a8ee477565ee4e94f04d6f953eac77}\index{type\_boolarray.h@{type\_boolarray.h}!or\_barray@{or\_barray}}
+\index{or\_barray@{or\_barray}!type\_boolarray.h@{type\_boolarray.h}}
+\doxysubsubsection{\texorpdfstring{or\_barray()}{or\_barray()}}
+{\footnotesize\ttfamily \label{type__boolarray_8h_a23a8ee477565ee4e94f04d6f953eac77} 
+\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*} or\+\_\+barray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}}]{}{, }\item[{\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Disjonction (OU bit à bit) cellule par cellule de deux tableaux de Booléens de même taille. 
+
+\begin{DoxyAttention}{Attention}
+Si les deux tableaux passés en entrée n\textquotesingle{}ont pas la même taille, on retournera NULL.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+Un nouveau tableau correspondant à la disjonction cellule par cellule des deux tableaux passés en entrée. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8c_source_l00033}{33}} du fichier \mbox{\hyperlink{type__boolarray_8c_source}{type\+\_\+boolarray.\+c}}.
+
+\Hypertarget{type__boolarray_8h_aa890d901d5a8e64d95f2f93630cc472e}\index{type\_boolarray.h@{type\_boolarray.h}!and\_barray@{and\_barray}}
+\index{and\_barray@{and\_barray}!type\_boolarray.h@{type\_boolarray.h}}
+\doxysubsubsection{\texorpdfstring{and\_barray()}{and\_barray()}}
+{\footnotesize\ttfamily \label{type__boolarray_8h_aa890d901d5a8e64d95f2f93630cc472e} 
+\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*} and\+\_\+barray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}}]{}{, }\item[{\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Conjonction (ET bit à bit) cellule par cellule de deux tableaux de Booléens de même taille. 
+
+\begin{DoxyAttention}{Attention}
+Si les deux tableaux passés en entrée n\textquotesingle{}ont pas la même taille, on retournera NULL.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+Un nouveau tableau correspondant à la conjonction cellule par cellule des deux tableaux passés en entrée. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8c_source_l00037}{37}} du fichier \mbox{\hyperlink{type__boolarray_8c_source}{type\+\_\+boolarray.\+c}}.
+
+\Hypertarget{type__boolarray_8h_a96204fc2b111a78968e978f43123a3f3}\index{type\_boolarray.h@{type\_boolarray.h}!copy\_barray@{copy\_barray}}
+\index{copy\_barray@{copy\_barray}!type\_boolarray.h@{type\_boolarray.h}}
+\doxysubsubsection{\texorpdfstring{copy\_barray()}{copy\_barray()}}
+{\footnotesize\ttfamily \label{type__boolarray_8h_a96204fc2b111a78968e978f43123a3f3} 
+\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*} copy\+\_\+barray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Copie d\textquotesingle{}un tableau de Booléens. 
+
+\begin{DoxyReturn}{Renvoie}
+La copie. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8c_source_l00042}{42}} du fichier \mbox{\hyperlink{type__boolarray_8c_source}{type\+\_\+boolarray.\+c}}.
+

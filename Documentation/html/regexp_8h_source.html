@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LEA:  Fichier source de regexp.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="extra.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">LEA
+   </div>
+   <div id="projectbrief">LEA : Logique, Expressions, Automates</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('regexp_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">regexp.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="regexp_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef REGEXP_H_</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define REGEXP_H_</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="alloc_8h.html">alloc.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="error_8h.html">error.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;tools.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="type__basic_8h.html">type_basic.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;ctype.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68fa">   27</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa2f0d18fc0d0fa4a6cd92dc328501874d">   29</a></span>    <a class="code hl_enumvalue" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa2f0d18fc0d0fa4a6cd92dc328501874d">EMPTY</a>,      </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa1fa5920d8d419e0b8036e2dbada9a882">   30</a></span>    <a class="code hl_enumvalue" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa1fa5920d8d419e0b8036e2dbada9a882">EPSILON</a>,    </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa4618cf21306b3c647741afa7ebefcab8">   31</a></span>    <a class="code hl_enumvalue" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa4618cf21306b3c647741afa7ebefcab8">CHAR</a>,       </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa4cf5e96eb7880eb38df303a6e5759afd">   32</a></span>    <a class="code hl_enumvalue" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa4cf5e96eb7880eb38df303a6e5759afd">UNION</a>,      </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa5efa5610d5a2c5e9123d6894dd72e335">   33</a></span>    <a class="code hl_enumvalue" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa5efa5610d5a2c5e9123d6894dd72e335">INTER</a>,      </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa09a24ada4cada9fedf84fbcfd5dc0511">   34</a></span>    <a class="code hl_enumvalue" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa09a24ada4cada9fedf84fbcfd5dc0511">COMPLEMENT</a>, </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa9044fbb1b4b9307bcd680468a58c22f2">   35</a></span>    <a class="code hl_enumvalue" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa9044fbb1b4b9307bcd680468a58c22f2">CONCAT</a>,     </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa9d398750ed310ae69cd070016810e4dc">   36</a></span>    <a class="code hl_enumvalue" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa9d398750ed310ae69cd070016810e4dc">STAR</a>,       </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faac157bdf0b85a40d2619cbc8bc1ae5fe2">   37</a></span>    <a class="code hl_enumvalue" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a>        </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>} <a class="code hl_enumeration" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68fa">regelem</a>;</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structregexp.html">   52</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structregexp.html">regexp</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structregexp.html#ab3dd8e3a4e3f8387c57051ef6831b65a">   54</a></span>    <a class="code hl_enumeration" href="regexp_8h.html#a945e1b6cec6225bade72691d362c68fa">regelem</a> <a class="code hl_variable" href="structregexp.html#ab3dd8e3a4e3f8387c57051ef6831b65a">op</a>;           </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structregexp.html#a0208b413d1d54a35ac03b94a23e087e6">   55</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_variable" href="structregexp.html#a0208b413d1d54a35ac03b94a23e087e6">left</a>;  </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structregexp.html#a5a4f7823a61a9a64d8e5555617d3500a">   56</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_variable" href="structregexp.html#a5a4f7823a61a9a64d8e5555617d3500a">right</a>; </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structregexp.html#ac632f0e58c93e01b2bfbb3015c8de34f">   57</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="structregexp.html#ac632f0e58c93e01b2bfbb3015c8de34f">letter</a>;          </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="regexp_8h.html#ab9c7f4f28bd4645dbcab031dc7e8420b">   58</a></span>} <a class="code hl_struct" href="structregexp.html">regexp</a>;</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keywordtype">bool</span> <a class="code hl_function" href="regexp_8h.html#aed9ac023e7d3f1ceb95c4ca5d3386ff7">reg_issimple</a>(<a class="code hl_struct" href="structregexp.html">regexp</a> * </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">void</span> <a class="code hl_function" href="regexp_8h.html#aa4c7ffc70fec6309a28b393380d505f0">reg_free</a>(<a class="code hl_struct" href="structregexp.html">regexp</a> * </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_function" href="regexp_8h.html#a420113f0cc33a6dc7b6eb2abd3ac9a43">reg_copy</a>(<a class="code hl_struct" href="structregexp.html">regexp</a> * </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_function" href="regexp_8h.html#a2ba9e7fdf196326ddc67a7e7b8ce221b">reg_empty</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_function" href="regexp_8h.html#a2092d5f621e571c562a90c097e7e56c9">reg_epsilon</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_function" href="regexp_8h.html#aad0367b53f8a1bf09ceda5accdabd208">reg_letter</a>(<span class="keywordtype">char</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_function" href="regexp_8h.html#a4d508ba6c047b2d424a70d74302118d7">reg_union</a>(<a class="code hl_struct" href="structregexp.html">regexp</a> *, </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                  <a class="code hl_struct" href="structregexp.html">regexp</a> *  </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_function" href="regexp_8h.html#a1153f9338e818d7e1dd9f8774326ea94">reg_inter</a>(<a class="code hl_struct" href="structregexp.html">regexp</a> *, </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                  <a class="code hl_struct" href="structregexp.html">regexp</a> *  </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_function" href="regexp_8h.html#aaa3711cc9ec44c603335fdf2813edee1">reg_concat</a>(<a class="code hl_struct" href="structregexp.html">regexp</a> *, </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                   <a class="code hl_struct" href="structregexp.html">regexp</a> *  </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_function" href="regexp_8h.html#a1d4524f0d6eb869160daaf3b2eacd7d8">reg_star</a>(<a class="code hl_struct" href="structregexp.html">regexp</a> * </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><a class="code hl_struct" href="structregexp.html">regexp</a> *<a class="code hl_function" href="regexp_8h.html#a5db57665ab834362e57afb076bb9b55c">reg_complement</a>(<a class="code hl_struct" href="structregexp.html">regexp</a> * </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="keywordtype">void</span> <a class="code hl_function" href="regexp_8h.html#a7ecb65c2ab8aefcff5d18b610bb7d12b">reg_print</a>(<a class="code hl_struct" href="structregexp.html">regexp</a> * </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="preprocessor">#endif </span><span class="comment">// REGEXP_H_</span></div>
+<div class="ttc" id="aalloc_8h_html"><div class="ttname"><a href="alloc_8h.html">alloc.h</a></div><div class="ttdoc">Macros et fonctions d&#39;allocation mémoire.</div></div>
+<div class="ttc" id="aerror_8h_html"><div class="ttname"><a href="error_8h.html">error.h</a></div><div class="ttdoc">Macros permettant d&#39;afficher des messages d&#39;erreur.</div></div>
+<div class="ttc" id="aregexp_8h_html_a1153f9338e818d7e1dd9f8774326ea94"><div class="ttname"><a href="regexp_8h.html#a1153f9338e818d7e1dd9f8774326ea94">reg_inter</a></div><div class="ttdeci">regexp * reg_inter(regexp *, regexp *)</div><div class="ttdoc">Combinaison de deux expressions avec l&#39;opérateur d&#39;intersection.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00038">regexp.c:38</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a1d4524f0d6eb869160daaf3b2eacd7d8"><div class="ttname"><a href="regexp_8h.html#a1d4524f0d6eb869160daaf3b2eacd7d8">reg_star</a></div><div class="ttdeci">regexp * reg_star(regexp *)</div><div class="ttdoc">Application de l&#39;étoile de Kleene à une expression.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00048">regexp.c:48</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a2092d5f621e571c562a90c097e7e56c9"><div class="ttname"><a href="regexp_8h.html#a2092d5f621e571c562a90c097e7e56c9">reg_epsilon</a></div><div class="ttdeci">regexp * reg_epsilon(void)</div><div class="ttdoc">Création d&#39;une expression régulière réduite au symbole définissant le singleton contenant le mot-vide...</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00023">regexp.c:23</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a2ba9e7fdf196326ddc67a7e7b8ce221b"><div class="ttname"><a href="regexp_8h.html#a2ba9e7fdf196326ddc67a7e7b8ce221b">reg_empty</a></div><div class="ttdeci">regexp * reg_empty(void)</div><div class="ttdoc">Création d&#39;une expression régulière réduite au symbole définissant le langage vide.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00018">regexp.c:18</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a420113f0cc33a6dc7b6eb2abd3ac9a43"><div class="ttname"><a href="regexp_8h.html#a420113f0cc33a6dc7b6eb2abd3ac9a43">reg_copy</a></div><div class="ttdeci">regexp * reg_copy(regexp *)</div><div class="ttdoc">Copie d&#39;une expression régulière.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00013">regexp.c:13</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a4d508ba6c047b2d424a70d74302118d7"><div class="ttname"><a href="regexp_8h.html#a4d508ba6c047b2d424a70d74302118d7">reg_union</a></div><div class="ttdeci">regexp * reg_union(regexp *, regexp *)</div><div class="ttdoc">Combinaison de deux expressions avec l&#39;opérateur d&#39;union.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00033">regexp.c:33</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a5db57665ab834362e57afb076bb9b55c"><div class="ttname"><a href="regexp_8h.html#a5db57665ab834362e57afb076bb9b55c">reg_complement</a></div><div class="ttdeci">regexp * reg_complement(regexp *)</div><div class="ttdoc">Application de l&#39;opérateur complément à une expression.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00053">regexp.c:53</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a7ecb65c2ab8aefcff5d18b610bb7d12b"><div class="ttname"><a href="regexp_8h.html#a7ecb65c2ab8aefcff5d18b610bb7d12b">reg_print</a></div><div class="ttdeci">void reg_print(regexp *)</div><div class="ttdoc">Affichage d&#39;une expression régulière sur la sortie standard.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00167">regexp.c:167</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a945e1b6cec6225bade72691d362c68fa"><div class="ttname"><a href="regexp_8h.html#a945e1b6cec6225bade72691d362c68fa">regelem</a></div><div class="ttdeci">regelem</div><div class="ttdoc">Les différents opérateurs utilisables dans une expression régulière.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">regexp.h:28</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a945e1b6cec6225bade72691d362c68faa09a24ada4cada9fedf84fbcfd5dc0511"><div class="ttname"><a href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa09a24ada4cada9fedf84fbcfd5dc0511">COMPLEMENT</a></div><div class="ttdeci">@ COMPLEMENT</div><div class="ttdoc">Le complément d&#39;une expression régulière.</div><div class="ttdef"><b>Definition</b> <a href="#l00034">regexp.h:34</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a945e1b6cec6225bade72691d362c68faa1fa5920d8d419e0b8036e2dbada9a882"><div class="ttname"><a href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa1fa5920d8d419e0b8036e2dbada9a882">EPSILON</a></div><div class="ttdeci">@ EPSILON</div><div class="ttdoc">Le mot vide.</div><div class="ttdef"><b>Definition</b> <a href="#l00030">regexp.h:30</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a945e1b6cec6225bade72691d362c68faa2f0d18fc0d0fa4a6cd92dc328501874d"><div class="ttname"><a href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa2f0d18fc0d0fa4a6cd92dc328501874d">EMPTY</a></div><div class="ttdeci">@ EMPTY</div><div class="ttdoc">L&#39;ensemble vide.</div><div class="ttdef"><b>Definition</b> <a href="#l00029">regexp.h:29</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a945e1b6cec6225bade72691d362c68faa4618cf21306b3c647741afa7ebefcab8"><div class="ttname"><a href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa4618cf21306b3c647741afa7ebefcab8">CHAR</a></div><div class="ttdeci">@ CHAR</div><div class="ttdoc">Une lettre.</div><div class="ttdef"><b>Definition</b> <a href="#l00031">regexp.h:31</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a945e1b6cec6225bade72691d362c68faa4cf5e96eb7880eb38df303a6e5759afd"><div class="ttname"><a href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa4cf5e96eb7880eb38df303a6e5759afd">UNION</a></div><div class="ttdeci">@ UNION</div><div class="ttdoc">L&#39;union de deux expressions régulières.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">regexp.h:32</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a945e1b6cec6225bade72691d362c68faa5efa5610d5a2c5e9123d6894dd72e335"><div class="ttname"><a href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa5efa5610d5a2c5e9123d6894dd72e335">INTER</a></div><div class="ttdeci">@ INTER</div><div class="ttdoc">L&#39;intersection de deux expressions régulières.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">regexp.h:33</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a945e1b6cec6225bade72691d362c68faa9044fbb1b4b9307bcd680468a58c22f2"><div class="ttname"><a href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa9044fbb1b4b9307bcd680468a58c22f2">CONCAT</a></div><div class="ttdeci">@ CONCAT</div><div class="ttdoc">La concaténation de deux expressions régulières.</div><div class="ttdef"><b>Definition</b> <a href="#l00035">regexp.h:35</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a945e1b6cec6225bade72691d362c68faa9d398750ed310ae69cd070016810e4dc"><div class="ttname"><a href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faa9d398750ed310ae69cd070016810e4dc">STAR</a></div><div class="ttdeci">@ STAR</div><div class="ttdoc">L&#39;étoile de Kleene d&#39;une expression régulière.</div><div class="ttdef"><b>Definition</b> <a href="#l00036">regexp.h:36</a></div></div>
+<div class="ttc" id="aregexp_8h_html_a945e1b6cec6225bade72691d362c68faac157bdf0b85a40d2619cbc8bc1ae5fe2"><div class="ttname"><a href="regexp_8h.html#a945e1b6cec6225bade72691d362c68faac157bdf0b85a40d2619cbc8bc1ae5fe2">NONE</a></div><div class="ttdeci">@ NONE</div><div class="ttdoc">Utilisé uniquement pour simplifier l&#39;affichage.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">regexp.h:37</a></div></div>
+<div class="ttc" id="aregexp_8h_html_aa4c7ffc70fec6309a28b393380d505f0"><div class="ttname"><a href="regexp_8h.html#aa4c7ffc70fec6309a28b393380d505f0">reg_free</a></div><div class="ttdeci">void reg_free(regexp *)</div><div class="ttdoc">Libération d&#39;une expression régulière.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00008">regexp.c:8</a></div></div>
+<div class="ttc" id="aregexp_8h_html_aaa3711cc9ec44c603335fdf2813edee1"><div class="ttname"><a href="regexp_8h.html#aaa3711cc9ec44c603335fdf2813edee1">reg_concat</a></div><div class="ttdeci">regexp * reg_concat(regexp *, regexp *)</div><div class="ttdoc">Combinaison de deux expressions avec l&#39;opérateur de concaténation.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00043">regexp.c:43</a></div></div>
+<div class="ttc" id="aregexp_8h_html_aad0367b53f8a1bf09ceda5accdabd208"><div class="ttname"><a href="regexp_8h.html#aad0367b53f8a1bf09ceda5accdabd208">reg_letter</a></div><div class="ttdeci">regexp * reg_letter(char)</div><div class="ttdoc">Création d&#39;une expression régulière réduite à une seule lettre.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00028">regexp.c:28</a></div></div>
+<div class="ttc" id="aregexp_8h_html_aed9ac023e7d3f1ceb95c4ca5d3386ff7"><div class="ttname"><a href="regexp_8h.html#aed9ac023e7d3f1ceb95c4ca5d3386ff7">reg_issimple</a></div><div class="ttdeci">bool reg_issimple(regexp *)</div><div class="ttdoc">Teste si une expression régulière est simple.</div><div class="ttdef"><b>Definition</b> <a href="regexp_8c_source.html#l00003">regexp.c:3</a></div></div>
+<div class="ttc" id="astructregexp_html"><div class="ttname"><a href="structregexp.html">regexp</a></div><div class="ttdoc">Type utilisé pour représenter un noeud d&#39;une expression régulière.</div><div class="ttdef"><b>Definition</b> <a href="#l00052">regexp.h:53</a></div></div>
+<div class="ttc" id="astructregexp_html_a0208b413d1d54a35ac03b94a23e087e6"><div class="ttname"><a href="structregexp.html#a0208b413d1d54a35ac03b94a23e087e6">regexp::left</a></div><div class="ttdeci">struct regexp * left</div><div class="ttdoc">La sous-expression gauche (si il y en a une).</div><div class="ttdef"><b>Definition</b> <a href="#l00055">regexp.h:55</a></div></div>
+<div class="ttc" id="astructregexp_html_a5a4f7823a61a9a64d8e5555617d3500a"><div class="ttname"><a href="structregexp.html#a5a4f7823a61a9a64d8e5555617d3500a">regexp::right</a></div><div class="ttdeci">struct regexp * right</div><div class="ttdoc">La sous-expression droite (si il y en a une).</div><div class="ttdef"><b>Definition</b> <a href="#l00056">regexp.h:56</a></div></div>
+<div class="ttc" id="astructregexp_html_ab3dd8e3a4e3f8387c57051ef6831b65a"><div class="ttname"><a href="structregexp.html#ab3dd8e3a4e3f8387c57051ef6831b65a">regexp::op</a></div><div class="ttdeci">regelem op</div><div class="ttdoc">L&#39;opérateur utilisé.</div><div class="ttdef"><b>Definition</b> <a href="#l00054">regexp.h:54</a></div></div>
+<div class="ttc" id="astructregexp_html_ac632f0e58c93e01b2bfbb3015c8de34f"><div class="ttname"><a href="structregexp.html#ac632f0e58c93e01b2bfbb3015c8de34f">regexp::letter</a></div><div class="ttdeci">char letter</div><div class="ttdoc">La lettre (si il s&#39;agit d&#39;une lettre).</div><div class="ttdef"><b>Definition</b> <a href="#l00057">regexp.h:57</a></div></div>
+<div class="ttc" id="atype__basic_8h_html"><div class="ttname"><a href="type__basic_8h.html">type_basic.h</a></div><div class="ttdoc">Définitions des types basiques.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="regexp_8h.html">regexp.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+\doxysection{Référence du fichier graphs.\+c}
+\hypertarget{graphs_8c}{}\label{graphs_8c}\index{graphs.c@{graphs.c}}
+{\ttfamily \#include "{}graphs.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structone__edge}{one\+\_\+edge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphs_8c_a02aa2b6547dceb96f9777a23339480a1}{ngraph\+\_\+to\+\_\+edge\+\_\+list}} (\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}size)
+\begin{DoxyCompactList}\small\item\em Conversion d\textquotesingle{}un graphe en une liste d\textquotesingle{}arrêtes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphs_8c_ad99f132c9a5c2bb90a0c91ea907893de}{edge\+\_\+list\+\_\+to\+\_\+ngraph}} (\mbox{\hyperlink{structone__edge}{one\+\_\+edge}} \texorpdfstring{$\ast$}{*}, int, int, int)
+\begin{DoxyCompactList}\small\item\em Conversion d\textquotesingle{}une liste d\textquotesingle{}arrêtes en un graphe étiqueté. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structmulti__edge}{multi\+\_\+edge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphs_8c_a4aaba843a99c319619e056acfbc9f951}{ngraph\+\_\+to\+\_\+multi\+\_\+edges}} (\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Calcul de la liste des multi-\/arêtes d\textquotesingle{}un graphe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{graphs_8c_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{graphs_8c_a02aa2b6547dceb96f9777a23339480a1}\index{graphs.c@{graphs.c}!ngraph\_to\_edge\_list@{ngraph\_to\_edge\_list}}
+\index{ngraph\_to\_edge\_list@{ngraph\_to\_edge\_list}!graphs.c@{graphs.c}}
+\doxysubsubsection{\texorpdfstring{ngraph\_to\_edge\_list()}{ngraph\_to\_edge\_list()}}
+{\footnotesize\ttfamily \label{graphs_8c_a02aa2b6547dceb96f9777a23339480a1} 
+\mbox{\hyperlink{structone__edge}{one\+\_\+edge}} \texorpdfstring{$\ast$}{*} ngraph\+\_\+to\+\_\+edge\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*}}]{G}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Conversion d\textquotesingle{}un graphe en une liste d\textquotesingle{}arrêtes. 
+
+\begin{DoxyRemark}{Remarques}
+La taille de la liste est retournée par le second paramètre.
+\end{DoxyRemark}
+\begin{DoxyAttention}{Attention}
+Cette fonction est utilisée pour la sauvegarde d\textquotesingle{}un NFA dans un fichier. Elle doit être écrite pour que la sauvegarde fonctionne correctement.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+La liste des arrêtes. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em G} & Le graphe à convertir.  \\
+\hline
+{\em size} & Pointeur pour retourner la taille de la liste. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{graphs_8c_source_l00003}{3}} du fichier \mbox{\hyperlink{graphs_8c_source}{graphs.\+c}}.
+
+\Hypertarget{graphs_8c_ad99f132c9a5c2bb90a0c91ea907893de}\index{graphs.c@{graphs.c}!edge\_list\_to\_ngraph@{edge\_list\_to\_ngraph}}
+\index{edge\_list\_to\_ngraph@{edge\_list\_to\_ngraph}!graphs.c@{graphs.c}}
+\doxysubsubsection{\texorpdfstring{edge\_list\_to\_ngraph()}{edge\_list\_to\_ngraph()}}
+{\footnotesize\ttfamily \label{graphs_8c_ad99f132c9a5c2bb90a0c91ea907893de} 
+\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*} edge\+\_\+list\+\_\+to\+\_\+ngraph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structone__edge}{one\+\_\+edge}} \texorpdfstring{$\ast$}{*}}]{edges}{, }\item[{int}]{size}{, }\item[{int}]{nb\+\_\+states}{, }\item[{int}]{nb\+\_\+labels}{}\end{DoxyParamCaption})}
+
+
+
+Conversion d\textquotesingle{}une liste d\textquotesingle{}arrêtes en un graphe étiqueté. 
+
+\begin{DoxyAttention}{Attention}
+Cette fonction est utilisée pour le chargement d\textquotesingle{}un NFA depuis un fichier. Elle est aussi utilisée par l\textquotesingle{}algorithme de Glushkov. Elle doit être écrite pour que ces deux fonctionnalités fonctionnent correctement.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+Le graphe étiqueté. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em edges} & La liste des arrêtes.  \\
+\hline
+{\em size} & La taille de la liste.  \\
+\hline
+{\em nb\+\_\+states} & Le nombre total d\textquotesingle{}états du graphe.  \\
+\hline
+{\em nb\+\_\+labels} & Le nombre total d\textquotesingle{}étiquettes du graphe. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{graphs_8c_source_l00012}{12}} du fichier \mbox{\hyperlink{graphs_8c_source}{graphs.\+c}}.
+
+\Hypertarget{graphs_8c_a4aaba843a99c319619e056acfbc9f951}\index{graphs.c@{graphs.c}!ngraph\_to\_multi\_edges@{ngraph\_to\_multi\_edges}}
+\index{ngraph\_to\_multi\_edges@{ngraph\_to\_multi\_edges}!graphs.c@{graphs.c}}
+\doxysubsubsection{\texorpdfstring{ngraph\_to\_multi\_edges()}{ngraph\_to\_multi\_edges()}}
+{\footnotesize\ttfamily \label{graphs_8c_a4aaba843a99c319619e056acfbc9f951} 
+\mbox{\hyperlink{structmulti__edge}{multi\+\_\+edge}} \texorpdfstring{$\ast$}{*} ngraph\+\_\+to\+\_\+multi\+\_\+edges (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*}}]{G}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Calcul de la liste des multi-\/arêtes d\textquotesingle{}un graphe. 
+
+\begin{DoxyReturn}{Renvoie}
+La liste des multi-\/arêtes stockée dans une pile.
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarques}
+Cette fonction sert à afficher les automates de façon plus compacte \+: une fois écrite, les arêtes qui ont les mêmes extrémités peuvent être regroupées en une seule flèche. Pour utiliser cette fonction, il faut basculer à 1 la macro ADVANCED de \doxylink{parameters_8h}{parameters.\+h}. 
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Paramètres}
+{\em G} & Le graphe,  \\
+\hline
+{\em size} & Pointeur pour retourner la taille de la liste. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{graphs_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{graphs_8c_source}{graphs.\+c}}.
+

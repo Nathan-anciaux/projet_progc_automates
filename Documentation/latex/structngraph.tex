@@ -1,0 +1,101 @@
+\doxysection{Référence de la structure ngraph}
+\hypertarget{structngraph}{}\label{structngraph}\index{ngraph@{ngraph}}
+
+
+Type utilisé pour représenter un graphe orienté et étiqueté.  
+
+
+
+
+{\ttfamily \#include $<$graphs.\+h$>$}
+
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structngraph_a70e2887027709640e3d42750b86c1c37}{nb\+\_\+states}}
+\begin{DoxyCompactList}\small\item\em Nombre de sommets. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structngraph_a3f774ff39aaf3c4628164bd93ca5a000}{nb\+\_\+labels}}
+\begin{DoxyCompactList}\small\item\em Taille de l\textquotesingle{}alphabet étiquetant les transitions. \end{DoxyCompactList}\item 
+int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structngraph_a5cb488d5e25b7a310b43bad70f1057fc}{to\+\_\+array}}
+\item 
+int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structngraph_a150e87d6653816cc67407aef7bffe4f6}{intervals}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Type utilisé pour représenter un graphe orienté et étiqueté. 
+
+Le graphe contient nb\+\_\+states sommets, numérotés de 0 à nb\+\_\+states-\/1 et il y a nb\+\_\+labels étiquettes numérotées de 0 à nb\+\_\+labels-\/1. Les arrêtes sont codées par les deux tableaux "{}to\+\_\+array"{} et "{}intervals"{}\+:
+\begin{DoxyItemize}
+\item "{}intervals"{} est un tableau de taille "{}nb\+\_\+states \texorpdfstring{$\ast$}{*} nb\+\_\+labels + 1"{}. Il stocke des indices dans le tableau "{}to\+\_\+array"{} triés par ordre croissant.
+\item "{}to\+\_\+array"{} est un tableau d\textquotesingle{}entiers, qui stocke les états d\textquotesingle{}arrivée des arrêtes (sa taille est égale au nombre total d\textquotesingle{}arrêtes dans le graphe). Pour chaque état q et chaque étiquette a, les états d\textquotesingle{}arrivée des arrêtes partant de q et étiquetées par a sont stockées de façon contiguë et triés par ordre croissant dans le tableau "{}to\+\_\+array"{}, entre les indices intervals\mbox{[}q \texorpdfstring{$\ast$}{*} nb\+\_\+labels + a\mbox{]} (inclus) et intervals\mbox{[}q \texorpdfstring{$\ast$}{*} nb\+\_\+labels + a + 1\mbox{]} (exclus).
+\end{DoxyItemize}
+
+\begin{DoxyRemark}{Remarques}
+En particulier, la cellule intervals\mbox{[}nb\+\_\+states \texorpdfstring{$\ast$}{*} nb\+\_\+labels\mbox{]} contient le nombre total de transitions dans l\textquotesingle{}automate (la taille de intervals). 
+\end{DoxyRemark}
+
+
+Définition à la ligne \mbox{\hyperlink{graphs_8h_source_l00052}{52}} du fichier \mbox{\hyperlink{graphs_8h_source}{graphs.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structngraph_doc-variable-members}
+\doxysubsection{Documentation des champs}
+\Hypertarget{structngraph_a70e2887027709640e3d42750b86c1c37}\index{ngraph@{ngraph}!nb\_states@{nb\_states}}
+\index{nb\_states@{nb\_states}!ngraph@{ngraph}}
+\doxysubsubsection{\texorpdfstring{nb\_states}{nb\_states}}
+{\footnotesize\ttfamily \label{structngraph_a70e2887027709640e3d42750b86c1c37} 
+int nb\+\_\+states}
+
+
+
+Nombre de sommets. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{graphs_8h_source_l00053}{53}} du fichier \mbox{\hyperlink{graphs_8h_source}{graphs.\+h}}.
+
+\Hypertarget{structngraph_a3f774ff39aaf3c4628164bd93ca5a000}\index{ngraph@{ngraph}!nb\_labels@{nb\_labels}}
+\index{nb\_labels@{nb\_labels}!ngraph@{ngraph}}
+\doxysubsubsection{\texorpdfstring{nb\_labels}{nb\_labels}}
+{\footnotesize\ttfamily \label{structngraph_a3f774ff39aaf3c4628164bd93ca5a000} 
+int nb\+\_\+labels}
+
+
+
+Taille de l\textquotesingle{}alphabet étiquetant les transitions. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{graphs_8h_source_l00054}{54}} du fichier \mbox{\hyperlink{graphs_8h_source}{graphs.\+h}}.
+
+\Hypertarget{structngraph_a5cb488d5e25b7a310b43bad70f1057fc}\index{ngraph@{ngraph}!to\_array@{to\_array}}
+\index{to\_array@{to\_array}!ngraph@{ngraph}}
+\doxysubsubsection{\texorpdfstring{to\_array}{to\_array}}
+{\footnotesize\ttfamily \label{structngraph_a5cb488d5e25b7a310b43bad70f1057fc} 
+int\texorpdfstring{$\ast$}{*} to\+\_\+array}
+
+Tableaux des transitions. Les transitions de la forme {\ttfamily (q,a,\texorpdfstring{$\ast$}{*})} sont consécutives dans to\+\_\+array. Le début et la fin de la suite de ces transitions est donnée par le tableau intervals. 
+
+Définition à la ligne \mbox{\hyperlink{graphs_8h_source_l00055}{55}} du fichier \mbox{\hyperlink{graphs_8h_source}{graphs.\+h}}.
+
+\Hypertarget{structngraph_a150e87d6653816cc67407aef7bffe4f6}\index{ngraph@{ngraph}!intervals@{intervals}}
+\index{intervals@{intervals}!ngraph@{ngraph}}
+\doxysubsubsection{\texorpdfstring{intervals}{intervals}}
+{\footnotesize\ttfamily \label{structngraph_a150e87d6653816cc67407aef7bffe4f6} 
+int\texorpdfstring{$\ast$}{*} intervals}
+
+intervals\mbox{[}q\texorpdfstring{$\ast$}{*} nb\+\_\+letters + a\mbox{]} vaut l\textquotesingle{}indice du début de la zone des transitions (q,a,p) intervals\mbox{[}q\texorpdfstring{$\ast$}{*} nb\+\_\+letters
+\begin{DoxyItemize}
+\item a + 1\mbox{]} vaut l\textquotesingle{}indice de la fin (exclusif) de cette zone. 
+\end{DoxyItemize}
+
+Définition à la ligne \mbox{\hyperlink{graphs_8h_source_l00059}{59}} du fichier \mbox{\hyperlink{graphs_8h_source}{graphs.\+h}}.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{graphs_8h}{graphs.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,83 @@
+\doxysection{Référence de la structure barray}
+\hypertarget{structbarray}{}\label{structbarray}\index{barray@{barray}}
+
+
+Type utilisé pour représenter un tableau de Booléens.  
+
+
+
+
+{\ttfamily \#include $<$type\+\_\+boolarray.\+h$>$}
+
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{type__basic_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structbarray_a4ffa3554ece30ad6f06aef917993d74b}{array}}
+\begin{DoxyCompactList}\small\item\em Le tableau contenant les Booléens. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structbarray_a439227feff9d7f55384e8780cfc2eb82}{size}}
+\begin{DoxyCompactList}\small\item\em Le nombre de Booléens stockés. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structbarray_af18eb6e82e731eff65dba78e1605e74e}{size\+\_\+array}}
+\begin{DoxyCompactList}\small\item\em La taille réelle du tableau ({\ttfamily size/8} ou {\ttfamily size/8 + 1}, selon la valeur de {\ttfamily \doxylink{structbarray_a439227feff9d7f55384e8780cfc2eb82}{size} \% 8}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Type utilisé pour représenter un tableau de Booléens. 
+
+Un tableau de Booléens est codé par un tableau de {\ttfamily unsigned char}. Chaque {\ttfamily usigned char} prend un octet en mémoire (8 bits) et peut donc stocker 8 Booléens.
+
+L\textquotesingle{}implémentation est facilitée par les opérateurs de manipulation {\bfseries{bit à bit}} {\ttfamily \texorpdfstring{$\vert$}{|}}, {\ttfamily \&}, {\ttfamily \texorpdfstring{$\sim$}{\string~}}, {\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} et {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}. 
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8h_source_l00023}{23}} du fichier \mbox{\hyperlink{type__boolarray_8h_source}{type\+\_\+boolarray.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structbarray_doc-variable-members}
+\doxysubsection{Documentation des champs}
+\Hypertarget{structbarray_a4ffa3554ece30ad6f06aef917993d74b}\index{barray@{barray}!array@{array}}
+\index{array@{array}!barray@{barray}}
+\doxysubsubsection{\texorpdfstring{array}{array}}
+{\footnotesize\ttfamily \label{structbarray_a4ffa3554ece30ad6f06aef917993d74b} 
+\mbox{\hyperlink{type__basic_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}}\texorpdfstring{$\ast$}{*} array}
+
+
+
+Le tableau contenant les Booléens. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8h_source_l00025}{25}} du fichier \mbox{\hyperlink{type__boolarray_8h_source}{type\+\_\+boolarray.\+h}}.
+
+\Hypertarget{structbarray_a439227feff9d7f55384e8780cfc2eb82}\index{barray@{barray}!size@{size}}
+\index{size@{size}!barray@{barray}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{structbarray_a439227feff9d7f55384e8780cfc2eb82} 
+int size}
+
+
+
+Le nombre de Booléens stockés. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8h_source_l00026}{26}} du fichier \mbox{\hyperlink{type__boolarray_8h_source}{type\+\_\+boolarray.\+h}}.
+
+\Hypertarget{structbarray_af18eb6e82e731eff65dba78e1605e74e}\index{barray@{barray}!size\_array@{size\_array}}
+\index{size\_array@{size\_array}!barray@{barray}}
+\doxysubsubsection{\texorpdfstring{size\_array}{size\_array}}
+{\footnotesize\ttfamily \label{structbarray_af18eb6e82e731eff65dba78e1605e74e} 
+int size\+\_\+array}
+
+
+
+La taille réelle du tableau ({\ttfamily size/8} ou {\ttfamily size/8 + 1}, selon la valeur de {\ttfamily \doxylink{structbarray_a439227feff9d7f55384e8780cfc2eb82}{size} \% 8}). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__boolarray_8h_source_l00027}{27}} du fichier \mbox{\hyperlink{type__boolarray_8h_source}{type\+\_\+boolarray.\+h}}.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{type__boolarray_8h}{type\+\_\+boolarray.\+h}}\end{DoxyCompactItemize}

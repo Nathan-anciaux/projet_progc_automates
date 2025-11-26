@@ -1,0 +1,58 @@
+\doxysection{Référence du fichier regexp\+\_\+thompson.\+h}
+\hypertarget{regexp__thompson_8h}{}\label{regexp__thompson_8h}\index{regexp\_thompson.h@{regexp\_thompson.h}}
+
+
+Construction d\textquotesingle{}un NFA à partir d\textquotesingle{}une expression régulière avec l\textquotesingle{}algorithme de Thompson.  
+
+
+{\ttfamily \#include "{}error.\+h"{}}\newline
+{\ttfamily \#include "{}nfa.\+h"{}}\newline
+{\ttfamily \#include "{}nfa\+\_\+intersec.\+h"{}}\newline
+{\ttfamily \#include "{}nfa\+\_\+minimization.\+h"{}}\newline
+{\ttfamily \#include "{}regexp.\+h"{}}\newline
+{\ttfamily \#include "{}type\+\_\+boolarray.\+h"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{regexp__thompson_8h_a077b4d10dff3bb246aade8e89dd68d87}{reg\+\_\+thompson}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Algorithme de Thompson. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Construction d\textquotesingle{}un NFA à partir d\textquotesingle{}une expression régulière avec l\textquotesingle{}algorithme de Thompson. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{regexp__thompson_8h_source}{regexp\+\_\+thompson.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{regexp__thompson_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{regexp__thompson_8h_a077b4d10dff3bb246aade8e89dd68d87}\index{regexp\_thompson.h@{regexp\_thompson.h}!reg\_thompson@{reg\_thompson}}
+\index{reg\_thompson@{reg\_thompson}!regexp\_thompson.h@{regexp\_thompson.h}}
+\doxysubsubsection{\texorpdfstring{reg\_thompson()}{reg\_thompson()}}
+{\footnotesize\ttfamily \label{regexp__thompson_8h_a077b4d10dff3bb246aade8e89dd68d87} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} reg\+\_\+thompson (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Algorithme de Thompson. 
+
+Calcule un récursivement un NFA à partir d\textquotesingle{}une expression régulière.
+
+\begin{DoxyRemark}{Remarques}
+Contrairement à l\textquotesingle{}algorithme de Glushkov, l\textquotesingle{}algorithme de Thompson peut prendre une expression régulière généralisée (qui utilise l\textquotesingle{}intersection et le complément) en entrée.
+\end{DoxyRemark}
+\begin{DoxyAttention}{Attention}
+Implémenter cet algorithme requiert d\textquotesingle{}avoir écrit au préalable la plupart des fonctions qui manipulent des NFAs (création d\textquotesingle{}un NFA basique, union, étoile de Kleene,...).
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+Un NFA qui reconnaît le même langage que l\textquotesingle{}expression régulière passée en entrée. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp__thompson_8c_source_l00003}{3}} du fichier \mbox{\hyperlink{regexp__thompson_8c_source}{regexp\+\_\+thompson.\+c}}.
+

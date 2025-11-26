@@ -1,0 +1,91 @@
+\doxysection{nfa.\+h}
+\hypertarget{nfa_8h_source}{}\label{nfa_8h_source}\mbox{\hyperlink{nfa_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00011}00011\ \textcolor{preprocessor}{\#ifndef\ NFA\_H}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00012}00012\ \textcolor{preprocessor}{\#define\ NFA\_H}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{graphs_8h}{graphs.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{type__basic_8h}{type\_basic.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{type__boolarray_8h}{type\_boolarray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00041}\mbox{\hyperlink{structnfa}{00041}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00042}00042\ \{}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00043}\mbox{\hyperlink{structnfa_a70e2887027709640e3d42750b86c1c37}{00043}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structnfa_a70e2887027709640e3d42750b86c1c37}{nb\_states}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00044}\mbox{\hyperlink{structnfa_a0a13e58d0cd63c8843c8337d37bb6e51}{00044}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structnfa_a0a13e58d0cd63c8843c8337d37bb6e51}{nb\_letters}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00045}\mbox{\hyperlink{structnfa_ad6f85ffd8ea365d542382b729ebfc7ca}{00045}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structnfa_ad6f85ffd8ea365d542382b729ebfc7ca}{eps\_trans}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00046}\mbox{\hyperlink{structnfa_af3996008460589a009e4980aa8ab203d}{00046}}\ \ \ \ \ \mbox{\hyperlink{structngraph}{ngraph}}\ *\mbox{\hyperlink{structnfa_af3996008460589a009e4980aa8ab203d}{transitions}};\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00047}\mbox{\hyperlink{structnfa_a35b5adb955e031cb07501b324d90e15b}{00047}}\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{structnfa_a35b5adb955e031cb07501b324d90e15b}{initials}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00048}\mbox{\hyperlink{structnfa_ab4b137d1adde3eba1d6c5f856f2f293c}{00048}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structnfa_ab4b137d1adde3eba1d6c5f856f2f293c}{nb\_initials}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00049}\mbox{\hyperlink{structnfa_abe98e28564cc8b586f08cba6138c0b21}{00049}}\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{structnfa_abe98e28564cc8b586f08cba6138c0b21}{finals}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00050}\mbox{\hyperlink{structnfa_a714025236e3afdb64c718b1b9e911eaf}{00050}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structnfa_a714025236e3afdb64c718b1b9e911eaf}{nb\_finals}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00051}\mbox{\hyperlink{structnfa_ab49df3856068af8cc07c31a6ccd466e2}{00051}}\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structnfa_ab49df3856068af8cc07c31a6ccd466e2}{letter\_names}};\ \ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00053}00053\ \ \ \ \ \textcolor{comment}{/*\ Optionnel*/}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00054}\mbox{\hyperlink{structnfa_aede9833ae37b956b6b973c41a6c477f2}{00054}}\ \ \ \ \ \textcolor{keywordtype}{char}\ **\mbox{\hyperlink{structnfa_aede9833ae37b956b6b973c41a6c477f2}{state\_names}};\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00055}00055\ \}\ \mbox{\hyperlink{structnfa}{nfa}};}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00057}00057\ \textcolor{comment}{/********************/}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00058}00058\ \textcolor{comment}{/*\ Gestion\ des\ noms\ */}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00059}00059\ \textcolor{comment}{/********************/}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00065}00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nfa_8h_a6e2d782f90b7018353b137bca3d4a01a}{nfa\_reset\_state\_names}}(\mbox{\hyperlink{structnfa}{nfa}}\ *\ \textcolor{comment}{//\ Le\ NFA}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00066}00066\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00068}00068\ \textcolor{comment}{/*********************************/}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00069}00069\ \textcolor{comment}{/*\ Initialisation\ et\ suppression\ */}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00070}00070\ \textcolor{comment}{/*********************************/}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00082}00082\ \mbox{\hyperlink{structnfa}{nfa}}\ *\mbox{\hyperlink{nfa_8h_a04f187cff60afe911b2aec756a3ddcba}{create\_emptylang}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00094}00094\ \mbox{\hyperlink{structnfa}{nfa}}\ *\mbox{\hyperlink{nfa_8h_a75d11e7a188d5db803ad24c593b3006a}{create\_sing\_epsilon}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00106}00106\ \mbox{\hyperlink{structnfa}{nfa}}\ *\mbox{\hyperlink{nfa_8h_a6000adf7d77804674d3cb61ad2fe28ca}{create\_sing\_letter}}(\textcolor{keywordtype}{char}\ letter\ \textcolor{comment}{//\ !<\ La\ lettre.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00107}00107\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00113}00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nfa_8h_a1a085588c679456ab197713c076338a1}{nfa\_delete}}(\mbox{\hyperlink{structnfa}{nfa}}\ *A\ \textcolor{comment}{//\ !<\ Le\ NFA.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00114}00114\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00116}00116\ \textcolor{comment}{/***********************************/}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00117}00117\ \textcolor{comment}{/*\ Opérations\ simples\ sur\ les\ NFAs\ */}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00118}00118\ \textcolor{comment}{/***********************************/}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00127}00127\ \mbox{\hyperlink{structnfa}{nfa}}\ *\mbox{\hyperlink{nfa_8h_a9cc81761bacd5d4103e0d4e6649e542b}{nfa\_copy}}(\mbox{\hyperlink{structnfa}{nfa}}\ *A\ \textcolor{comment}{//\ !<\ Le\ NFA\ à\ copier.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00128}00128\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00141}00141\ \mbox{\hyperlink{structnfa}{nfa}}\ *\mbox{\hyperlink{nfa_8h_a43b8e39812326934901249dacf4336f5}{nfa\_union}}(\mbox{\hyperlink{structnfa}{nfa}}\ *A1,\ \textcolor{comment}{//\ !<\ Le\ premier\ NFA.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnfa}{nfa}}\ *A2\ \ \textcolor{comment}{//\ !<\ Le\ second\ NFA.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00143}00143\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00156}00156\ \mbox{\hyperlink{structnfa}{nfa}}\ *\mbox{\hyperlink{nfa_8h_ad8f120a3266401ef6734ae81fb7ef615}{nfa\_concat}}(\mbox{\hyperlink{structnfa}{nfa}}\ *A1,\ \textcolor{comment}{//\ !<\ Le\ premier\ NFA.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnfa}{nfa}}\ *A2\ \ \textcolor{comment}{//\ !<\ Le\ second\ NFA.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00158}00158\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00167}00167\ \mbox{\hyperlink{structnfa}{nfa}}\ *\mbox{\hyperlink{nfa_8h_a728440aa88d4a6d5365bda1d99978008}{nfa\_star}}(\mbox{\hyperlink{structnfa}{nfa}}\ *A\ \textcolor{comment}{//\ !<\ Le\ NFA.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00168}00168\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00181}00181\ \mbox{\hyperlink{structnfa}{nfa}}\ *\mbox{\hyperlink{nfa_8h_adc44efee9d5b32ca30765f5dc7766096}{nfa\_trim}}(\mbox{\hyperlink{structnfa}{nfa}}\ *A\ \textcolor{comment}{//\ !<\ Le\ NFA.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00182}00182\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00191}00191\ \mbox{\hyperlink{structnfa}{nfa}}\ *\mbox{\hyperlink{nfa_8h_ab9ecaf224c8159848596f1702dc220a3}{nfa\_mirror}}(\mbox{\hyperlink{structnfa}{nfa}}\ *A\ \textcolor{comment}{//\ !<\ Le\ NFA.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00192}00192\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00205}00205\ \mbox{\hyperlink{structnfa}{nfa}}\ *\mbox{\hyperlink{nfa_8h_ae070d986130909a0e7a28b5437a95557}{nfa\_elimeps}}(\mbox{\hyperlink{structnfa}{nfa}}\ *A\ \textcolor{comment}{//\ !<\ Le\ NFA.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00206}00206\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00208}00208\ \textcolor{comment}{/***********************/}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00209}00209\ \textcolor{comment}{/*\ Information\ sur\ nfa\ */}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00210}00210\ \textcolor{comment}{/***********************/}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00227}00227\ \mbox{\hyperlink{structbarray}{barray}}\ *\mbox{\hyperlink{nfa_8h_a9370cb47566408d404edd9afb58ff87d}{nfa\_compute\_runs}}(\mbox{\hyperlink{structnfa}{nfa}}\ *A,\ \ \ \ \ \ \ \textcolor{comment}{//\ !<\ Le\ NFA.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *w\ \textcolor{comment}{//\ !<\ Le\ mot.}}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00229}00229\ );}
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{nfa_8h_source_l00231}00231\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

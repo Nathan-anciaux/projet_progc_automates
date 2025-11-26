@@ -1,0 +1,295 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{\numberline {1}Index des structures de données}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Structures de données}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Index des fichiers}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Liste des fichiers}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Documentation des structures de données}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Référence de la structure barray}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Description détaillée}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Documentation des champs}{6}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}array}{6}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}size}{6}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}size\_array}{6}{subsubsection.3.1.2.3}%
+\contentsline {section}{\numberline {3.2}Référence de la structure hash\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}table}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Description détaillée}{7}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Documentation des champs}{7}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}hash\_capacity}{7}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}hash\_size}{8}{subsubsection.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}hash\_table}{8}{subsubsection.3.2.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.2.4}element\_size}{8}{subsubsection.3.2.2.4}%
+\contentsline {section}{\numberline {3.3}Référence de la structure multi\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}edge}{8}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Description détaillée}{9}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Documentation des champs}{9}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}in}{9}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}lab}{9}{subsubsection.3.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.3}out}{9}{subsubsection.3.3.2.3}%
+\contentsline {section}{\numberline {3.4}Référence de la structure nfa}{10}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Description détaillée}{11}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Documentation des champs}{11}{subsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.1}nb\_states}{11}{subsubsection.3.4.2.1}%
+\contentsline {subsubsection}{\numberline {3.4.2.2}nb\_letters}{11}{subsubsection.3.4.2.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.3}eps\_trans}{11}{subsubsection.3.4.2.3}%
+\contentsline {subsubsection}{\numberline {3.4.2.4}transitions}{12}{subsubsection.3.4.2.4}%
+\contentsline {subsubsection}{\numberline {3.4.2.5}initials}{12}{subsubsection.3.4.2.5}%
+\contentsline {subsubsection}{\numberline {3.4.2.6}nb\_initials}{12}{subsubsection.3.4.2.6}%
+\contentsline {subsubsection}{\numberline {3.4.2.7}finals}{12}{subsubsection.3.4.2.7}%
+\contentsline {subsubsection}{\numberline {3.4.2.8}nb\_finals}{12}{subsubsection.3.4.2.8}%
+\contentsline {subsubsection}{\numberline {3.4.2.9}letter\_names}{13}{subsubsection.3.4.2.9}%
+\contentsline {subsubsection}{\numberline {3.4.2.10}state\_names}{13}{subsubsection.3.4.2.10}%
+\contentsline {section}{\numberline {3.5}Référence de la structure ngraph}{13}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Description détaillée}{14}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Documentation des champs}{14}{subsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.2.1}nb\_states}{14}{subsubsection.3.5.2.1}%
+\contentsline {subsubsection}{\numberline {3.5.2.2}nb\_labels}{14}{subsubsection.3.5.2.2}%
+\contentsline {subsubsection}{\numberline {3.5.2.3}to\_array}{14}{subsubsection.3.5.2.3}%
+\contentsline {subsubsection}{\numberline {3.5.2.4}intervals}{15}{subsubsection.3.5.2.4}%
+\contentsline {section}{\numberline {3.6}Référence de la structure one\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}edge}{15}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Description détaillée}{15}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Documentation des champs}{15}{subsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.2.1}from}{15}{subsubsection.3.6.2.1}%
+\contentsline {subsubsection}{\numberline {3.6.2.2}to}{16}{subsubsection.3.6.2.2}%
+\contentsline {subsubsection}{\numberline {3.6.2.3}label}{16}{subsubsection.3.6.2.3}%
+\contentsline {section}{\numberline {3.7}Référence de la structure regexp}{16}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Description détaillée}{17}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Documentation des champs}{17}{subsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.1}op}{17}{subsubsection.3.7.2.1}%
+\contentsline {subsubsection}{\numberline {3.7.2.2}left}{17}{subsubsection.3.7.2.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.3}right}{17}{subsubsection.3.7.2.3}%
+\contentsline {subsubsection}{\numberline {3.7.2.4}letter}{17}{subsubsection.3.7.2.4}%
+\contentsline {chapter}{\numberline {4}Documentation des fichiers}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Référence du fichier alloc.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{19}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Description détaillée}{19}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Documentation des fonctions}{20}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}multiple\_free()}{20}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}check\_null()}{20}{subsubsection.4.1.2.2}%
+\contentsline {section}{\numberline {4.2}alloc.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Référence du fichier alloc.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{21}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Description détaillée}{22}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Documentation des macros}{23}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}CREATE\_MEMORY}{23}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}CREATE\_ZERO\_MEMORY}{24}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}REDIMENSION\_MEMORY}{25}{subsubsection.4.3.2.3}%
+\contentsline {subsubsection}{\numberline {4.3.2.4}CHECK\_NULL}{26}{subsubsection.4.3.2.4}%
+\contentsline {subsection}{\numberline {4.3.3}Documentation des fonctions}{26}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}check\_null()}{26}{subsubsection.4.3.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.3.2}multiple\_free()}{27}{subsubsection.4.3.3.2}%
+\contentsline {section}{\numberline {4.4}alloc.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{27}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Référence du fichier error.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{28}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Description détaillée}{30}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Documentation des macros}{31}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}ATTENTION}{31}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}HINT}{31}{subsubsection.4.5.2.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}OK}{31}{subsubsection.4.5.2.3}%
+\contentsline {subsubsection}{\numberline {4.5.2.4}KO}{31}{subsubsection.4.5.2.4}%
+\contentsline {subsubsection}{\numberline {4.5.2.5}DEBUG\_LEVEL}{32}{subsubsection.4.5.2.5}%
+\contentsline {subsubsection}{\numberline {4.5.2.6}PRINT\_ERROR}{32}{subsubsection.4.5.2.6}%
+\contentsline {subsubsection}{\numberline {4.5.2.7}FATAL}{34}{subsubsection.4.5.2.7}%
+\contentsline {subsubsection}{\numberline {4.5.2.8}PRINT\_DEBUG}{34}{subsubsection.4.5.2.8}%
+\contentsline {subsubsection}{\numberline {4.5.2.9}TRACE}{35}{subsubsection.4.5.2.9}%
+\contentsline {subsubsection}{\numberline {4.5.2.10}DEBUG}{35}{subsubsection.4.5.2.10}%
+\contentsline {subsubsection}{\numberline {4.5.2.11}INFO}{35}{subsubsection.4.5.2.11}%
+\contentsline {subsubsection}{\numberline {4.5.2.12}WARNING}{36}{subsubsection.4.5.2.12}%
+\contentsline {subsubsection}{\numberline {4.5.2.13}ERROR}{36}{subsubsection.4.5.2.13}%
+\contentsline {subsubsection}{\numberline {4.5.2.14}CRITICAL}{36}{subsubsection.4.5.2.14}%
+\contentsline {subsection}{\numberline {4.5.3}Documentation du type de l\textquotesingle {}énumération}{36}{subsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}debug\_level}{36}{subsubsection.4.5.3.1}%
+\contentsline {subsubsection}{\numberline {4.5.3.2}msg\_level}{37}{subsubsection.4.5.3.2}%
+\contentsline {section}{\numberline {4.6}error.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{37}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Référence du fichier graphs.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{39}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Documentation des fonctions}{39}{subsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.1.1}ngraph\_to\_edge\_list()}{39}{subsubsection.4.7.1.1}%
+\contentsline {subsubsection}{\numberline {4.7.1.2}edge\_list\_to\_ngraph()}{40}{subsubsection.4.7.1.2}%
+\contentsline {subsubsection}{\numberline {4.7.1.3}ngraph\_to\_multi\_edges()}{41}{subsubsection.4.7.1.3}%
+\contentsline {section}{\numberline {4.8}graphs.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{41}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Référence du fichier graphs.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{42}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Description détaillée}{43}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Documentation des définitions de type}{43}{subsection.4.9.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.1}ngraph}{43}{subsubsection.4.9.2.1}%
+\contentsline {subsection}{\numberline {4.9.3}Documentation des fonctions}{44}{subsection.4.9.3}%
+\contentsline {subsubsection}{\numberline {4.9.3.1}ngraph\_to\_edge\_list()}{44}{subsubsection.4.9.3.1}%
+\contentsline {subsubsection}{\numberline {4.9.3.2}edge\_list\_to\_ngraph()}{44}{subsubsection.4.9.3.2}%
+\contentsline {subsubsection}{\numberline {4.9.3.3}ngraph\_to\_multi\_edges()}{45}{subsubsection.4.9.3.3}%
+\contentsline {section}{\numberline {4.10}graphs.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{45}{section.4.10}%
+\contentsline {section}{\numberline {4.11}Référence du fichier grep.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{47}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Documentation des fonctions}{47}{subsection.4.11.1}%
+\contentsline {subsubsection}{\numberline {4.11.1.1}grep()}{47}{subsubsection.4.11.1.1}%
+\contentsline {section}{\numberline {4.12}grep.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{47}{section.4.12}%
+\contentsline {section}{\numberline {4.13}Référence du fichier grep.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{48}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Description détaillée}{48}{subsection.4.13.1}%
+\contentsline {subsection}{\numberline {4.13.2}Documentation des fonctions}{48}{subsection.4.13.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.1}grep()}{48}{subsubsection.4.13.2.1}%
+\contentsline {section}{\numberline {4.14}grep.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{49}{section.4.14}%
+\contentsline {section}{\numberline {4.15}Référence du fichier nfa.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{49}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}Documentation des fonctions}{50}{subsection.4.15.1}%
+\contentsline {subsubsection}{\numberline {4.15.1.1}nfa\_reset\_state\_names()}{50}{subsubsection.4.15.1.1}%
+\contentsline {subsubsection}{\numberline {4.15.1.2}create\_emptylang()}{50}{subsubsection.4.15.1.2}%
+\contentsline {subsubsection}{\numberline {4.15.1.3}create\_sing\_epsilon()}{51}{subsubsection.4.15.1.3}%
+\contentsline {subsubsection}{\numberline {4.15.1.4}create\_sing\_letter()}{51}{subsubsection.4.15.1.4}%
+\contentsline {subsubsection}{\numberline {4.15.1.5}nfa\_delete()}{52}{subsubsection.4.15.1.5}%
+\contentsline {subsubsection}{\numberline {4.15.1.6}nfa\_copy()}{52}{subsubsection.4.15.1.6}%
+\contentsline {subsubsection}{\numberline {4.15.1.7}nfa\_union()}{52}{subsubsection.4.15.1.7}%
+\contentsline {subsubsection}{\numberline {4.15.1.8}nfa\_concat()}{53}{subsubsection.4.15.1.8}%
+\contentsline {subsubsection}{\numberline {4.15.1.9}nfa\_star()}{53}{subsubsection.4.15.1.9}%
+\contentsline {subsubsection}{\numberline {4.15.1.10}nfa\_trim()}{53}{subsubsection.4.15.1.10}%
+\contentsline {subsubsection}{\numberline {4.15.1.11}nfa\_mirror()}{54}{subsubsection.4.15.1.11}%
+\contentsline {subsubsection}{\numberline {4.15.1.12}nfa\_elimeps()}{54}{subsubsection.4.15.1.12}%
+\contentsline {subsubsection}{\numberline {4.15.1.13}nfa\_compute\_runs()}{54}{subsubsection.4.15.1.13}%
+\contentsline {section}{\numberline {4.16}nfa.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{55}{section.4.16}%
+\contentsline {section}{\numberline {4.17}Référence du fichier nfa.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{56}{section.4.17}%
+\contentsline {subsection}{\numberline {4.17.1}Description détaillée}{58}{subsection.4.17.1}%
+\contentsline {subsection}{\numberline {4.17.2}Documentation des fonctions}{58}{subsection.4.17.2}%
+\contentsline {subsubsection}{\numberline {4.17.2.1}nfa\_reset\_state\_names()}{58}{subsubsection.4.17.2.1}%
+\contentsline {subsubsection}{\numberline {4.17.2.2}create\_emptylang()}{58}{subsubsection.4.17.2.2}%
+\contentsline {subsubsection}{\numberline {4.17.2.3}create\_sing\_epsilon()}{59}{subsubsection.4.17.2.3}%
+\contentsline {subsubsection}{\numberline {4.17.2.4}create\_sing\_letter()}{59}{subsubsection.4.17.2.4}%
+\contentsline {subsubsection}{\numberline {4.17.2.5}nfa\_delete()}{59}{subsubsection.4.17.2.5}%
+\contentsline {subsubsection}{\numberline {4.17.2.6}nfa\_copy()}{60}{subsubsection.4.17.2.6}%
+\contentsline {subsubsection}{\numberline {4.17.2.7}nfa\_union()}{60}{subsubsection.4.17.2.7}%
+\contentsline {subsubsection}{\numberline {4.17.2.8}nfa\_concat()}{60}{subsubsection.4.17.2.8}%
+\contentsline {subsubsection}{\numberline {4.17.2.9}nfa\_star()}{61}{subsubsection.4.17.2.9}%
+\contentsline {subsubsection}{\numberline {4.17.2.10}nfa\_trim()}{61}{subsubsection.4.17.2.10}%
+\contentsline {subsubsection}{\numberline {4.17.2.11}nfa\_mirror()}{61}{subsubsection.4.17.2.11}%
+\contentsline {subsubsection}{\numberline {4.17.2.12}nfa\_elimeps()}{62}{subsubsection.4.17.2.12}%
+\contentsline {subsubsection}{\numberline {4.17.2.13}nfa\_compute\_runs()}{62}{subsubsection.4.17.2.13}%
+\contentsline {section}{\numberline {4.18}nfa.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{63}{section.4.18}%
+\contentsline {section}{\numberline {4.19}Référence du fichier nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}determi.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{64}{section.4.19}%
+\contentsline {subsection}{\numberline {4.19.1}Documentation des fonctions}{65}{subsection.4.19.1}%
+\contentsline {subsubsection}{\numberline {4.19.1.1}nfa\_determinize()}{65}{subsubsection.4.19.1.1}%
+\contentsline {subsubsection}{\numberline {4.19.1.2}nfa\_complement()}{65}{subsubsection.4.19.1.2}%
+\contentsline {section}{\numberline {4.20}nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}determi.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{66}{section.4.20}%
+\contentsline {section}{\numberline {4.21}Référence du fichier nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}determi.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{66}{section.4.21}%
+\contentsline {subsection}{\numberline {4.21.1}Description détaillée}{67}{subsection.4.21.1}%
+\contentsline {subsection}{\numberline {4.21.2}Documentation des fonctions}{67}{subsection.4.21.2}%
+\contentsline {subsubsection}{\numberline {4.21.2.1}nfa\_determinize()}{67}{subsubsection.4.21.2.1}%
+\contentsline {subsubsection}{\numberline {4.21.2.2}nfa\_complement()}{68}{subsubsection.4.21.2.2}%
+\contentsline {section}{\numberline {4.22}nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}determi.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{68}{section.4.22}%
+\contentsline {section}{\numberline {4.23}Référence du fichier nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}intersec.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{68}{section.4.23}%
+\contentsline {subsection}{\numberline {4.23.1}Documentation des fonctions}{69}{subsection.4.23.1}%
+\contentsline {subsubsection}{\numberline {4.23.1.1}nfa\_intersect()}{69}{subsubsection.4.23.1.1}%
+\contentsline {section}{\numberline {4.24}nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}intersec.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{70}{section.4.24}%
+\contentsline {section}{\numberline {4.25}Référence du fichier nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}intersec.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{70}{section.4.25}%
+\contentsline {subsection}{\numberline {4.25.1}Description détaillée}{70}{subsection.4.25.1}%
+\contentsline {subsection}{\numberline {4.25.2}Documentation des fonctions}{71}{subsection.4.25.2}%
+\contentsline {subsubsection}{\numberline {4.25.2.1}nfa\_intersect()}{71}{subsubsection.4.25.2.1}%
+\contentsline {section}{\numberline {4.26}nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}intersec.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{72}{section.4.26}%
+\contentsline {section}{\numberline {4.27}Référence du fichier nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}mccluskey.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{72}{section.4.27}%
+\contentsline {subsection}{\numberline {4.27.1}Documentation des fonctions}{72}{subsection.4.27.1}%
+\contentsline {subsubsection}{\numberline {4.27.1.1}nfa\_mccluskey()}{72}{subsubsection.4.27.1.1}%
+\contentsline {section}{\numberline {4.28}nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}mccluskey.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{73}{section.4.28}%
+\contentsline {section}{\numberline {4.29}Référence du fichier nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}mccluskey.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{73}{section.4.29}%
+\contentsline {subsection}{\numberline {4.29.1}Description détaillée}{73}{subsection.4.29.1}%
+\contentsline {subsection}{\numberline {4.29.2}Documentation des fonctions}{73}{subsection.4.29.2}%
+\contentsline {subsubsection}{\numberline {4.29.2.1}nfa\_mccluskey()}{73}{subsubsection.4.29.2.1}%
+\contentsline {section}{\numberline {4.30}nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}mccluskey.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{74}{section.4.30}%
+\contentsline {section}{\numberline {4.31}Référence du fichier nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}minimization.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{74}{section.4.31}%
+\contentsline {subsection}{\numberline {4.31.1}Documentation des fonctions}{74}{subsection.4.31.1}%
+\contentsline {subsubsection}{\numberline {4.31.1.1}nfa\_brzozowski()}{74}{subsubsection.4.31.1.1}%
+\contentsline {section}{\numberline {4.32}nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}minimization.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{75}{section.4.32}%
+\contentsline {section}{\numberline {4.33}Référence du fichier nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}minimization.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{75}{section.4.33}%
+\contentsline {subsection}{\numberline {4.33.1}Description détaillée}{75}{subsection.4.33.1}%
+\contentsline {subsection}{\numberline {4.33.2}Documentation des fonctions}{76}{subsection.4.33.2}%
+\contentsline {subsubsection}{\numberline {4.33.2.1}nfa\_brzozowski()}{76}{subsubsection.4.33.2.1}%
+\contentsline {section}{\numberline {4.34}nfa\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}minimization.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{76}{section.4.34}%
+\contentsline {section}{\numberline {4.35}Référence du fichier parameters.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{76}{section.4.35}%
+\contentsline {subsection}{\numberline {4.35.1}Documentation des macros}{77}{subsection.4.35.1}%
+\contentsline {subsubsection}{\numberline {4.35.1.1}ADVANCED}{77}{subsubsection.4.35.1.1}%
+\contentsline {section}{\numberline {4.36}parameters.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{77}{section.4.36}%
+\contentsline {section}{\numberline {4.37}Référence du fichier regexp.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{77}{section.4.37}%
+\contentsline {subsection}{\numberline {4.37.1}Documentation des fonctions}{78}{subsection.4.37.1}%
+\contentsline {subsubsection}{\numberline {4.37.1.1}reg\_issimple()}{78}{subsubsection.4.37.1.1}%
+\contentsline {subsubsection}{\numberline {4.37.1.2}reg\_free()}{79}{subsubsection.4.37.1.2}%
+\contentsline {subsubsection}{\numberline {4.37.1.3}reg\_copy()}{79}{subsubsection.4.37.1.3}%
+\contentsline {subsubsection}{\numberline {4.37.1.4}reg\_empty()}{79}{subsubsection.4.37.1.4}%
+\contentsline {subsubsection}{\numberline {4.37.1.5}reg\_epsilon()}{80}{subsubsection.4.37.1.5}%
+\contentsline {subsubsection}{\numberline {4.37.1.6}reg\_letter()}{80}{subsubsection.4.37.1.6}%
+\contentsline {subsubsection}{\numberline {4.37.1.7}reg\_union()}{80}{subsubsection.4.37.1.7}%
+\contentsline {subsubsection}{\numberline {4.37.1.8}reg\_inter()}{81}{subsubsection.4.37.1.8}%
+\contentsline {subsubsection}{\numberline {4.37.1.9}reg\_concat()}{81}{subsubsection.4.37.1.9}%
+\contentsline {subsubsection}{\numberline {4.37.1.10}reg\_star()}{81}{subsubsection.4.37.1.10}%
+\contentsline {subsubsection}{\numberline {4.37.1.11}reg\_complement()}{82}{subsubsection.4.37.1.11}%
+\contentsline {subsubsection}{\numberline {4.37.1.12}reg\_print\_helper()}{82}{subsubsection.4.37.1.12}%
+\contentsline {subsubsection}{\numberline {4.37.1.13}reg\_print()}{82}{subsubsection.4.37.1.13}%
+\contentsline {section}{\numberline {4.38}regexp.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{83}{section.4.38}%
+\contentsline {section}{\numberline {4.39}Référence du fichier regexp.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{86}{section.4.39}%
+\contentsline {subsection}{\numberline {4.39.1}Description détaillée}{88}{subsection.4.39.1}%
+\contentsline {subsection}{\numberline {4.39.2}Documentation des définitions de type}{88}{subsection.4.39.2}%
+\contentsline {subsubsection}{\numberline {4.39.2.1}regexp}{88}{subsubsection.4.39.2.1}%
+\contentsline {subsection}{\numberline {4.39.3}Documentation du type de l\textquotesingle {}énumération}{88}{subsection.4.39.3}%
+\contentsline {subsubsection}{\numberline {4.39.3.1}regelem}{88}{subsubsection.4.39.3.1}%
+\contentsline {subsection}{\numberline {4.39.4}Documentation des fonctions}{89}{subsection.4.39.4}%
+\contentsline {subsubsection}{\numberline {4.39.4.1}reg\_issimple()}{89}{subsubsection.4.39.4.1}%
+\contentsline {subsubsection}{\numberline {4.39.4.2}reg\_free()}{89}{subsubsection.4.39.4.2}%
+\contentsline {subsubsection}{\numberline {4.39.4.3}reg\_copy()}{89}{subsubsection.4.39.4.3}%
+\contentsline {subsubsection}{\numberline {4.39.4.4}reg\_empty()}{90}{subsubsection.4.39.4.4}%
+\contentsline {subsubsection}{\numberline {4.39.4.5}reg\_epsilon()}{90}{subsubsection.4.39.4.5}%
+\contentsline {subsubsection}{\numberline {4.39.4.6}reg\_letter()}{90}{subsubsection.4.39.4.6}%
+\contentsline {subsubsection}{\numberline {4.39.4.7}reg\_union()}{90}{subsubsection.4.39.4.7}%
+\contentsline {subsubsection}{\numberline {4.39.4.8}reg\_inter()}{91}{subsubsection.4.39.4.8}%
+\contentsline {subsubsection}{\numberline {4.39.4.9}reg\_concat()}{91}{subsubsection.4.39.4.9}%
+\contentsline {subsubsection}{\numberline {4.39.4.10}reg\_star()}{91}{subsubsection.4.39.4.10}%
+\contentsline {subsubsection}{\numberline {4.39.4.11}reg\_complement()}{92}{subsubsection.4.39.4.11}%
+\contentsline {subsubsection}{\numberline {4.39.4.12}reg\_print()}{92}{subsubsection.4.39.4.12}%
+\contentsline {section}{\numberline {4.40}regexp.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{92}{section.4.40}%
+\contentsline {section}{\numberline {4.41}Référence du fichier regexp\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}thompson.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{94}{section.4.41}%
+\contentsline {subsection}{\numberline {4.41.1}Documentation des fonctions}{94}{subsection.4.41.1}%
+\contentsline {subsubsection}{\numberline {4.41.1.1}reg\_thompson()}{94}{subsubsection.4.41.1.1}%
+\contentsline {section}{\numberline {4.42}regexp\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}thompson.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{95}{section.4.42}%
+\contentsline {section}{\numberline {4.43}Référence du fichier regexp\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}thompson.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{95}{section.4.43}%
+\contentsline {subsection}{\numberline {4.43.1}Description détaillée}{95}{subsection.4.43.1}%
+\contentsline {subsection}{\numberline {4.43.2}Documentation des fonctions}{95}{subsection.4.43.2}%
+\contentsline {subsubsection}{\numberline {4.43.2.1}reg\_thompson()}{95}{subsubsection.4.43.2.1}%
+\contentsline {section}{\numberline {4.44}regexp\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}thompson.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{96}{section.4.44}%
+\contentsline {section}{\numberline {4.45}Référence du fichier type\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}basic.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{96}{section.4.45}%
+\contentsline {subsection}{\numberline {4.45.1}Description détaillée}{97}{subsection.4.45.1}%
+\contentsline {subsection}{\numberline {4.45.2}Documentation des macros}{97}{subsection.4.45.2}%
+\contentsline {subsubsection}{\numberline {4.45.2.1}max}{97}{subsubsection.4.45.2.1}%
+\contentsline {subsubsection}{\numberline {4.45.2.2}min}{97}{subsubsection.4.45.2.2}%
+\contentsline {subsection}{\numberline {4.45.3}Documentation des définitions de type}{98}{subsection.4.45.3}%
+\contentsline {subsubsection}{\numberline {4.45.3.1}uchar}{98}{subsubsection.4.45.3.1}%
+\contentsline {subsubsection}{\numberline {4.45.3.2}ushort}{98}{subsubsection.4.45.3.2}%
+\contentsline {subsubsection}{\numberline {4.45.3.3}uint}{98}{subsubsection.4.45.3.3}%
+\contentsline {subsubsection}{\numberline {4.45.3.4}ulong}{98}{subsubsection.4.45.3.4}%
+\contentsline {section}{\numberline {4.46}type\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}basic.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{98}{section.4.46}%
+\contentsline {section}{\numberline {4.47}Référence du fichier type\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}boolarray.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{99}{section.4.47}%
+\contentsline {subsection}{\numberline {4.47.1}Documentation des fonctions}{100}{subsection.4.47.1}%
+\contentsline {subsubsection}{\numberline {4.47.1.1}create\_barray()}{100}{subsubsection.4.47.1.1}%
+\contentsline {subsubsection}{\numberline {4.47.1.2}getsize\_barray()}{100}{subsubsection.4.47.1.2}%
+\contentsline {subsubsection}{\numberline {4.47.1.3}delete\_barray()}{101}{subsubsection.4.47.1.3}%
+\contentsline {subsubsection}{\numberline {4.47.1.4}settrue\_barray()}{101}{subsubsection.4.47.1.4}%
+\contentsline {subsubsection}{\numberline {4.47.1.5}setfalse\_barray()}{101}{subsubsection.4.47.1.5}%
+\contentsline {subsubsection}{\numberline {4.47.1.6}getval\_barray()}{101}{subsubsection.4.47.1.6}%
+\contentsline {subsubsection}{\numberline {4.47.1.7}or\_barray()}{102}{subsubsection.4.47.1.7}%
+\contentsline {subsubsection}{\numberline {4.47.1.8}and\_barray()}{102}{subsubsection.4.47.1.8}%
+\contentsline {subsubsection}{\numberline {4.47.1.9}copy\_barray()}{102}{subsubsection.4.47.1.9}%
+\contentsline {section}{\numberline {4.48}type\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}boolarray.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{103}{section.4.48}%
+\contentsline {section}{\numberline {4.49}Référence du fichier type\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}boolarray.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{103}{section.4.49}%
+\contentsline {subsection}{\numberline {4.49.1}Description détaillée}{104}{subsection.4.49.1}%
+\contentsline {subsection}{\numberline {4.49.2}Documentation des fonctions}{105}{subsection.4.49.2}%
+\contentsline {subsubsection}{\numberline {4.49.2.1}create\_barray()}{105}{subsubsection.4.49.2.1}%
+\contentsline {subsubsection}{\numberline {4.49.2.2}getsize\_barray()}{105}{subsubsection.4.49.2.2}%
+\contentsline {subsubsection}{\numberline {4.49.2.3}delete\_barray()}{105}{subsubsection.4.49.2.3}%
+\contentsline {subsubsection}{\numberline {4.49.2.4}settrue\_barray()}{106}{subsubsection.4.49.2.4}%
+\contentsline {subsubsection}{\numberline {4.49.2.5}setfalse\_barray()}{106}{subsubsection.4.49.2.5}%
+\contentsline {subsubsection}{\numberline {4.49.2.6}getval\_barray()}{106}{subsubsection.4.49.2.6}%
+\contentsline {subsubsection}{\numberline {4.49.2.7}or\_barray()}{106}{subsubsection.4.49.2.7}%
+\contentsline {subsubsection}{\numberline {4.49.2.8}and\_barray()}{107}{subsubsection.4.49.2.8}%
+\contentsline {subsubsection}{\numberline {4.49.2.9}copy\_barray()}{107}{subsubsection.4.49.2.9}%
+\contentsline {section}{\numberline {4.50}type\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}boolarray.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{107}{section.4.50}%
+\contentsline {section}{\numberline {4.51}Référence du fichier type\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}hash.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{108}{section.4.51}%
+\contentsline {subsection}{\numberline {4.51.1}Documentation des fonctions}{109}{subsection.4.51.1}%
+\contentsline {subsubsection}{\numberline {4.51.1.1}create\_hash\_table()}{109}{subsubsection.4.51.1.1}%
+\contentsline {subsubsection}{\numberline {4.51.1.2}delete\_hash\_table()}{109}{subsubsection.4.51.1.2}%
+\contentsline {subsubsection}{\numberline {4.51.1.3}hash\_function()}{110}{subsubsection.4.51.1.3}%
+\contentsline {subsubsection}{\numberline {4.51.1.4}hash\_table\_rehash()}{111}{subsubsection.4.51.1.4}%
+\contentsline {subsubsection}{\numberline {4.51.1.5}hash\_array\_compare()}{111}{subsubsection.4.51.1.5}%
+\contentsline {subsubsection}{\numberline {4.51.1.6}hash\_table\_insert()}{111}{subsubsection.4.51.1.6}%
+\contentsline {section}{\numberline {4.52}type\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}hash.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}c}{112}{section.4.52}%
+\contentsline {section}{\numberline {4.53}Référence du fichier type\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}hash.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{114}{section.4.53}%
+\contentsline {subsection}{\numberline {4.53.1}Description détaillée}{115}{subsection.4.53.1}%
+\contentsline {subsection}{\numberline {4.53.2}Documentation des fonctions}{115}{subsection.4.53.2}%
+\contentsline {subsubsection}{\numberline {4.53.2.1}create\_hash\_table()}{115}{subsubsection.4.53.2.1}%
+\contentsline {subsubsection}{\numberline {4.53.2.2}delete\_hash\_table()}{116}{subsubsection.4.53.2.2}%
+\contentsline {subsubsection}{\numberline {4.53.2.3}hash\_table\_insert()}{116}{subsubsection.4.53.2.3}%
+\contentsline {section}{\numberline {4.54}type\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}\_\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}hash.\discretionary {\mbox {\fontsize {10pt}{12pt}\selectfont $\DOTSB \leftarrow \mathrel {\mkern -2.5mu}\rhook $}}{}{}h}{117}{section.4.54}%
+\contentsline {chapter}{Index}{119}{section*.46}%

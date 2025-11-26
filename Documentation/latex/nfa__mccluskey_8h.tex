@@ -1,0 +1,50 @@
+\doxysection{Référence du fichier nfa\+\_\+mccluskey.\+h}
+\hypertarget{nfa__mccluskey_8h}{}\label{nfa__mccluskey_8h}\index{nfa\_mccluskey.h@{nfa\_mccluskey.h}}
+
+
+Calcul d\textquotesingle{}une expression régulière à partir d\textquotesingle{}un NFA avec l\textquotesingle{}algorithme de Brzozowski-\/\+Mc\+Cluskey.  
+
+
+{\ttfamily \#include "{}nfa.\+h"{}}\newline
+{\ttfamily \#include "{}regexp.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa__mccluskey_8h_ab4774d6e0a284abdae247c24d24f0650}{nfa\+\_\+mccluskey}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A)
+\begin{DoxyCompactList}\small\item\em Algorithme de Brzozowski-\/\+Mc\+Cluskey. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Calcul d\textquotesingle{}une expression régulière à partir d\textquotesingle{}un NFA avec l\textquotesingle{}algorithme de Brzozowski-\/\+Mc\+Cluskey. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{nfa__mccluskey_8h_source}{nfa\+\_\+mccluskey.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{nfa__mccluskey_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{nfa__mccluskey_8h_ab4774d6e0a284abdae247c24d24f0650}\index{nfa\_mccluskey.h@{nfa\_mccluskey.h}!nfa\_mccluskey@{nfa\_mccluskey}}
+\index{nfa\_mccluskey@{nfa\_mccluskey}!nfa\_mccluskey.h@{nfa\_mccluskey.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_mccluskey()}{nfa\_mccluskey()}}
+{\footnotesize\ttfamily \label{nfa__mccluskey_8h_ab4774d6e0a284abdae247c24d24f0650} 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} nfa\+\_\+mccluskey (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Algorithme de Brzozowski-\/\+Mc\+Cluskey. 
+
+\begin{DoxyReturn}{Renvoie}
+Une expression régulière qui reconnaît le même langage que l\textquotesingle{}automate passé en entrée. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em A} & Un NFA quelconque. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa__mccluskey_8c_source_l00003}{3}} du fichier \mbox{\hyperlink{nfa__mccluskey_8c_source}{nfa\+\_\+mccluskey.\+c}}.
+

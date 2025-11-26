@@ -1,0 +1,78 @@
+\doxysection{regexp.\+h}
+\hypertarget{regexp_8h_source}{}\label{regexp_8h_source}\mbox{\hyperlink{regexp_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00010}00010\ \textcolor{preprocessor}{\#ifndef\ REGEXP\_H\_}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00011}00011\ \textcolor{preprocessor}{\#define\ REGEXP\_H\_}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{alloc_8h}{alloc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{error_8h}{error.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}tools.h"{}}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{type__basic_8h}{type\_basic.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00027}\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68fa}{00027}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00029}\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa2f0d18fc0d0fa4a6cd92dc328501874d}{00029}}\ \ \ \ \ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa2f0d18fc0d0fa4a6cd92dc328501874d}{EMPTY}},\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00030}\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa1fa5920d8d419e0b8036e2dbada9a882}{00030}}\ \ \ \ \ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa1fa5920d8d419e0b8036e2dbada9a882}{EPSILON}},\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00031}\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa4618cf21306b3c647741afa7ebefcab8}{00031}}\ \ \ \ \ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa4618cf21306b3c647741afa7ebefcab8}{CHAR}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00032}\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa4cf5e96eb7880eb38df303a6e5759afd}{00032}}\ \ \ \ \ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa4cf5e96eb7880eb38df303a6e5759afd}{UNION}},\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00033}\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa5efa5610d5a2c5e9123d6894dd72e335}{00033}}\ \ \ \ \ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa5efa5610d5a2c5e9123d6894dd72e335}{INTER}},\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00034}\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa09a24ada4cada9fedf84fbcfd5dc0511}{00034}}\ \ \ \ \ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa09a24ada4cada9fedf84fbcfd5dc0511}{COMPLEMENT}},\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00035}\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa9044fbb1b4b9307bcd680468a58c22f2}{00035}}\ \ \ \ \ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa9044fbb1b4b9307bcd680468a58c22f2}{CONCAT}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00036}\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa9d398750ed310ae69cd070016810e4dc}{00036}}\ \ \ \ \ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faa9d398750ed310ae69cd070016810e4dc}{STAR}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00037}\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faac157bdf0b85a40d2619cbc8bc1ae5fe2}{00037}}\ \ \ \ \ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68faac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00038}00038\ \}\ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68fa}{regelem}};}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00052}\mbox{\hyperlink{structregexp}{00052}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structregexp}{regexp}}}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00054}\mbox{\hyperlink{structregexp_ab3dd8e3a4e3f8387c57051ef6831b65a}{00054}}\ \ \ \ \ \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68fa}{regelem}}\ \mbox{\hyperlink{structregexp_ab3dd8e3a4e3f8387c57051ef6831b65a}{op}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00055}\mbox{\hyperlink{structregexp_a0208b413d1d54a35ac03b94a23e087e6}{00055}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{structregexp_a0208b413d1d54a35ac03b94a23e087e6}{left}};\ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00056}\mbox{\hyperlink{structregexp_a5a4f7823a61a9a64d8e5555617d3500a}{00056}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{structregexp_a5a4f7823a61a9a64d8e5555617d3500a}{right}};\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00057}\mbox{\hyperlink{structregexp_ac632f0e58c93e01b2bfbb3015c8de34f}{00057}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structregexp_ac632f0e58c93e01b2bfbb3015c8de34f}{letter}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00058}\mbox{\hyperlink{regexp_8h_ab9c7f4f28bd4645dbcab031dc7e8420b}{00058}}\ \}\ \mbox{\hyperlink{structregexp}{regexp}};}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00070}00070\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{regexp_8h_aed9ac023e7d3f1ceb95c4ca5d3386ff7}{reg\_issimple}}(\mbox{\hyperlink{structregexp}{regexp}}\ *\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00071}00071\ );}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00077}00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{regexp_8h_aa4c7ffc70fec6309a28b393380d505f0}{reg\_free}}(\mbox{\hyperlink{structregexp}{regexp}}\ *\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00078}00078\ );}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00087}00087\ \mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{regexp_8h_a420113f0cc33a6dc7b6eb2abd3ac9a43}{reg\_copy}}(\mbox{\hyperlink{structregexp}{regexp}}\ *\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00088}00088\ );}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00097}00097\ \mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{regexp_8h_a2ba9e7fdf196326ddc67a7e7b8ce221b}{reg\_empty}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00106}00106\ \mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{regexp_8h_a2092d5f621e571c562a90c097e7e56c9}{reg\_epsilon}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00115}00115\ \mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{regexp_8h_aad0367b53f8a1bf09ceda5accdabd208}{reg\_letter}}(\textcolor{keywordtype}{char}\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00116}00116\ );}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00125}00125\ \mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{regexp_8h_a4d508ba6c047b2d424a70d74302118d7}{reg\_union}}(\mbox{\hyperlink{structregexp}{regexp}}\ *,\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structregexp}{regexp}}\ *\ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00127}00127\ );}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00136}00136\ \mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{regexp_8h_a1153f9338e818d7e1dd9f8774326ea94}{reg\_inter}}(\mbox{\hyperlink{structregexp}{regexp}}\ *,\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structregexp}{regexp}}\ *\ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00138}00138\ );}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00147}00147\ \mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{regexp_8h_aaa3711cc9ec44c603335fdf2813edee1}{reg\_concat}}(\mbox{\hyperlink{structregexp}{regexp}}\ *,\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structregexp}{regexp}}\ *\ \ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00149}00149\ );}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00158}00158\ \mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{regexp_8h_a1d4524f0d6eb869160daaf3b2eacd7d8}{reg\_star}}(\mbox{\hyperlink{structregexp}{regexp}}\ *\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00159}00159\ );}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00168}00168\ \mbox{\hyperlink{structregexp}{regexp}}\ *\mbox{\hyperlink{regexp_8h_a5db57665ab834362e57afb076bb9b55c}{reg\_complement}}(\mbox{\hyperlink{structregexp}{regexp}}\ *\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00169}00169\ );}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00178}00178\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{regexp_8h_a7ecb65c2ab8aefcff5d18b610bb7d12b}{reg\_print}}(\mbox{\hyperlink{structregexp}{regexp}}\ *\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00179}00179\ );}
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{regexp_8h_source_l00181}00181\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ REGEXP\_H\_}}
+
+\end{DoxyCode}

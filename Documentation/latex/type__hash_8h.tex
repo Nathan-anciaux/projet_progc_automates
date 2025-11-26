@@ -1,0 +1,116 @@
+\doxysection{Référence du fichier type\+\_\+hash.\+h}
+\hypertarget{type__hash_8h}{}\label{type__hash_8h}\index{type\_hash.h@{type\_hash.h}}
+
+
+Implémentation des tables de hachage (déjà écrite, à utiliser pour les parcours de graphes).  
+
+
+{\ttfamily \#include "{}type\+\_\+basic.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structhash__table}{hash\+\_\+table}}
+\begin{DoxyCompactList}\small\item\em Type utilisé pour représenter une table de hachage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{type__hash_8h_ad6486b7480d1fb73104b75574171f95d}{create\+\_\+hash\+\_\+table}} (int element\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Crée une nouvelle table de hachage vide. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{type__hash_8h_aeb90c0d72995394b700a2afefeb55a26}{delete\+\_\+hash\+\_\+table}} (\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*}ht)
+\begin{DoxyCompactList}\small\item\em Supprime une table de hachage. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{type__hash_8h_abe3067dfabb310d4df5f31db1983bd17}{hash\+\_\+table\+\_\+insert}} (\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*}ht, int \texorpdfstring{$\ast$}{*}elements, int i, int \texorpdfstring{$\ast$}{*}ret)
+\begin{DoxyCompactList}\small\item\em Tente d\textquotesingle{}insérer un élément dans la table de hachage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des tables de hachage (déjà écrite, à utiliser pour les parcours de graphes). 
+
+Ce fichier contient une implémentation déjà écrite des tables de hachage. Vous ne devez PAS LE MODIFIER. vous pouvez l\textquotesingle{}utiliser dans votre code pour stocker un ensemble détats déjà visités quand vous faites un parcours de graphe.
+
+\begin{DoxyRemark}{Remarques}
+La table de hachage est similaire à celle fournie dans le projet d\textquotesingle{}algorithmique. Elle ne peut stocker que des éléments encodés comme des tableaux d\textquotesingle{}entiers. Cela signifie que pour stocker des objets, vous devrez les encoder sous forme de tableaux d\textquotesingle{}entiers. De plus, la table de hachage ne stocke pas les éléments eux-\/mêmes, mais des indices vers un tableau de stockage externe que vous devez gérer vous-\/même. 
+\end{DoxyRemark}
+
+
+Définition dans le fichier \mbox{\hyperlink{type__hash_8h_source}{type\+\_\+hash.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{type__hash_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{type__hash_8h_ad6486b7480d1fb73104b75574171f95d}\index{type\_hash.h@{type\_hash.h}!create\_hash\_table@{create\_hash\_table}}
+\index{create\_hash\_table@{create\_hash\_table}!type\_hash.h@{type\_hash.h}}
+\doxysubsubsection{\texorpdfstring{create\_hash\_table()}{create\_hash\_table()}}
+{\footnotesize\ttfamily \label{type__hash_8h_ad6486b7480d1fb73104b75574171f95d} 
+\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*} create\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{int}]{element\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Crée une nouvelle table de hachage vide. 
+
+\begin{DoxyReturn}{Renvoie}
+La table de hachage vide créée. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em element\+\_\+size} & Nombre de valeurs utilisées pour encoder un seul élément dans le tableau de stockage externe. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8c_source_l00005}{5}} du fichier \mbox{\hyperlink{type__hash_8c_source}{type\+\_\+hash.\+c}}.
+
+\Hypertarget{type__hash_8h_aeb90c0d72995394b700a2afefeb55a26}\index{type\_hash.h@{type\_hash.h}!delete\_hash\_table@{delete\_hash\_table}}
+\index{delete\_hash\_table@{delete\_hash\_table}!type\_hash.h@{type\_hash.h}}
+\doxysubsubsection{\texorpdfstring{delete\_hash\_table()}{delete\_hash\_table()}}
+{\footnotesize\ttfamily \label{type__hash_8h_aeb90c0d72995394b700a2afefeb55a26} 
+void delete\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{ht}{}\end{DoxyParamCaption})}
+
+
+
+Supprime une table de hachage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ht} & La table de hachage à supprimer. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8c_source_l00025}{25}} du fichier \mbox{\hyperlink{type__hash_8c_source}{type\+\_\+hash.\+c}}.
+
+\Hypertarget{type__hash_8h_abe3067dfabb310d4df5f31db1983bd17}\index{type\_hash.h@{type\_hash.h}!hash\_table\_insert@{hash\_table\_insert}}
+\index{hash\_table\_insert@{hash\_table\_insert}!type\_hash.h@{type\_hash.h}}
+\doxysubsubsection{\texorpdfstring{hash\_table\_insert()}{hash\_table\_insert()}}
+{\footnotesize\ttfamily \label{type__hash_8h_abe3067dfabb310d4df5f31db1983bd17} 
+bool hash\+\_\+table\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structhash__table}{hash\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{ht}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{elements}{, }\item[{int}]{i}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{ret}{}\end{DoxyParamCaption})}
+
+
+
+Tente d\textquotesingle{}insérer un élément dans la table de hachage. 
+
+Si l\textquotesingle{}élément est déjà présent dans la table de hachage, l\textquotesingle{}insertion n\textquotesingle{}est pas effectuée. De plus l\textquotesingle{}indice du premier élément identique trouvé est stocké dans la variable pointée par ret (si ret n\textquotesingle{}est pas NULL).
+
+\begin{DoxyRemark}{Remarques}
+L\textquotesingle{}indice i fait référence à la position de l\textquotesingle{}élément dans le tableau de stockage externe. Puisque chaque élément est encodé comme une séquence d\textquotesingle{}entiers de taille fixe (le champ element\+\_\+size), la table de hachage va en fait examiner la séquence de element\+\_\+size valeurs entières commençant à la position i \texorpdfstring{$\ast$}{*} element\+\_\+size dans le tableau de stockage externe.
+\end{DoxyRemark}
+\begin{DoxyReturn}{Renvoie}
+true si l\textquotesingle{}élément a été inséré, false s\textquotesingle{}il était déjà présent. Dans ce dernier cas, la table de hachage n\textquotesingle{}est pas modifiée. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em ht} & La table de hachage.  \\
+\hline
+{\em elements} & Tableau de stockage externe contenant tous les éléments.  \\
+\hline
+{\em i} & Indice de l\textquotesingle{}élément à insérer dans le tableau de stockage externe.  \\
+\hline
+{\em ret} & Pointeur vers un entier où sera stocké l\textquotesingle{}indice de l\textquotesingle{}élément existant (si déjà présent). \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8c_source_l00096}{96}} du fichier \mbox{\hyperlink{type__hash_8c_source}{type\+\_\+hash.\+c}}.
+

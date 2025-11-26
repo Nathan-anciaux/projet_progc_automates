@@ -1,0 +1,256 @@
+\doxysection{Référence du fichier regexp.\+c}
+\hypertarget{regexp_8c}{}\label{regexp_8c}\index{regexp.c@{regexp.c}}
+{\ttfamily \#include "{}regexp.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{regexp_8c_aed9ac023e7d3f1ceb95c4ca5d3386ff7}{reg\+\_\+issimple}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Teste si une expression régulière est simple. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{regexp_8c_aa4c7ffc70fec6309a28b393380d505f0}{reg\+\_\+free}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Libération d\textquotesingle{}une expression régulière. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{regexp_8c_a420113f0cc33a6dc7b6eb2abd3ac9a43}{reg\+\_\+copy}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Copie d\textquotesingle{}une expression régulière. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{regexp_8c_a2ba9e7fdf196326ddc67a7e7b8ce221b}{reg\+\_\+empty}} (void)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}une expression régulière réduite au symbole définissant le langage vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{regexp_8c_a2092d5f621e571c562a90c097e7e56c9}{reg\+\_\+epsilon}} (void)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}une expression régulière réduite au symbole définissant le singleton contenant le mot-\/vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{regexp_8c_aad0367b53f8a1bf09ceda5accdabd208}{reg\+\_\+letter}} (char)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}une expression régulière réduite à une seule lettre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{regexp_8c_a4d508ba6c047b2d424a70d74302118d7}{reg\+\_\+union}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Combinaison de deux expressions avec l\textquotesingle{}opérateur d\textquotesingle{}union. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{regexp_8c_a1153f9338e818d7e1dd9f8774326ea94}{reg\+\_\+inter}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Combinaison de deux expressions avec l\textquotesingle{}opérateur d\textquotesingle{}intersection. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{regexp_8c_aaa3711cc9ec44c603335fdf2813edee1}{reg\+\_\+concat}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Combinaison de deux expressions avec l\textquotesingle{}opérateur de concaténation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{regexp_8c_a1d4524f0d6eb869160daaf3b2eacd7d8}{reg\+\_\+star}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Application de l\textquotesingle{}étoile de Kleene à une expression. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{regexp_8c_a5db57665ab834362e57afb076bb9b55c}{reg\+\_\+complement}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Application de l\textquotesingle{}opérateur complément à une expression. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{regexp_8c_a40860f3131539463c8705e9ac7f04c9d}{reg\+\_\+print\+\_\+helper}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}r, \mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68fa}{regelem}} parent)
+\item 
+void \mbox{\hyperlink{regexp_8c_a9a783d6653ef8ffdeef1f21b05915095}{reg\+\_\+print}} (\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}r)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}une expression régulière sur la sortie standard. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{regexp_8c_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{regexp_8c_aed9ac023e7d3f1ceb95c4ca5d3386ff7}\index{regexp.c@{regexp.c}!reg\_issimple@{reg\_issimple}}
+\index{reg\_issimple@{reg\_issimple}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_issimple()}{reg\_issimple()}}
+{\footnotesize\ttfamily \label{regexp_8c_aed9ac023e7d3f1ceb95c4ca5d3386ff7} 
+bool reg\+\_\+issimple (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Teste si une expression régulière est simple. 
+
+\begin{DoxyRemark}{Remarques}
+Une expression régulière est simple si et seulement si elle ne contient pas les opérateurs "{}interection"{} et "{}complément"{}.
+\end{DoxyRemark}
+\begin{DoxyReturn}{Renvoie}
+Un Booléen indiquant si l\textquotesingle{}expression passée en entrée est simple. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00003}{3}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_aa4c7ffc70fec6309a28b393380d505f0}\index{regexp.c@{regexp.c}!reg\_free@{reg\_free}}
+\index{reg\_free@{reg\_free}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_free()}{reg\_free()}}
+{\footnotesize\ttfamily \label{regexp_8c_aa4c7ffc70fec6309a28b393380d505f0} 
+void reg\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Libération d\textquotesingle{}une expression régulière. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00008}{8}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_a420113f0cc33a6dc7b6eb2abd3ac9a43}\index{regexp.c@{regexp.c}!reg\_copy@{reg\_copy}}
+\index{reg\_copy@{reg\_copy}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_copy()}{reg\_copy()}}
+{\footnotesize\ttfamily \label{regexp_8c_a420113f0cc33a6dc7b6eb2abd3ac9a43} 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} reg\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Copie d\textquotesingle{}une expression régulière. 
+
+\begin{DoxyReturn}{Renvoie}
+Une copie de l\textquotesingle{}expression régulière passée en entrée. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00013}{13}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_a2ba9e7fdf196326ddc67a7e7b8ce221b}\index{regexp.c@{regexp.c}!reg\_empty@{reg\_empty}}
+\index{reg\_empty@{reg\_empty}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_empty()}{reg\_empty()}}
+{\footnotesize\ttfamily \label{regexp_8c_a2ba9e7fdf196326ddc67a7e7b8ce221b} 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} reg\+\_\+empty (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}une expression régulière réduite au symbole définissant le langage vide. 
+
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}expression régulière. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_a2092d5f621e571c562a90c097e7e56c9}\index{regexp.c@{regexp.c}!reg\_epsilon@{reg\_epsilon}}
+\index{reg\_epsilon@{reg\_epsilon}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_epsilon()}{reg\_epsilon()}}
+{\footnotesize\ttfamily \label{regexp_8c_a2092d5f621e571c562a90c097e7e56c9} 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} reg\+\_\+epsilon (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}une expression régulière réduite au symbole définissant le singleton contenant le mot-\/vide. 
+
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}expression régulière. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00023}{23}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_aad0367b53f8a1bf09ceda5accdabd208}\index{regexp.c@{regexp.c}!reg\_letter@{reg\_letter}}
+\index{reg\_letter@{reg\_letter}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_letter()}{reg\_letter()}}
+{\footnotesize\ttfamily \label{regexp_8c_aad0367b53f8a1bf09ceda5accdabd208} 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} reg\+\_\+letter (\begin{DoxyParamCaption}\item[{char}]{}{}\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}une expression régulière réduite à une seule lettre. 
+
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}expression régulière. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00028}{28}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_a4d508ba6c047b2d424a70d74302118d7}\index{regexp.c@{regexp.c}!reg\_union@{reg\_union}}
+\index{reg\_union@{reg\_union}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_union()}{reg\_union()}}
+{\footnotesize\ttfamily \label{regexp_8c_a4d508ba6c047b2d424a70d74302118d7} 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} reg\+\_\+union (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{, }\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Combinaison de deux expressions avec l\textquotesingle{}opérateur d\textquotesingle{}union. 
+
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}expression régulière résultante. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00033}{33}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_a1153f9338e818d7e1dd9f8774326ea94}\index{regexp.c@{regexp.c}!reg\_inter@{reg\_inter}}
+\index{reg\_inter@{reg\_inter}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_inter()}{reg\_inter()}}
+{\footnotesize\ttfamily \label{regexp_8c_a1153f9338e818d7e1dd9f8774326ea94} 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} reg\+\_\+inter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{, }\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Combinaison de deux expressions avec l\textquotesingle{}opérateur d\textquotesingle{}intersection. 
+
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}expression régulière résultante. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00038}{38}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_aaa3711cc9ec44c603335fdf2813edee1}\index{regexp.c@{regexp.c}!reg\_concat@{reg\_concat}}
+\index{reg\_concat@{reg\_concat}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_concat()}{reg\_concat()}}
+{\footnotesize\ttfamily \label{regexp_8c_aaa3711cc9ec44c603335fdf2813edee1} 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} reg\+\_\+concat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{, }\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Combinaison de deux expressions avec l\textquotesingle{}opérateur de concaténation. 
+
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}expression régulière résultante. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00043}{43}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_a1d4524f0d6eb869160daaf3b2eacd7d8}\index{regexp.c@{regexp.c}!reg\_star@{reg\_star}}
+\index{reg\_star@{reg\_star}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_star()}{reg\_star()}}
+{\footnotesize\ttfamily \label{regexp_8c_a1d4524f0d6eb869160daaf3b2eacd7d8} 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} reg\+\_\+star (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Application de l\textquotesingle{}étoile de Kleene à une expression. 
+
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}expression régulière résultante. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00048}{48}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_a5db57665ab834362e57afb076bb9b55c}\index{regexp.c@{regexp.c}!reg\_complement@{reg\_complement}}
+\index{reg\_complement@{reg\_complement}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_complement()}{reg\_complement()}}
+{\footnotesize\ttfamily \label{regexp_8c_a5db57665ab834362e57afb076bb9b55c} 
+\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} reg\+\_\+complement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Application de l\textquotesingle{}opérateur complément à une expression. 
+
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}expression régulière résultante. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00053}{53}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_a40860f3131539463c8705e9ac7f04c9d}\index{regexp.c@{regexp.c}!reg\_print\_helper@{reg\_print\_helper}}
+\index{reg\_print\_helper@{reg\_print\_helper}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_print\_helper()}{reg\_print\_helper()}}
+{\footnotesize\ttfamily \label{regexp_8c_a40860f3131539463c8705e9ac7f04c9d} 
+void reg\+\_\+print\+\_\+helper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{r}{, }\item[{\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68fa}{regelem}}}]{parent}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00058}{58}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+
+\Hypertarget{regexp_8c_a9a783d6653ef8ffdeef1f21b05915095}\index{regexp.c@{regexp.c}!reg\_print@{reg\_print}}
+\index{reg\_print@{reg\_print}!regexp.c@{regexp.c}}
+\doxysubsubsection{\texorpdfstring{reg\_print()}{reg\_print()}}
+{\footnotesize\ttfamily \label{regexp_8c_a9a783d6653ef8ffdeef1f21b05915095} 
+void reg\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*}}]{r}{}\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}une expression régulière sur la sortie standard. 
+
+\begin{DoxyAttention}{Attention}
+Cette fonction est déjà écrite pour vous. Vous ne devez PAS la modifier. 
+\end{DoxyAttention}
+
+\begin{DoxyParams}{Paramètres}
+{\em r} & L\textquotesingle{}expression à afficher. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8c_source_l00167}{167}} du fichier \mbox{\hyperlink{regexp_8c_source}{regexp.\+c}}.
+

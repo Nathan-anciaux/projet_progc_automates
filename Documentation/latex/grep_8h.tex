@@ -1,0 +1,53 @@
+\doxysection{Référence du fichier grep.\+h}
+\hypertarget{grep_8h}{}\label{grep_8h}\index{grep.h@{grep.h}}
+
+
+Implémentation de la fonction grep.  
+
+
+{\ttfamily \#include "{}parse\+\_\+regexp.\+h"{}}\newline
+{\ttfamily \#include "{}regexp.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{grep_8h_a6bb3f6cb42668e9d6d0e9bff80417a14}{grep}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structregexp}{regexp}}, const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Affiche les lignes d\textquotesingle{}un fichier contenant un motif correspondant à une expression régulière. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation de la fonction grep. 
+
+Contient une unique fonction, utilisée pour rechercher toutes les lignes d\textquotesingle{}un fichier qui contiennent un motif décrit par une expression régulière. 
+
+Définition dans le fichier \mbox{\hyperlink{grep_8h_source}{grep.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{grep_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{grep_8h_a6bb3f6cb42668e9d6d0e9bff80417a14}\index{grep.h@{grep.h}!grep@{grep}}
+\index{grep@{grep}!grep.h@{grep.h}}
+\doxysubsubsection{\texorpdfstring{grep()}{grep()}}
+{\footnotesize\ttfamily \label{grep_8h_a6bb3f6cb42668e9d6d0e9bff80417a14} 
+void grep (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{regexp}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Affiche les lignes d\textquotesingle{}un fichier contenant un motif correspondant à une expression régulière. 
+
+\begin{DoxyReturn}{Renvoie}
+Une copie du tableau des noms de lettres 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em regexp} & L\textquotesingle{}expression régulière donnant le motif à chercher.  \\
+\hline
+{\em filename} & Le fichier dans lequel rechercher le motif. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{grep_8c_source_l00003}{3}} du fichier \mbox{\hyperlink{grep_8c_source}{grep.\+c}}.
+

@@ -1,0 +1,138 @@
+\doxysection{type\+\_\+hash.\+c}
+\hypertarget{type__hash_8c_source}{}\label{type__hash_8c_source}\mbox{\hyperlink{type__hash_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{type__hash_8h}{type\_hash.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{alloc_8h}{alloc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00005}\mbox{\hyperlink{type__hash_8c_ad6486b7480d1fb73104b75574171f95d}{00005}}\ \mbox{\hyperlink{structhash__table}{hash\_table}}\ *\mbox{\hyperlink{type__hash_8c_ad6486b7480d1fb73104b75574171f95d}{create\_hash\_table}}(\textcolor{keywordtype}{int}\ element\_size)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00006}00006\ \ \ \ \ \textcolor{comment}{//\ Allocating\ memory\ for\ the\ hash\ table\ structure.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00007}00007\ \ \ \ \ \mbox{\hyperlink{structhash__table}{hash\_table}}\ *ht;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(ht,\ 1);}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00010}00010\ \ \ \ \ \textcolor{comment}{//\ Initializing\ the\ hash\ table.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00011}00011\ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}}\ =\ 128;\ \textcolor{comment}{//\ Initial\ capacity\ is\ set\ to\ 128.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00012}00012\ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_aabd3da7e414eb47c9adc344a8efe5614}{hash\_size}}\ \ \ \ \ =\ 0;\ \ \ \textcolor{comment}{//\ Initially,\ the\ hash\ table\ is\ empty.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}},\ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}});}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//\ Setting\ all\ slots\ to\ -\/1\ (indicating\ empty\ slots).}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00017}00017\ \ \ \ \ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}}[i]\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00018}00018\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//\ Setting\ the\ element\ size.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00021}00021\ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8}{element\_size}}\ =\ element\_size;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{return}\ ht;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00025}\mbox{\hyperlink{type__hash_8c_aeb90c0d72995394b700a2afefeb55a26}{00025}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{type__hash_8c_aeb90c0d72995394b700a2afefeb55a26}{delete\_hash\_table}}(\mbox{\hyperlink{structhash__table}{hash\_table}}\ *ht)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (ht\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00029}00029\ \ \ \ \ free(ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}});}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00030}00030\ \ \ \ \ free(ht);}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00033}00033\ \textcolor{comment}{//\ Hash\ function\ using\ a\ simple\ polynomial\ rolling\ hash.\ Hashes\ an\ array\ of}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00034}00034\ \textcolor{comment}{//\ integers.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00035}00035\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00036}\mbox{\hyperlink{type__hash_8c_a07f2610579ac3789f4cc7771cc387190}{00036}}\ \mbox{\hyperlink{type__hash_8c_a07f2610579ac3789f4cc7771cc387190}{hash\_function}}(\textcolor{keywordtype}{int}\ *elements,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ hash\_capacity\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00039}00039\ )\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{int}\ hash\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{int}\ a\ \ \ \ =\ 0x9e3779b9;\ \textcolor{comment}{//\ fractional\ bits\ of\ the\ golden\ ratio}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ size;\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ hash\ =\ (hash\ *\ (size\ +\ 1)\ +\ (elements[j])\ *\ a)\ \%\ hash\_capacity;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ hash;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00048}00048\ \textcolor{comment}{//\ Rehashing\ function\ to\ resize\ the\ hash\ table\ when\ load\ factor\ exceeds\ 0.5}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00049}\mbox{\hyperlink{type__hash_8c_a090ce0abaa9bde56947457856485f3b9}{00049}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{type__hash_8c_a090ce0abaa9bde56947457856485f3b9}{hash\_table\_rehash}}(\mbox{\hyperlink{structhash__table}{hash\_table}}\ *ht,\ \textcolor{keywordtype}{int}\ *elements)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ Saving\ the\ pointer\ to\ the\ old\ table\ and\ its\ size.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{int}\ *old\_table\ =\ ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}};}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{int}\ old\_size\ \ \ =\ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}};}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00054}00054\ \ \ \ \ \textcolor{comment}{//\ Doubling\ the\ size\ of\ the\ hash\ table.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00055}00055\ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}}\ *=\ 2;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}},\ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}});}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}}[i]\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00061}00061\ \ \ \ \ \textcolor{comment}{//\ Rehashing\ the\ elements\ from\ the\ old\ table\ to\ the\ new\ one.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ old\_size;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (old\_table[i]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ Skip\ empty\ slots}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Computing\ the\ index\ correspinding\ to\ the\ element\ with\ the\ hash}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ function.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ \mbox{\hyperlink{type__hash_8c_a07f2610579ac3789f4cc7771cc387190}{hash\_function}}(elements\ +\ old\_table[i]\ *\ (ht-\/>\mbox{\hyperlink{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8}{element\_size}}),}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8}{element\_size}},\ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}});}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ linear\ probing\ to\ find\ the\ next\ available\ slot}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ \ \ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ new\_index\ =\ (index\ +\ j)\ \%\ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}};\ \textcolor{comment}{//\ Linear\ probing}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}}[new\_index]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}}[new\_index]\ =\ old\_table[i];}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ Successfully\ inserted}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00083}00083\ \ \ \ \ free(old\_table);}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00086}00086\ \textcolor{comment}{//\ Compares\ two\ array\ of\ integers\ to\ check\ if\ they\ are\ equal}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00087}\mbox{\hyperlink{type__hash_8c_abf68700652d0e1f9ed38591d11dd3d98}{00087}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{type__hash_8c_abf68700652d0e1f9ed38591d11dd3d98}{hash\_array\_compare}}(\textcolor{keywordtype}{int}\ *a,\ \textcolor{keywordtype}{int}\ *b,\ \textcolor{keywordtype}{int}\ size)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a[i]\ !=\ b[i])\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00096}\mbox{\hyperlink{type__hash_8c_abe3067dfabb310d4df5f31db1983bd17}{00096}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{type__hash_8c_abe3067dfabb310d4df5f31db1983bd17}{hash\_table\_insert}}(\mbox{\hyperlink{structhash__table}{hash\_table}}\ *ht,\ \textcolor{keywordtype}{int}\ *elements,\ \textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ *ret)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00097}00097\ \ \ \ \ \textcolor{comment}{//\ Rehashing\ if\ the\ load\ factor\ exceeds\ 0.5}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{if}\ (ht-\/>\mbox{\hyperlink{structhash__table_aabd3da7e414eb47c9adc344a8efe5614}{hash\_size}}\ >=\ (ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}}\ >>\ 1))\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{type__hash_8c_a090ce0abaa9bde56947457856485f3b9}{hash\_table\_rehash}}(ht,\ elements);}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00102}00102\ \ \ \ \ \textcolor{comment}{//\ Computing\ the\ index\ where\ the\ element\ should\ be.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00103}00103\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ \mbox{\hyperlink{type__hash_8c_a07f2610579ac3789f4cc7771cc387190}{hash\_function}}(elements\ +\ i\ *\ (ht-\/>\mbox{\hyperlink{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8}{element\_size}}),}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8}{element\_size}},\ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}});}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00106}00106\ \ \ \ \ \textcolor{comment}{//\ Linear\ probing\ to\ find\ either\ the\ element\ or\ a\ free\ spot}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00107}00107\ \ \ \ \ \textcolor{keywordtype}{int}\ s\ \ \ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ s\_index\ =\ (index\ +\ s)\ \%\ ht-\/>\mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\_capacity}};\ \textcolor{comment}{//\ Linear\ probing}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}}[s\_index]\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ we\ find\ an\ empty\ spot,\ we\ insert\ the\ value\ and\ return\ true\ to}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ indicate\ that\ the\ insertion\ was\ performed.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}}[s\_index]\ =\ i;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_aabd3da7e414eb47c9adc344a8efe5614}{hash\_size}}++;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{type__hash_8c_abf68700652d0e1f9ed38591d11dd3d98}{hash\_array\_compare}}(elements\ +\ i\ *\ (ht-\/>\mbox{\hyperlink{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8}{element\_size}}),}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ elements\ +\ ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}}[s\_index]\ *}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (ht-\/>\mbox{\hyperlink{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8}{element\_size}}),}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ht-\/>\mbox{\hyperlink{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8}{element\_size}}))\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret)\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *ret\ =\ ht-\/>\mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\_table}}[s\_index];}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ value\ is\ already\ present,\ we\ do\ not\ insert\ it\ and\ return}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ false\ to\ indicate\ that\ the\ insertion\ failed.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ slot\ is\ occupied\ by\ a\ different\ value,\ we\ try\ the\ next}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ slot.}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ s++;}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00132}00132\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{type__hash_8c_source_l00133}00133\ \}}
+
+\end{DoxyCode}

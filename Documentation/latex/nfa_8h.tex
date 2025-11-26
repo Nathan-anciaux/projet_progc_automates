@@ -1,0 +1,303 @@
+\doxysection{Référence du fichier nfa.\+h}
+\hypertarget{nfa_8h}{}\label{nfa_8h}\index{nfa.h@{nfa.h}}
+
+
+Implémentation des automates.  
+
+
+{\ttfamily \#include "{}graphs.\+h"{}}\newline
+{\ttfamily \#include "{}type\+\_\+basic.\+h"{}}\newline
+{\ttfamily \#include "{}type\+\_\+boolarray.\+h"{}}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnfa}{nfa}}
+\begin{DoxyCompactList}\small\item\em Type utilisé pour représenter un NFA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nfa_8h_a6e2d782f90b7018353b137bca3d4a01a}{nfa\+\_\+reset\+\_\+state\+\_\+names}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Efface les noms des états d\textquotesingle{}un NFA (si il y en a). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_a04f187cff60afe911b2aec756a3ddcba}{create\+\_\+emptylang}} (void)
+\begin{DoxyCompactList}\small\item\em Crée un NFA qui reconnaît le langage vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_a75d11e7a188d5db803ad24c593b3006a}{create\+\_\+sing\+\_\+epsilon}} (void)
+\begin{DoxyCompactList}\small\item\em Créé un NFA qui reconnaît le singleton \{epsilon\}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_a6000adf7d77804674d3cb61ad2fe28ca}{create\+\_\+sing\+\_\+letter}} (char letter)
+\begin{DoxyCompactList}\small\item\em Créé un NFA qui reconnaît un singleton contenant un mot d\textquotesingle{}une seule lettre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{nfa_8h_a1a085588c679456ab197713c076338a1}{nfa\+\_\+delete}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A)
+\begin{DoxyCompactList}\small\item\em Suppression d\textquotesingle{}un NFA. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_a9cc81761bacd5d4103e0d4e6649e542b}{nfa\+\_\+copy}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}une copie d\textquotesingle{}un NFA. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_a43b8e39812326934901249dacf4336f5}{nfa\+\_\+union}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A1, \mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A2)
+\begin{DoxyCompactList}\small\item\em Union de deux NFAs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_ad8f120a3266401ef6734ae81fb7ef615}{nfa\+\_\+concat}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A1, \mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A2)
+\begin{DoxyCompactList}\small\item\em Concaténation de deux NFAs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_a728440aa88d4a6d5365bda1d99978008}{nfa\+\_\+star}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A)
+\begin{DoxyCompactList}\small\item\em Étoile de Kleene d\textquotesingle{}un NFA. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_adc44efee9d5b32ca30765f5dc7766096}{nfa\+\_\+trim}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A)
+\begin{DoxyCompactList}\small\item\em Élimination des états inutiles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_ab9ecaf224c8159848596f1702dc220a3}{nfa\+\_\+mirror}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A)
+\begin{DoxyCompactList}\small\item\em Miroir d\textquotesingle{}un NFA. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_ae070d986130909a0e7a28b5437a95557}{nfa\+\_\+elimeps}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A)
+\begin{DoxyCompactList}\small\item\em Élimination des transitions epsilon d\textquotesingle{}un NFA. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa_8h_a9370cb47566408d404edd9afb58ff87d}{nfa\+\_\+compute\+\_\+runs}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A, const char \texorpdfstring{$\ast$}{*}w)
+\begin{DoxyCompactList}\small\item\em Calcule l\textquotesingle{}ensemble des états qui sont atteints par un mot dans un NFA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des automates. 
+
+Contient le type utilisé pour représenter un automate ainsi que les fonctions basiques pour les manipuler. 
+
+Définition dans le fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{nfa_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{nfa_8h_a6e2d782f90b7018353b137bca3d4a01a}\index{nfa.h@{nfa.h}!nfa\_reset\_state\_names@{nfa\_reset\_state\_names}}
+\index{nfa\_reset\_state\_names@{nfa\_reset\_state\_names}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_reset\_state\_names()}{nfa\_reset\_state\_names()}}
+{\footnotesize\ttfamily \label{nfa_8h_a6e2d782f90b7018353b137bca3d4a01a} 
+void nfa\+\_\+reset\+\_\+state\+\_\+names (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Efface les noms des états d\textquotesingle{}un NFA (si il y en a). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00004}{4}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_a04f187cff60afe911b2aec756a3ddcba}\index{nfa.h@{nfa.h}!create\_emptylang@{create\_emptylang}}
+\index{create\_emptylang@{create\_emptylang}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{create\_emptylang()}{create\_emptylang()}}
+{\footnotesize\ttfamily \label{nfa_8h_a04f187cff60afe911b2aec756a3ddcba} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} create\+\_\+emptylang (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Crée un NFA qui reconnaît le langage vide. 
+
+\begin{DoxyRemark}{Remarques}
+L\textquotesingle{}alphabet du NFA est vide également.
+\end{DoxyRemark}
+\begin{DoxyReturn}{Renvoie}
+Le NFA. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00024}{24}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_a75d11e7a188d5db803ad24c593b3006a}\index{nfa.h@{nfa.h}!create\_sing\_epsilon@{create\_sing\_epsilon}}
+\index{create\_sing\_epsilon@{create\_sing\_epsilon}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{create\_sing\_epsilon()}{create\_sing\_epsilon()}}
+{\footnotesize\ttfamily \label{nfa_8h_a75d11e7a188d5db803ad24c593b3006a} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} create\+\_\+sing\+\_\+epsilon (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Créé un NFA qui reconnaît le singleton \{epsilon\}. 
+
+\begin{DoxyRemark}{Remarques}
+L\textquotesingle{}alphabet du NFA est vide.
+\end{DoxyRemark}
+\begin{DoxyReturn}{Renvoie}
+Le NFA. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00029}{29}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_a6000adf7d77804674d3cb61ad2fe28ca}\index{nfa.h@{nfa.h}!create\_sing\_letter@{create\_sing\_letter}}
+\index{create\_sing\_letter@{create\_sing\_letter}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{create\_sing\_letter()}{create\_sing\_letter()}}
+{\footnotesize\ttfamily \label{nfa_8h_a6000adf7d77804674d3cb61ad2fe28ca} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} create\+\_\+sing\+\_\+letter (\begin{DoxyParamCaption}\item[{char}]{letter}{}\end{DoxyParamCaption})}
+
+
+
+Créé un NFA qui reconnaît un singleton contenant un mot d\textquotesingle{}une seule lettre. 
+
+\begin{DoxyRemark}{Remarques}
+L\textquotesingle{}alphabet du NFA contient une seule lettre.
+\end{DoxyRemark}
+\begin{DoxyReturn}{Renvoie}
+Le NFA. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00034}{34}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_a1a085588c679456ab197713c076338a1}\index{nfa.h@{nfa.h}!nfa\_delete@{nfa\_delete}}
+\index{nfa\_delete@{nfa\_delete}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_delete()}{nfa\_delete()}}
+{\footnotesize\ttfamily \label{nfa_8h_a1a085588c679456ab197713c076338a1} 
+void nfa\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Suppression d\textquotesingle{}un NFA. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00039}{39}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_a9cc81761bacd5d4103e0d4e6649e542b}\index{nfa.h@{nfa.h}!nfa\_copy@{nfa\_copy}}
+\index{nfa\_copy@{nfa\_copy}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_copy()}{nfa\_copy()}}
+{\footnotesize\ttfamily \label{nfa_8h_a9cc81761bacd5d4103e0d4e6649e542b} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}une copie d\textquotesingle{}un NFA. 
+
+\begin{DoxyReturn}{Renvoie}
+La copie. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00048}{48}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_a43b8e39812326934901249dacf4336f5}\index{nfa.h@{nfa.h}!nfa\_union@{nfa\_union}}
+\index{nfa\_union@{nfa\_union}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_union()}{nfa\_union()}}
+{\footnotesize\ttfamily \label{nfa_8h_a43b8e39812326934901249dacf4336f5} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+union (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A1}{, }\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A2}{}\end{DoxyParamCaption})}
+
+
+
+Union de deux NFAs. 
+
+\begin{DoxyAttention}{Attention}
+Les alphabets des deux NFAs peuvent être distincts. Dans ce cas, il faudra les étendre à l\textquotesingle{}union des deux alphabets.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+Un nouveau NFA qui réalise l\textquotesingle{}union. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00053}{53}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_ad8f120a3266401ef6734ae81fb7ef615}\index{nfa.h@{nfa.h}!nfa\_concat@{nfa\_concat}}
+\index{nfa\_concat@{nfa\_concat}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_concat()}{nfa\_concat()}}
+{\footnotesize\ttfamily \label{nfa_8h_ad8f120a3266401ef6734ae81fb7ef615} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+concat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A1}{, }\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A2}{}\end{DoxyParamCaption})}
+
+
+
+Concaténation de deux NFAs. 
+
+\begin{DoxyAttention}{Attention}
+Les alphabets des deux NFAs peuvent être distincts. Dans ce cas, il faudra les étendre à l\textquotesingle{}union des deux alphabets.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+Un nouveau NFA qui réalise la concaténation. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00058}{58}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_a728440aa88d4a6d5365bda1d99978008}\index{nfa.h@{nfa.h}!nfa\_star@{nfa\_star}}
+\index{nfa\_star@{nfa\_star}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_star()}{nfa\_star()}}
+{\footnotesize\ttfamily \label{nfa_8h_a728440aa88d4a6d5365bda1d99978008} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+star (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Étoile de Kleene d\textquotesingle{}un NFA. 
+
+\begin{DoxyReturn}{Renvoie}
+Un nouveau NFA qui réalise l\textquotesingle{}étoile. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00063}{63}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_adc44efee9d5b32ca30765f5dc7766096}\index{nfa.h@{nfa.h}!nfa\_trim@{nfa\_trim}}
+\index{nfa\_trim@{nfa\_trim}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_trim()}{nfa\_trim()}}
+{\footnotesize\ttfamily \label{nfa_8h_adc44efee9d5b32ca30765f5dc7766096} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+trim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Élimination des états inutiles. 
+
+\begin{DoxyRemark}{Remarques}
+Est inutile tout état inaccessible depuis un état initial ou depuis lequel on ne peut pas atteindre un état final.
+\end{DoxyRemark}
+\begin{DoxyReturn}{Renvoie}
+Un nouveau NFA dans lequel on a éliminé les états inutiles. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00068}{68}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_ab9ecaf224c8159848596f1702dc220a3}\index{nfa.h@{nfa.h}!nfa\_mirror@{nfa\_mirror}}
+\index{nfa\_mirror@{nfa\_mirror}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_mirror()}{nfa\_mirror()}}
+{\footnotesize\ttfamily \label{nfa_8h_ab9ecaf224c8159848596f1702dc220a3} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+mirror (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Miroir d\textquotesingle{}un NFA. 
+
+\begin{DoxyReturn}{Renvoie}
+Un nouveau NFA qui réalise le miroir. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00073}{73}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_ae070d986130909a0e7a28b5437a95557}\index{nfa.h@{nfa.h}!nfa\_elimeps@{nfa\_elimeps}}
+\index{nfa\_elimeps@{nfa\_elimeps}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_elimeps()}{nfa\_elimeps()}}
+{\footnotesize\ttfamily \label{nfa_8h_ae070d986130909a0e7a28b5437a95557} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+elimeps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Élimination des transitions epsilon d\textquotesingle{}un NFA. 
+
+\begin{DoxyRemark}{Remarques}
+Si le NFA ne possède pas de transitions epsilon, alors une copie du NFA est retournée.
+\end{DoxyRemark}
+\begin{DoxyReturn}{Renvoie}
+Un nouveau NFA sans transitions epsilon. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00078}{78}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+
+\Hypertarget{nfa_8h_a9370cb47566408d404edd9afb58ff87d}\index{nfa.h@{nfa.h}!nfa\_compute\_runs@{nfa\_compute\_runs}}
+\index{nfa\_compute\_runs@{nfa\_compute\_runs}!nfa.h@{nfa.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_compute\_runs()}{nfa\_compute\_runs()}}
+{\footnotesize\ttfamily \label{nfa_8h_a9370cb47566408d404edd9afb58ff87d} 
+\mbox{\hyperlink{structbarray}{barray}} \texorpdfstring{$\ast$}{*} nfa\+\_\+compute\+\_\+runs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{w}{}\end{DoxyParamCaption})}
+
+
+
+Calcule l\textquotesingle{}ensemble des états qui sont atteints par un mot dans un NFA. 
+
+Le retour se fait sous la forme d\textquotesingle{}un tableau de Booléens de taille nb\+\_\+states où la case i est à true si et seulement si l\textquotesingle{}état i est atteint par le mot w.
+
+\begin{DoxyRemark}{Remarques}
+Si le mot contient des lettres qui ne sont pas dans l\textquotesingle{}alphabet du NFA, la fonction devra retourner un pointeur NULL.
+\end{DoxyRemark}
+\begin{DoxyReturn}{Renvoie}
+La liste des états atteints avec le mot. 
+\end{DoxyReturn}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8c_source_l00083}{83}} du fichier \mbox{\hyperlink{nfa_8c_source}{nfa.\+c}}.
+

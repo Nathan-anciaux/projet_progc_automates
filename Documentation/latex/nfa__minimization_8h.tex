@@ -1,0 +1,55 @@
+\doxysection{Référence du fichier nfa\+\_\+minimization.\+h}
+\hypertarget{nfa__minimization_8h}{}\label{nfa__minimization_8h}\index{nfa\_minimization.h@{nfa\_minimization.h}}
+
+
+Minimisation.  
+
+
+{\ttfamily \#include "{}nfa\+\_\+determi.\+h"{}}\newline
+{\ttfamily \#include "{}printing.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa__minimization_8h_aae148f65df20d332f5b9dece88fdf0b1}{nfa\+\_\+brzozowski}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A)
+\begin{DoxyCompactList}\small\item\em Algorithme de minimisation de Brzozowski. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Minimisation. 
+
+Contient les deux algorithmes (indépendents) de minimisation d\textquotesingle{}un automate\+: Brzozowski et Hopcroft.
+
+\begin{DoxyRemark}{Remarques}
+Les deux algorithmes prennent n\textquotesingle{}importe quel NFA en entrée. 
+\end{DoxyRemark}
+
+
+Définition dans le fichier \mbox{\hyperlink{nfa__minimization_8h_source}{nfa\+\_\+minimization.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{nfa__minimization_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{nfa__minimization_8h_aae148f65df20d332f5b9dece88fdf0b1}\index{nfa\_minimization.h@{nfa\_minimization.h}!nfa\_brzozowski@{nfa\_brzozowski}}
+\index{nfa\_brzozowski@{nfa\_brzozowski}!nfa\_minimization.h@{nfa\_minimization.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_brzozowski()}{nfa\_brzozowski()}}
+{\footnotesize\ttfamily \label{nfa__minimization_8h_aae148f65df20d332f5b9dece88fdf0b1} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+brzozowski (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Algorithme de minimisation de Brzozowski. 
+
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}automate minimal du langage reconnu par le NFA pris en entrée. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em A} & Un NFA. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa__minimization_8c_source_l00007}{7}} du fichier \mbox{\hyperlink{nfa__minimization_8c_source}{nfa\+\_\+minimization.\+c}}.
+

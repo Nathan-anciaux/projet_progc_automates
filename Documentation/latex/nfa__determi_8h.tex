@@ -1,0 +1,84 @@
+\doxysection{Référence du fichier nfa\+\_\+determi.\+h}
+\hypertarget{nfa__determi_8h}{}\label{nfa__determi_8h}\index{nfa\_determi.h@{nfa\_determi.h}}
+
+
+Déterminisation et complémentation.  
+
+
+{\ttfamily \#include "{}nfa.\+h"{}}\newline
+{\ttfamily \#include "{}printing.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa__determi_8h_a4266fbcbc41804fad95df5c035dff367}{nfa\+\_\+determinize}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A, bool names)
+\begin{DoxyCompactList}\small\item\em Déterminisation d\textquotesingle{}un automate. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa__determi_8h_a14500188cab5d3388721f2f20fdd5453}{nfa\+\_\+complement}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}A)
+\begin{DoxyCompactList}\small\item\em Complémentation d\textquotesingle{}un automate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Déterminisation et complémentation. 
+
+Contient l\textquotesingle{}algorithme de déterminisation d\textquotesingle{}un automate basé sur la construction des sous-\/ensembles d\textquotesingle{}états et l\textquotesingle{}algorithme de complémentation. 
+
+Définition dans le fichier \mbox{\hyperlink{nfa__determi_8h_source}{nfa\+\_\+determi.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{nfa__determi_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{nfa__determi_8h_a4266fbcbc41804fad95df5c035dff367}\index{nfa\_determi.h@{nfa\_determi.h}!nfa\_determinize@{nfa\_determinize}}
+\index{nfa\_determinize@{nfa\_determinize}!nfa\_determi.h@{nfa\_determi.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_determinize()}{nfa\_determinize()}}
+{\footnotesize\ttfamily \label{nfa__determi_8h_a4266fbcbc41804fad95df5c035dff367} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+determinize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{, }\item[{bool}]{names}{}\end{DoxyParamCaption})}
+
+
+
+Déterminisation d\textquotesingle{}un automate. 
+
+L\textquotesingle{}algorithme est basé sur le construction des sous-\/ensembles\+: chaque état de l\textquotesingle{}automate déterminisé correspond à un ensemble d\textquotesingle{}états de l\textquotesingle{}automate passé en entrée.
+
+\begin{DoxyRemark}{Remarques}
+Le Booléen passé en paramètre indique si on souhaite enregistrer les noms des états de l\textquotesingle{}automate déterminisé pour l\textquotesingle{}affichage. Le nom d\textquotesingle{}un état de l\textquotesingle{}automate déterminisé est l\textquotesingle{}ensemble d\textquotesingle{}états de l\textquotesingle{}automate original auquel il correspond. On devra donc construire ces noms lors de la déterminisation et les stocker dans le tableau des noms des états de l\textquotesingle{}automate déterminisé sous la forme d\textquotesingle{}une chaîne de caractères.
+\end{DoxyRemark}
+\begin{DoxyAttention}{Attention}
+On ne générera QUE les états accessibles depuis l\textquotesingle{}état initial de l\textquotesingle{}automate déterminisé qu\textquotesingle{}on construit.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}automate déterminisé. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em A} & Le NFA à déterminiser.  \\
+\hline
+{\em names} & Un Booléen indiquant si on souhaite enregistrer les noms des états. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa__determi_8c_source_l00009}{9}} du fichier \mbox{\hyperlink{nfa__determi_8c_source}{nfa\+\_\+determi.\+c}}.
+
+\Hypertarget{nfa__determi_8h_a14500188cab5d3388721f2f20fdd5453}\index{nfa\_determi.h@{nfa\_determi.h}!nfa\_complement@{nfa\_complement}}
+\index{nfa\_complement@{nfa\_complement}!nfa\_determi.h@{nfa\_determi.h}}
+\doxysubsubsection{\texorpdfstring{nfa\_complement()}{nfa\_complement()}}
+{\footnotesize\ttfamily \label{nfa__determi_8h_a14500188cab5d3388721f2f20fdd5453} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+complement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A}{}\end{DoxyParamCaption})}
+
+
+
+Complémentation d\textquotesingle{}un automate. 
+
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}automate complémenté. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em A} & Le NFA à complémenter. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa__determi_8c_source_l00014}{14}} du fichier \mbox{\hyperlink{nfa__determi_8c_source}{nfa\+\_\+determi.\+c}}.
+

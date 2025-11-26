@@ -1,0 +1,162 @@
+\doxysection{Référence du fichier graphs.\+h}
+\hypertarget{graphs_8h}{}\label{graphs_8h}\index{graphs.h@{graphs.h}}
+
+
+Implémentation des graphes étiquetés.  
+
+
+{\ttfamily \#include "{}type\+\_\+basic.\+h"{}}\newline
+{\ttfamily \#include "{}type\+\_\+boolarray.\+h"{}}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structngraph}{ngraph}}
+\begin{DoxyCompactList}\small\item\em Type utilisé pour représenter un graphe orienté et étiqueté. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structone__edge}{one\+\_\+edge}}
+\begin{DoxyCompactList}\small\item\em Type utilisé pour représenter une unique arrête d\textquotesingle{}un graphe étiqueté. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structmulti__edge}{multi\+\_\+edge}}
+\begin{DoxyCompactList}\small\item\em Type utilisé pour représenter une multi-\/arête. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct ngraph \mbox{\hyperlink{graphs_8h_a2495134869c3421fcb3d1ce7c5f6671e}{ngraph}}
+\begin{DoxyCompactList}\small\item\em Type utilisé pour représenter un graphe orienté et étiqueté. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structone__edge}{one\+\_\+edge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphs_8h_a64ed6517e0b82a3d327ec1384a4a301b}{ngraph\+\_\+to\+\_\+edge\+\_\+list}} (\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*}G, int \texorpdfstring{$\ast$}{*}size)
+\begin{DoxyCompactList}\small\item\em Conversion d\textquotesingle{}un graphe en une liste d\textquotesingle{}arrêtes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphs_8h_a18fad7be58ac9e8a3be5a6ed5b908624}{edge\+\_\+list\+\_\+to\+\_\+ngraph}} (\mbox{\hyperlink{structone__edge}{one\+\_\+edge}} \texorpdfstring{$\ast$}{*}edges, int size, int nb\+\_\+states, int nb\+\_\+labels)
+\begin{DoxyCompactList}\small\item\em Conversion d\textquotesingle{}une liste d\textquotesingle{}arrêtes en un graphe étiqueté. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structmulti__edge}{multi\+\_\+edge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graphs_8h_a76d0cc79faa0170ac09cd30b602b95a2}{ngraph\+\_\+to\+\_\+multi\+\_\+edges}} (\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*}G, int \texorpdfstring{$\ast$}{*}size)
+\begin{DoxyCompactList}\small\item\em Calcul de la liste des multi-\/arêtes d\textquotesingle{}un graphe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des graphes étiquetés. 
+
+Contient le type utilisé pour représenter des graphes étiquetés (qu\textquotesingle{}on utilisera ensuite pour coder les transitions des automates). 
+
+Définition dans le fichier \mbox{\hyperlink{graphs_8h_source}{graphs.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{graphs_8h_doc-typedef-members}
+\doxysubsection{Documentation des définitions de type}
+\Hypertarget{graphs_8h_a2495134869c3421fcb3d1ce7c5f6671e}\index{graphs.h@{graphs.h}!ngraph@{ngraph}}
+\index{ngraph@{ngraph}!graphs.h@{graphs.h}}
+\doxysubsubsection{\texorpdfstring{ngraph}{ngraph}}
+{\footnotesize\ttfamily \label{graphs_8h_a2495134869c3421fcb3d1ce7c5f6671e} 
+typedef struct ngraph ngraph}
+
+
+
+Type utilisé pour représenter un graphe orienté et étiqueté. 
+
+Le graphe contient nb\+\_\+states sommets, numérotés de 0 à nb\+\_\+states-\/1 et il y a nb\+\_\+labels étiquettes numérotées de 0 à nb\+\_\+labels-\/1. Les arrêtes sont codées par les deux tableaux "{}to\+\_\+array"{} et "{}intervals"{}\+:
+\begin{DoxyItemize}
+\item "{}intervals"{} est un tableau de taille "{}nb\+\_\+states \texorpdfstring{$\ast$}{*} nb\+\_\+labels + 1"{}. Il stocke des indices dans le tableau "{}to\+\_\+array"{} triés par ordre croissant.
+\item "{}to\+\_\+array"{} est un tableau d\textquotesingle{}entiers, qui stocke les états d\textquotesingle{}arrivée des arrêtes (sa taille est égale au nombre total d\textquotesingle{}arrêtes dans le graphe). Pour chaque état q et chaque étiquette a, les états d\textquotesingle{}arrivée des arrêtes partant de q et étiquetées par a sont stockées de façon contiguë et triés par ordre croissant dans le tableau "{}to\+\_\+array"{}, entre les indices intervals\mbox{[}q \texorpdfstring{$\ast$}{*} nb\+\_\+labels + a\mbox{]} (inclus) et intervals\mbox{[}q \texorpdfstring{$\ast$}{*} nb\+\_\+labels + a + 1\mbox{]} (exclus).
+\end{DoxyItemize}
+
+\begin{DoxyRemark}{Remarques}
+En particulier, la cellule intervals\mbox{[}nb\+\_\+states \texorpdfstring{$\ast$}{*} nb\+\_\+labels\mbox{]} contient le nombre total de transitions dans l\textquotesingle{}automate (la taille de intervals). 
+\end{DoxyRemark}
+
+
+\label{doc-func-members}
+\Hypertarget{graphs_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{graphs_8h_a64ed6517e0b82a3d327ec1384a4a301b}\index{graphs.h@{graphs.h}!ngraph\_to\_edge\_list@{ngraph\_to\_edge\_list}}
+\index{ngraph\_to\_edge\_list@{ngraph\_to\_edge\_list}!graphs.h@{graphs.h}}
+\doxysubsubsection{\texorpdfstring{ngraph\_to\_edge\_list()}{ngraph\_to\_edge\_list()}}
+{\footnotesize\ttfamily \label{graphs_8h_a64ed6517e0b82a3d327ec1384a4a301b} 
+\mbox{\hyperlink{structone__edge}{one\+\_\+edge}} \texorpdfstring{$\ast$}{*} ngraph\+\_\+to\+\_\+edge\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*}}]{G}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Conversion d\textquotesingle{}un graphe en une liste d\textquotesingle{}arrêtes. 
+
+\begin{DoxyRemark}{Remarques}
+La taille de la liste est retournée par le second paramètre.
+\end{DoxyRemark}
+\begin{DoxyAttention}{Attention}
+Cette fonction est utilisée pour la sauvegarde d\textquotesingle{}un NFA dans un fichier. Elle doit être écrite pour que la sauvegarde fonctionne correctement.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+La liste des arrêtes. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em G} & Le graphe à convertir.  \\
+\hline
+{\em size} & Pointeur pour retourner la taille de la liste. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{graphs_8c_source_l00003}{3}} du fichier \mbox{\hyperlink{graphs_8c_source}{graphs.\+c}}.
+
+\Hypertarget{graphs_8h_a18fad7be58ac9e8a3be5a6ed5b908624}\index{graphs.h@{graphs.h}!edge\_list\_to\_ngraph@{edge\_list\_to\_ngraph}}
+\index{edge\_list\_to\_ngraph@{edge\_list\_to\_ngraph}!graphs.h@{graphs.h}}
+\doxysubsubsection{\texorpdfstring{edge\_list\_to\_ngraph()}{edge\_list\_to\_ngraph()}}
+{\footnotesize\ttfamily \label{graphs_8h_a18fad7be58ac9e8a3be5a6ed5b908624} 
+\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*} edge\+\_\+list\+\_\+to\+\_\+ngraph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structone__edge}{one\+\_\+edge}} \texorpdfstring{$\ast$}{*}}]{edges}{, }\item[{int}]{size}{, }\item[{int}]{nb\+\_\+states}{, }\item[{int}]{nb\+\_\+labels}{}\end{DoxyParamCaption})}
+
+
+
+Conversion d\textquotesingle{}une liste d\textquotesingle{}arrêtes en un graphe étiqueté. 
+
+\begin{DoxyAttention}{Attention}
+Cette fonction est utilisée pour le chargement d\textquotesingle{}un NFA depuis un fichier. Elle est aussi utilisée par l\textquotesingle{}algorithme de Glushkov. Elle doit être écrite pour que ces deux fonctionnalités fonctionnent correctement.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+Le graphe étiqueté. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em edges} & La liste des arrêtes.  \\
+\hline
+{\em size} & La taille de la liste.  \\
+\hline
+{\em nb\+\_\+states} & Le nombre total d\textquotesingle{}états du graphe.  \\
+\hline
+{\em nb\+\_\+labels} & Le nombre total d\textquotesingle{}étiquettes du graphe. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{graphs_8c_source_l00012}{12}} du fichier \mbox{\hyperlink{graphs_8c_source}{graphs.\+c}}.
+
+\Hypertarget{graphs_8h_a76d0cc79faa0170ac09cd30b602b95a2}\index{graphs.h@{graphs.h}!ngraph\_to\_multi\_edges@{ngraph\_to\_multi\_edges}}
+\index{ngraph\_to\_multi\_edges@{ngraph\_to\_multi\_edges}!graphs.h@{graphs.h}}
+\doxysubsubsection{\texorpdfstring{ngraph\_to\_multi\_edges()}{ngraph\_to\_multi\_edges()}}
+{\footnotesize\ttfamily \label{graphs_8h_a76d0cc79faa0170ac09cd30b602b95a2} 
+\mbox{\hyperlink{structmulti__edge}{multi\+\_\+edge}} \texorpdfstring{$\ast$}{*} ngraph\+\_\+to\+\_\+multi\+\_\+edges (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*}}]{G}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Calcul de la liste des multi-\/arêtes d\textquotesingle{}un graphe. 
+
+\begin{DoxyReturn}{Renvoie}
+La liste des multi-\/arêtes stockée dans une pile.
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarques}
+Cette fonction sert à afficher les automates de façon plus compacte \+: une fois écrite, les arêtes qui ont les mêmes extrémités peuvent être regroupées en une seule flèche. Pour utiliser cette fonction, il faut basculer à 1 la macro ADVANCED de \doxylink{parameters_8h}{parameters.\+h}. 
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Paramètres}
+{\em G} & Le graphe,  \\
+\hline
+{\em size} & Pointeur pour retourner la taille de la liste. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{graphs_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{graphs_8c_source}{graphs.\+c}}.
+

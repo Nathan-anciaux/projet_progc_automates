@@ -1,0 +1,49 @@
+\doxysection{Référence du fichier nfa\+\_\+intersec.\+c}
+\hypertarget{nfa__intersec_8c}{}\label{nfa__intersec_8c}\index{nfa\_intersec.c@{nfa\_intersec.c}}
+{\ttfamily \#include "{}nfa\+\_\+intersec.\+h"{}}\newline
+{\ttfamily \#include "{}printing.\+h"{}}\newline
+{\ttfamily \#include "{}type\+\_\+hash.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nfa__intersec_8c_a35d6831b9e0fa65e52a0d5be492fcad8}{nfa\+\_\+intersect}} (\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}, bool)
+\begin{DoxyCompactList}\small\item\em Intersection de deux automates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{nfa__intersec_8c_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{nfa__intersec_8c_a35d6831b9e0fa65e52a0d5be492fcad8}\index{nfa\_intersec.c@{nfa\_intersec.c}!nfa\_intersect@{nfa\_intersect}}
+\index{nfa\_intersect@{nfa\_intersect}!nfa\_intersec.c@{nfa\_intersec.c}}
+\doxysubsubsection{\texorpdfstring{nfa\_intersect()}{nfa\_intersect()}}
+{\footnotesize\ttfamily \label{nfa__intersec_8c_a35d6831b9e0fa65e52a0d5be492fcad8} 
+\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*} nfa\+\_\+intersect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A1}{, }\item[{\mbox{\hyperlink{structnfa}{nfa}} \texorpdfstring{$\ast$}{*}}]{A2}{, }\item[{bool}]{names}{}\end{DoxyParamCaption})}
+
+
+
+Intersection de deux automates. 
+
+L\textquotesingle{}algorithme est basé sur l\textquotesingle{}automate produit\+: chaque état de l\textquotesingle{}automate qu\textquotesingle{}on construit correspond à une paire {\ttfamily (q1,q2)} où {\ttfamily q1} est un état du premier automate passé en entrée et {\ttfamily q2} est un état du second automate passé en entrée.
+
+\begin{DoxyRemark}{Remarques}
+Le Booléen passé en paramètre indique si on souhaite enregistrer les noms des états de l\textquotesingle{}automate déterminisé pour l\textquotesingle{}affichage. Le nom d\textquotesingle{}un état de l\textquotesingle{}automate déterminisé est la paire d\textquotesingle{}états des automates passés en entrée auquel il correspond. On devra donc construire ces noms lors de l\textquotesingle{}intersection et les stocker dans le tableau des noms des états de l\textquotesingle{}automate produit sous la forme d\textquotesingle{}une chaîne de caractères.
+\end{DoxyRemark}
+\begin{DoxyAttention}{Attention}
+On ne générera QUE les états accessibles depuis un état initial de l\textquotesingle{}automate produit qu\textquotesingle{}on construit.
+\end{DoxyAttention}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}automate qui réalise l\textquotesingle{}intersection. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em A1} & Le premier NFA à intersecter.  \\
+\hline
+{\em A2} & Le second NFA à intersecter.  \\
+\hline
+{\em names} & Un Booléen indiquant si on souhaite enregistrer les noms des états. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa__intersec_8c_source_l00009}{9}} du fichier \mbox{\hyperlink{nfa__intersec_8c_source}{nfa\+\_\+intersec.\+c}}.
+

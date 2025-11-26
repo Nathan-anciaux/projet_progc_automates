@@ -1,0 +1,202 @@
+\doxysection{Référence de la structure nfa}
+\hypertarget{structnfa}{}\label{structnfa}\index{nfa@{nfa}}
+
+
+Type utilisé pour représenter un NFA.  
+
+
+
+
+{\ttfamily \#include $<$nfa.\+h$>$}
+
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structnfa_a70e2887027709640e3d42750b86c1c37}{nb\+\_\+states}}
+\begin{DoxyCompactList}\small\item\em Le nombre d\textquotesingle{}états (identique à transitions-\/\texorpdfstring{$>$}{>}nb\+\_\+states). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structnfa_a0a13e58d0cd63c8843c8337d37bb6e51}{nb\+\_\+letters}}
+\begin{DoxyCompactList}\small\item\em Le nombre de lettres. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structnfa_ad6f85ffd8ea365d542382b729ebfc7ca}{eps\+\_\+trans}}
+\begin{DoxyCompactList}\small\item\em Indique si l\textquotesingle{}automate possède des transitions epsilon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structngraph}{ngraph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structnfa_af3996008460589a009e4980aa8ab203d}{transitions}}
+\begin{DoxyCompactList}\small\item\em Le graphe des transitions. \end{DoxyCompactList}\item 
+int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structnfa_a35b5adb955e031cb07501b324d90e15b}{initials}}
+\begin{DoxyCompactList}\small\item\em Le tableau des états initiaux. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structnfa_ab4b137d1adde3eba1d6c5f856f2f293c}{nb\+\_\+initials}}
+\begin{DoxyCompactList}\small\item\em Le nombre d\textquotesingle{}états initiaux. \end{DoxyCompactList}\item 
+int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structnfa_abe98e28564cc8b586f08cba6138c0b21}{finals}}
+\begin{DoxyCompactList}\small\item\em Le tableau des états finaux. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structnfa_a714025236e3afdb64c718b1b9e911eaf}{nb\+\_\+finals}}
+\begin{DoxyCompactList}\small\item\em Le nombre d\textquotesingle{}états finaux. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structnfa_ab49df3856068af8cc07c31a6ccd466e2}{letter\+\_\+names}}
+\begin{DoxyCompactList}\small\item\em Le tableau des noms des lettres. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structnfa_aede9833ae37b956b6b973c41a6c477f2}{state\+\_\+names}}
+\begin{DoxyCompactList}\small\item\em Le tableau des noms des états (NULL si pas utilisé). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Type utilisé pour représenter un NFA. 
+
+\begin{DoxyRemark}{Remarques}
+Si l\textquotesingle{}automate ne possède pas de transitions epsilon, alors le champ nb\+\_\+letters est égal à transitions-\/\texorpdfstring{$>$}{>}nb\+\_\+labels (les étiquettes du graphe des transitions correspondent exactement aux lettres de l\textquotesingle{}alphabet de l\textquotesingle{}automate). Sinon, si il y a des transitions epsilon, alors transitions-\/\texorpdfstring{$>$}{>}nb\+\_\+labels = nb\+\_\+letters + 1
+\begin{DoxyItemize}
+\item Les étiquettes de 0 à nb\+\_\+letters-\/1 correspondent aux lettres de l\textquotesingle{}alphabet.
+\item L\textquotesingle{}étiquette nb\+\_\+letters correspond aux transitions epsilon.
+\end{DoxyItemize}
+
+Le tableau des noms des états n\textquotesingle{}est pas toujours utilisé (dans ce cas le nom d\textquotesingle{}un état est simplement son numéro). Si on ne l\textquotesingle{}utilise pas, il doit avoir la valeur {\ttfamily NULL}. Quand on l\textquotesingle{}utilise, chaque nom d\textquotesingle{}état est une chaîne de caractères allouée dynamiquement (il faudra donc penser à libérer ces chaînes ainsi que le tableau des noms des états quand on n\textquotesingle{}en a plus besoin). 
+\end{DoxyRemark}
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00041}{41}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structnfa_doc-variable-members}
+\doxysubsection{Documentation des champs}
+\Hypertarget{structnfa_a70e2887027709640e3d42750b86c1c37}\index{nfa@{nfa}!nb\_states@{nb\_states}}
+\index{nb\_states@{nb\_states}!nfa@{nfa}}
+\doxysubsubsection{\texorpdfstring{nb\_states}{nb\_states}}
+{\footnotesize\ttfamily \label{structnfa_a70e2887027709640e3d42750b86c1c37} 
+int nb\+\_\+states}
+
+
+
+Le nombre d\textquotesingle{}états (identique à transitions-\/\texorpdfstring{$>$}{>}nb\+\_\+states). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00043}{43}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+\Hypertarget{structnfa_a0a13e58d0cd63c8843c8337d37bb6e51}\index{nfa@{nfa}!nb\_letters@{nb\_letters}}
+\index{nb\_letters@{nb\_letters}!nfa@{nfa}}
+\doxysubsubsection{\texorpdfstring{nb\_letters}{nb\_letters}}
+{\footnotesize\ttfamily \label{structnfa_a0a13e58d0cd63c8843c8337d37bb6e51} 
+int nb\+\_\+letters}
+
+
+
+Le nombre de lettres. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00044}{44}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+\Hypertarget{structnfa_ad6f85ffd8ea365d542382b729ebfc7ca}\index{nfa@{nfa}!eps\_trans@{eps\_trans}}
+\index{eps\_trans@{eps\_trans}!nfa@{nfa}}
+\doxysubsubsection{\texorpdfstring{eps\_trans}{eps\_trans}}
+{\footnotesize\ttfamily \label{structnfa_ad6f85ffd8ea365d542382b729ebfc7ca} 
+bool eps\+\_\+trans}
+
+
+
+Indique si l\textquotesingle{}automate possède des transitions epsilon. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00045}{45}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+\Hypertarget{structnfa_af3996008460589a009e4980aa8ab203d}\index{nfa@{nfa}!transitions@{transitions}}
+\index{transitions@{transitions}!nfa@{nfa}}
+\doxysubsubsection{\texorpdfstring{transitions}{transitions}}
+{\footnotesize\ttfamily \label{structnfa_af3996008460589a009e4980aa8ab203d} 
+\mbox{\hyperlink{structngraph}{ngraph}}\texorpdfstring{$\ast$}{*} transitions}
+
+
+
+Le graphe des transitions. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00046}{46}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+\Hypertarget{structnfa_a35b5adb955e031cb07501b324d90e15b}\index{nfa@{nfa}!initials@{initials}}
+\index{initials@{initials}!nfa@{nfa}}
+\doxysubsubsection{\texorpdfstring{initials}{initials}}
+{\footnotesize\ttfamily \label{structnfa_a35b5adb955e031cb07501b324d90e15b} 
+int\texorpdfstring{$\ast$}{*} initials}
+
+
+
+Le tableau des états initiaux. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00047}{47}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+\Hypertarget{structnfa_ab4b137d1adde3eba1d6c5f856f2f293c}\index{nfa@{nfa}!nb\_initials@{nb\_initials}}
+\index{nb\_initials@{nb\_initials}!nfa@{nfa}}
+\doxysubsubsection{\texorpdfstring{nb\_initials}{nb\_initials}}
+{\footnotesize\ttfamily \label{structnfa_ab4b137d1adde3eba1d6c5f856f2f293c} 
+int nb\+\_\+initials}
+
+
+
+Le nombre d\textquotesingle{}états initiaux. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00048}{48}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+\Hypertarget{structnfa_abe98e28564cc8b586f08cba6138c0b21}\index{nfa@{nfa}!finals@{finals}}
+\index{finals@{finals}!nfa@{nfa}}
+\doxysubsubsection{\texorpdfstring{finals}{finals}}
+{\footnotesize\ttfamily \label{structnfa_abe98e28564cc8b586f08cba6138c0b21} 
+int\texorpdfstring{$\ast$}{*} finals}
+
+
+
+Le tableau des états finaux. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00049}{49}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+\Hypertarget{structnfa_a714025236e3afdb64c718b1b9e911eaf}\index{nfa@{nfa}!nb\_finals@{nb\_finals}}
+\index{nb\_finals@{nb\_finals}!nfa@{nfa}}
+\doxysubsubsection{\texorpdfstring{nb\_finals}{nb\_finals}}
+{\footnotesize\ttfamily \label{structnfa_a714025236e3afdb64c718b1b9e911eaf} 
+int nb\+\_\+finals}
+
+
+
+Le nombre d\textquotesingle{}états finaux. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00050}{50}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+\Hypertarget{structnfa_ab49df3856068af8cc07c31a6ccd466e2}\index{nfa@{nfa}!letter\_names@{letter\_names}}
+\index{letter\_names@{letter\_names}!nfa@{nfa}}
+\doxysubsubsection{\texorpdfstring{letter\_names}{letter\_names}}
+{\footnotesize\ttfamily \label{structnfa_ab49df3856068af8cc07c31a6ccd466e2} 
+char\texorpdfstring{$\ast$}{*} letter\+\_\+names}
+
+
+
+Le tableau des noms des lettres. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00051}{51}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+\Hypertarget{structnfa_aede9833ae37b956b6b973c41a6c477f2}\index{nfa@{nfa}!state\_names@{state\_names}}
+\index{state\_names@{state\_names}!nfa@{nfa}}
+\doxysubsubsection{\texorpdfstring{state\_names}{state\_names}}
+{\footnotesize\ttfamily \label{structnfa_aede9833ae37b956b6b973c41a6c477f2} 
+char\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} state\+\_\+names}
+
+
+
+Le tableau des noms des états (NULL si pas utilisé). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{nfa_8h_source_l00054}{54}} du fichier \mbox{\hyperlink{nfa_8h_source}{nfa.\+h}}.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nfa_8h}{nfa.\+h}}\end{DoxyCompactItemize}

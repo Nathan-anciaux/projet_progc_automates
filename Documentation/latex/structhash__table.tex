@@ -1,0 +1,102 @@
+\doxysection{Référence de la structure hash\+\_\+table}
+\hypertarget{structhash__table}{}\label{structhash__table}\index{hash\_table@{hash\_table}}
+
+
+Type utilisé pour représenter une table de hachage.  
+
+
+
+
+{\ttfamily \#include $<$type\+\_\+hash.\+h$>$}
+
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structhash__table_abd959be542fb05311c40daf76e9c8e76}{hash\+\_\+capacity}}
+\begin{DoxyCompactList}\small\item\em Capacité actuelle de la table de hachage. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structhash__table_aabd3da7e414eb47c9adc344a8efe5614}{hash\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em Taille du hachage (nombre d\textquotesingle{}éléments dans la table de hachage). \end{DoxyCompactList}\item 
+int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}{hash\+\_\+table}}
+\begin{DoxyCompactList}\small\item\em Pointeur vers la table de hachage elle-\/même (tableau d\textquotesingle{}indices vers le tableau de stockage externe). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8}{element\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em Nombre de valeurs utilisées pour encoder un seul élément dans le tableau de stockage externe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Type utilisé pour représenter une table de hachage. 
+
+Utilisée pour stocker les configurations de plateau visitées dans le résolveur. La table de hachage ne stocke pas les objets eux-\/mêmes, mais des indices vers un tableau de stockage externe qui est passé aux fonctions de la table de hachage (ceci est nécessaire car le tableau de stockage externe peut avoir besoin d\textquotesingle{}être réalloué et déplacé en mémoire).
+
+\begin{DoxyRemark}{Remarques}
+Chaque élément inséré doit être encodé dans le tableau de stockage externe comme une séquence d\textquotesingle{}entiers (la longueur de la séquence est fixée à la création de la table de hachage). En particulier, cela signifie que les objets à insérer doivent être encodés comme des tableaux d\textquotesingle{}entiers. 
+\end{DoxyRemark}
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8h_source_l00039}{39}} du fichier \mbox{\hyperlink{type__hash_8h_source}{type\+\_\+hash.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structhash__table_doc-variable-members}
+\doxysubsection{Documentation des champs}
+\Hypertarget{structhash__table_abd959be542fb05311c40daf76e9c8e76}\index{hash\_table@{hash\_table}!hash\_capacity@{hash\_capacity}}
+\index{hash\_capacity@{hash\_capacity}!hash\_table@{hash\_table}}
+\doxysubsubsection{\texorpdfstring{hash\_capacity}{hash\_capacity}}
+{\footnotesize\ttfamily \label{structhash__table_abd959be542fb05311c40daf76e9c8e76} 
+int hash\+\_\+capacity}
+
+
+
+Capacité actuelle de la table de hachage. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8h_source_l00041}{41}} du fichier \mbox{\hyperlink{type__hash_8h_source}{type\+\_\+hash.\+h}}.
+
+\Hypertarget{structhash__table_aabd3da7e414eb47c9adc344a8efe5614}\index{hash\_table@{hash\_table}!hash\_size@{hash\_size}}
+\index{hash\_size@{hash\_size}!hash\_table@{hash\_table}}
+\doxysubsubsection{\texorpdfstring{hash\_size}{hash\_size}}
+{\footnotesize\ttfamily \label{structhash__table_aabd3da7e414eb47c9adc344a8efe5614} 
+int hash\+\_\+size}
+
+
+
+Taille du hachage (nombre d\textquotesingle{}éléments dans la table de hachage). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8h_source_l00042}{42}} du fichier \mbox{\hyperlink{type__hash_8h_source}{type\+\_\+hash.\+h}}.
+
+\Hypertarget{structhash__table_a02efcd8442afc51926ed00f5c5f2c186}\index{hash\_table@{hash\_table}!hash\_table@{hash\_table}}
+\index{hash\_table@{hash\_table}!hash\_table@{hash\_table}}
+\doxysubsubsection{\texorpdfstring{hash\_table}{hash\_table}}
+{\footnotesize\ttfamily \label{structhash__table_a02efcd8442afc51926ed00f5c5f2c186} 
+int\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhash__table}{hash\+\_\+table}}}
+
+
+
+Pointeur vers la table de hachage elle-\/même (tableau d\textquotesingle{}indices vers le tableau de stockage externe). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8h_source_l00043}{43}} du fichier \mbox{\hyperlink{type__hash_8h_source}{type\+\_\+hash.\+h}}.
+
+\Hypertarget{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8}\index{hash\_table@{hash\_table}!element\_size@{element\_size}}
+\index{element\_size@{element\_size}!hash\_table@{hash\_table}}
+\doxysubsubsection{\texorpdfstring{element\_size}{element\_size}}
+{\footnotesize\ttfamily \label{structhash__table_a8896aa1d0fd5bc5927a7dabde5fb42a8} 
+int element\+\_\+size}
+
+
+
+Nombre de valeurs utilisées pour encoder un seul élément dans le tableau de stockage externe. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{type__hash_8h_source_l00044}{44}} du fichier \mbox{\hyperlink{type__hash_8h_source}{type\+\_\+hash.\+h}}.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{type__hash_8h}{type\+\_\+hash.\+h}}\end{DoxyCompactItemize}

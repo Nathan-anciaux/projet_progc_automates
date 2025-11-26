@@ -1,0 +1,102 @@
+\doxysection{Référence de la structure regexp}
+\hypertarget{structregexp}{}\label{structregexp}\index{regexp@{regexp}}
+
+
+Type utilisé pour représenter un noeud d\textquotesingle{}une expression régulière.  
+
+
+
+
+{\ttfamily \#include $<$regexp.\+h$>$}
+
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68fa}{regelem}} \mbox{\hyperlink{structregexp_ab3dd8e3a4e3f8387c57051ef6831b65a}{op}}
+\begin{DoxyCompactList}\small\item\em L\textquotesingle{}opérateur utilisé. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structregexp_a0208b413d1d54a35ac03b94a23e087e6}{left}}
+\begin{DoxyCompactList}\small\item\em La sous-\/expression gauche (si il y en a une). \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structregexp}{regexp}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structregexp_a5a4f7823a61a9a64d8e5555617d3500a}{right}}
+\begin{DoxyCompactList}\small\item\em La sous-\/expression droite (si il y en a une). \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{structregexp_ac632f0e58c93e01b2bfbb3015c8de34f}{letter}}
+\begin{DoxyCompactList}\small\item\em La lettre (si il s\textquotesingle{}agit d\textquotesingle{}une lettre). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Type utilisé pour représenter un noeud d\textquotesingle{}une expression régulière. 
+
+Les champs left et right sont utilisés pour représenter les sous-\/expressions gauche et droite (si elles existent)\+:
+\begin{DoxyItemize}
+\item Pour les opérateurs unaire (COMPLEMENT et STAR), seul le champ left est utilisé.
+\item Pour les opérateurs binaires (UNION, INTER et CONCAT), les deux champs sont utilisés.
+\item Pour les opérandes (EMPTY, EPSILON et CHAR), aucun des deux champs n\textquotesingle{}est utilisé. Quand un champ n\textquotesingle{}est pas utilisé, il doit avoir la valeur NULL. 
+\end{DoxyItemize}
+
+Définition à la ligne \mbox{\hyperlink{regexp_8h_source_l00052}{52}} du fichier \mbox{\hyperlink{regexp_8h_source}{regexp.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structregexp_doc-variable-members}
+\doxysubsection{Documentation des champs}
+\Hypertarget{structregexp_ab3dd8e3a4e3f8387c57051ef6831b65a}\index{regexp@{regexp}!op@{op}}
+\index{op@{op}!regexp@{regexp}}
+\doxysubsubsection{\texorpdfstring{op}{op}}
+{\footnotesize\ttfamily \label{structregexp_ab3dd8e3a4e3f8387c57051ef6831b65a} 
+\mbox{\hyperlink{regexp_8h_a945e1b6cec6225bade72691d362c68fa}{regelem}} op}
+
+
+
+L\textquotesingle{}opérateur utilisé. 
+
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8h_source_l00054}{54}} du fichier \mbox{\hyperlink{regexp_8h_source}{regexp.\+h}}.
+
+\Hypertarget{structregexp_a0208b413d1d54a35ac03b94a23e087e6}\index{regexp@{regexp}!left@{left}}
+\index{left@{left}!regexp@{regexp}}
+\doxysubsubsection{\texorpdfstring{left}{left}}
+{\footnotesize\ttfamily \label{structregexp_a0208b413d1d54a35ac03b94a23e087e6} 
+struct \mbox{\hyperlink{structregexp}{regexp}}\texorpdfstring{$\ast$}{*} left}
+
+
+
+La sous-\/expression gauche (si il y en a une). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8h_source_l00055}{55}} du fichier \mbox{\hyperlink{regexp_8h_source}{regexp.\+h}}.
+
+\Hypertarget{structregexp_a5a4f7823a61a9a64d8e5555617d3500a}\index{regexp@{regexp}!right@{right}}
+\index{right@{right}!regexp@{regexp}}
+\doxysubsubsection{\texorpdfstring{right}{right}}
+{\footnotesize\ttfamily \label{structregexp_a5a4f7823a61a9a64d8e5555617d3500a} 
+struct \mbox{\hyperlink{structregexp}{regexp}}\texorpdfstring{$\ast$}{*} right}
+
+
+
+La sous-\/expression droite (si il y en a une). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8h_source_l00056}{56}} du fichier \mbox{\hyperlink{regexp_8h_source}{regexp.\+h}}.
+
+\Hypertarget{structregexp_ac632f0e58c93e01b2bfbb3015c8de34f}\index{regexp@{regexp}!letter@{letter}}
+\index{letter@{letter}!regexp@{regexp}}
+\doxysubsubsection{\texorpdfstring{letter}{letter}}
+{\footnotesize\ttfamily \label{structregexp_ac632f0e58c93e01b2bfbb3015c8de34f} 
+char letter}
+
+
+
+La lettre (si il s\textquotesingle{}agit d\textquotesingle{}une lettre). 
+
+
+
+Définition à la ligne \mbox{\hyperlink{regexp_8h_source_l00057}{57}} du fichier \mbox{\hyperlink{regexp_8h_source}{regexp.\+h}}.
+
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{regexp_8h}{regexp.\+h}}\end{DoxyCompactItemize}

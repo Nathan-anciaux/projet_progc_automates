@@ -1,0 +1,304 @@
+\doxysection{Référence du fichier alloc.\+h}
+\hypertarget{alloc_8h}{}\label{alloc_8h}\index{alloc.h@{alloc.h}}
+
+
+Macros et fonctions d\textquotesingle{}allocation mémoire.  
+
+
+{\ttfamily \#include "{}error.\+h"{}}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\+\_\+\+MEMORY}}(p,  num\+\_\+objects)
+\begin{DoxyCompactList}\small\item\em Macro pour allouer de la mémoire en utilisant la fonction malloc(). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{alloc_8h_a28559bbab562cdfb5052738129597225}{CREATE\+\_\+\+ZERO\+\_\+\+MEMORY}}(p,  num\+\_\+objects)
+\begin{DoxyCompactList}\small\item\em Macro pour allouer de la mémoire en utilisant la fonction calloc(). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{alloc_8h_a860b7c93efb27f3b07a8577c5fa93a15}{REDIMENSION\+\_\+\+MEMORY}}(p,  num\+\_\+objects)
+\begin{DoxyCompactList}\small\item\em Macro pour réallouer de la mémoire en utilisant la fonction realloc(). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{CHECK\+\_\+\+NULL}}(n, ...)
+\begin{DoxyCompactList}\small\item\em Macro permettant de tester si un ou plusieurs pointeurs sont NULL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{alloc_8h_a4310f3e2cf0b85c13534389cc7479f33}{check\+\_\+null}} (const char \texorpdfstring{$\ast$}{*}function, char \texorpdfstring{$\ast$}{*}file, int line, int n,...)
+\begin{DoxyCompactList}\small\item\em Ne pas utiliser cette fonction directement, mais à la place la macro \doxylink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{CHECK\+\_\+\+NULL()}, qui indique dans le message la position de l\textquotesingle{}erreur dans le source. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{alloc_8h_a95dd19b1b2af33029f7ccb78d5f17039}{multiple\+\_\+free}} (void \texorpdfstring{$\ast$}{*}p,...)
+\begin{DoxyCompactList}\small\item\em Fonction pour libérer de la mémoire en utilisant la fonction free(). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Macros et fonctions d\textquotesingle{}allocation mémoire. 
+
+Les macros \doxylink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\+\_\+\+MEMORY()}, \doxylink{alloc_8h_a28559bbab562cdfb5052738129597225}{CREATE\+\_\+\+ZERO\+\_\+\+MEMORY()} et \doxylink{alloc_8h_a860b7c93efb27f3b07a8577c5fa93a15}{REDIMENSION\+\_\+\+MEMORY()} définies dans ce fichier permettent d\textquotesingle{}allouer de la mémoire dynamiquement, en vérifiant que l\textquotesingle{}allocation a réussi. En cas d\textquotesingle{}échec, elles affichent un message d\textquotesingle{}erreur sur la sortie erreur, en indiquant la fonction, le fichier et la ligne où l\textquotesingle{}allocation a échoué, et quittent le programme.
+
+La fonction \doxylink{alloc_8h_a95dd19b1b2af33029f7ccb78d5f17039}{multiple\+\_\+free()} permet de libérer plusieurs pointeurs en un seul appel (mais attention, aucun de ces pointeurs ne doit être {\ttfamily NULL}, et tous doivent avoir été alloués dynamiquement avant cette libération).
+
+La macro \doxylink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{CHECK\+\_\+\+NULL()} permet de vérifier qu\textquotesingle{}un ou plusieurs pointeurs ne sont pas {\ttfamily NULL}.
+
+La fonction \doxylink{alloc_8h_a4310f3e2cf0b85c13534389cc7479f33}{check\+\_\+null()} n\textquotesingle{}est pas destinée à être utilisée directement, mais est utilisée par la macro \doxylink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{CHECK\+\_\+\+NULL()}. 
+
+Définition dans le fichier \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+
+
+\label{doc-define-members}
+\Hypertarget{alloc_8h_doc-define-members}
+\doxysubsection{Documentation des macros}
+\Hypertarget{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}\index{alloc.h@{alloc.h}!CREATE\_MEMORY@{CREATE\_MEMORY}}
+\index{CREATE\_MEMORY@{CREATE\_MEMORY}!alloc.h@{alloc.h}}
+\doxysubsubsection{\texorpdfstring{CREATE\_MEMORY}{CREATE\_MEMORY}}
+{\footnotesize\ttfamily \label{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b} 
+\#define CREATE\+\_\+\+MEMORY(\begin{DoxyParamCaption}\item[{}]{p}{, }\item[{}]{num\+\_\+objects}{}\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ DEBUG(\textcolor{stringliteral}{"{}Allocating\ \ \%lu\ objects."{}},\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long})(num\_objects));\ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *tmp\ =\ malloc(\textcolor{keyword}{sizeof}\ *(p)\ *\ (num\_objects));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (!tmp)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ FATAL(\textcolor{stringliteral}{"{}Malloc\ error."{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ (p)\ =\ tmp;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+
+
+Macro pour allouer de la mémoire en utilisant la fonction malloc(). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & Pointeur à allouer. \\
+\hline
+{\em num\+\_\+objects} & Nombre d\textquotesingle{}objets à allouer.\\
+\hline
+\end{DoxyParams}
+Alloue de la mémoire permettant de stocker {\ttfamily num\+\_\+objects}, chacun de type {\ttfamily \texorpdfstring{$\ast$}{*}p}.
+
+{\bfseries{Exemple d\textquotesingle{}utilisation \+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{backmove\ *p;}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(p,\ 10);\ \textcolor{comment}{//\ Alloue\ un\ tableau\ de\ 10\ backmove.}}
+
+\end{DoxyCode}
+
+
+Si l\textquotesingle{}allocation échoue, affiche un message d\textquotesingle{}erreur et quitte le programme.
+
+\begin{DoxyAttention}{Attention}
+Le pointeur {\ttfamily p} doit avoir été déclaré, mais ne pas pointer vers une zone déjà allouée dynamiquement (sous peine de créer une fuite mémoire). Si {\ttfamily p} pointe déjà vers une zone allouée dynamiquement, il faut utiliser REDIMENSION\+\_\+\+MEMORY.
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{alloc_8h_a860b7c93efb27f3b07a8577c5fa93a15}{REDIMENSION\+\_\+\+MEMORY()} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{alloc_8h_source_l00057}{57}} du fichier \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+\Hypertarget{alloc_8h_a28559bbab562cdfb5052738129597225}\index{alloc.h@{alloc.h}!CREATE\_ZERO\_MEMORY@{CREATE\_ZERO\_MEMORY}}
+\index{CREATE\_ZERO\_MEMORY@{CREATE\_ZERO\_MEMORY}!alloc.h@{alloc.h}}
+\doxysubsubsection{\texorpdfstring{CREATE\_ZERO\_MEMORY}{CREATE\_ZERO\_MEMORY}}
+{\footnotesize\ttfamily \label{alloc_8h_a28559bbab562cdfb5052738129597225} 
+\#define CREATE\+\_\+\+ZERO\+\_\+\+MEMORY(\begin{DoxyParamCaption}\item[{}]{p}{, }\item[{}]{num\+\_\+objects}{}\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ DEBUG(\textcolor{stringliteral}{"{}Callocating\ \ \%lu\ objects."{}},\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long})(num\_objects));\ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *tmp\ =\ calloc((num\_objects),\ \textcolor{keyword}{sizeof}\ *(p));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (!tmp)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ FATAL(\textcolor{stringliteral}{"{}Calloc\ error."{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ (p)\ =\ tmp;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+
+
+Macro pour allouer de la mémoire en utilisant la fonction calloc(). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & Pointeur à allouer. \\
+\hline
+{\em num\+\_\+objects} & Nombre d\textquotesingle{}objets à allouer.\\
+\hline
+\end{DoxyParams}
+Alloue de la mémoire initialisée à 0, permettant de stocker {\ttfamily num\+\_\+objects}, chacun de type {\ttfamily \texorpdfstring{$\ast$}{*}p}.
+
+{\bfseries{Exemple d\textquotesingle{}utilisation \+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{backmove\ *p;}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_a28559bbab562cdfb5052738129597225}{CREATE\_ZERO\_MEMORY}}(p,\ 10);\ \textcolor{comment}{//\ Alloue\ un\ tableau\ de\ 10\ backmove\ initialisé\ à\ 0}}
+
+\end{DoxyCode}
+
+
+Si l\textquotesingle{}allocation échoue, affiche un message d\textquotesingle{}erreur et quitte le programme.
+
+\begin{DoxyAttention}{Attention}
+Le pointeur {\ttfamily p} doit avoir été déclaré, mais ne pas pointer vers une zone déjà allouée dynamiquement (sous peine de créer une fuite mémoire). Si {\ttfamily p} pointe déjà vers une zone allouée dynamiquement, il faut utiliser REDIMENSION\+\_\+\+MEMORY.
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{alloc_8h_a860b7c93efb27f3b07a8577c5fa93a15}{REDIMENSION\+\_\+\+MEMORY()} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{alloc_8h_source_l00092}{92}} du fichier \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+\Hypertarget{alloc_8h_a860b7c93efb27f3b07a8577c5fa93a15}\index{alloc.h@{alloc.h}!REDIMENSION\_MEMORY@{REDIMENSION\_MEMORY}}
+\index{REDIMENSION\_MEMORY@{REDIMENSION\_MEMORY}!alloc.h@{alloc.h}}
+\doxysubsubsection{\texorpdfstring{REDIMENSION\_MEMORY}{REDIMENSION\_MEMORY}}
+{\footnotesize\ttfamily \label{alloc_8h_a860b7c93efb27f3b07a8577c5fa93a15} 
+\#define REDIMENSION\+\_\+\+MEMORY(\begin{DoxyParamCaption}\item[{}]{p}{, }\item[{}]{num\+\_\+objects}{}\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ DEBUG(\textcolor{stringliteral}{"{}Reallocating\ \ \%lu\ objects."{}},\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long})(num\_objects));\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *tmp\ =\ realloc((p),\ \textcolor{keyword}{sizeof}\ *(p)\ *\ (num\_objects));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (!tmp)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ FATAL(\textcolor{stringliteral}{"{}Realloc\ error."{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ (p)\ =\ tmp;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+
+
+Macro pour réallouer de la mémoire en utilisant la fonction realloc(). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & Pointeur à allouer. \\
+\hline
+{\em num\+\_\+objects} & Nouveau nombre d\textquotesingle{}objets à allouer.\\
+\hline
+\end{DoxyParams}
+Ré-\/alloue la mémoire pointée par un pointeur p, dont la valeur doit avoir été retournée précédemment par une fonction d\textquotesingle{}allocation dynamique (malloc, calloc, realloc ou une des macros de ce fichier).
+
+Si l\textquotesingle{}allocation échoue, affiche un message d\textquotesingle{}erreur et quitte le programme.
+
+{\bfseries{Exemple d\textquotesingle{}utilisation \+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{backmove\ *p;}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(p,\ 10);\ \textcolor{comment}{//\ Alloue\ un\ tableau\ de\ 10\ backmove.}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ...}}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_a860b7c93efb27f3b07a8577c5fa93a15}{REDIMENSION\_MEMORY}}(p,\ 20);\ \textcolor{comment}{//\ Ré-\/alloue\ un\ tableau\ de\ 20\ backmove\ en\ copiant}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ le\ tableau\ précédent\ en\ début\ ce\ nouveau}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ tableau,\ et\ affecte\ à\ p\ l'adresse\ de\ la}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ première\ case\ de\ ce\ tableau.}}
+
+\end{DoxyCode}
+
+
+Si l\textquotesingle{}allocation échoue, affiche un message d\textquotesingle{}erreur et quitte le programme.
+
+\begin{DoxyAttention}{Attention}
+Le pointeur {\ttfamily p} doit avoir été déclaré et pointer vers une zone déjà allouée dynamiquement.
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\+\_\+\+MEMORY()}, \doxylink{alloc_8h_a28559bbab562cdfb5052738129597225}{CREATE\+\_\+\+ZERO\+\_\+\+MEMORY()} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{alloc_8h_source_l00132}{132}} du fichier \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+\Hypertarget{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}\index{alloc.h@{alloc.h}!CHECK\_NULL@{CHECK\_NULL}}
+\index{CHECK\_NULL@{CHECK\_NULL}!alloc.h@{alloc.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_NULL}{CHECK\_NULL}}
+{\footnotesize\ttfamily \label{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b} 
+\#define CHECK\+\_\+\+NULL(\begin{DoxyParamCaption}\item[{}]{n}{, }\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Valeur \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{alloc_8c_a4310f3e2cf0b85c13534389cc7479f33}{check\_null}}(\_\_func\_\_,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ n\ \_\_VA\_OPT\_\_(,\ )\ \_\_VA\_ARGS\_\_)}
+
+\end{DoxyCode}
+
+
+Macro permettant de tester si un ou plusieurs pointeurs sont NULL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em n} & Nombre de pointeurs à tester. \\
+\hline
+{\em ...} & Pointeurs à tester, en alternance avec des chaînes de caractères.\\
+\hline
+\end{DoxyParams}
+Il doit y avoir un pointeur à tester pour chaque chaîne de caractères, et inversement.
+
+La chaîne de caractères qui suit chaque pointeur permet de personnaliser le message d\textquotesingle{}erreur.
+
+{\bfseries{Exemple d\textquotesingle{}utilisation \+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{CHECK\_NULL}}(3,\ p1,\ \textcolor{stringliteral}{"{}Name1"{}},\ p2,\ \textcolor{stringliteral}{"{}Name2"{}},\ p3,\ \textcolor{stringliteral}{"{}Name3"{}});}
+
+\end{DoxyCode}
+ Ici, 3 est le nombre de pointeurs à vérifier, et {\ttfamily p1}, {\ttfamily p2} et {\ttfamily p3} sont les pointeurs. Si {\ttfamily p1} et {\ttfamily p3} sont NULL, la macro affichera un message d\textquotesingle{}erreur de la forme \+:
+
+\mbox{[}CRITICAL\mbox{]} Name1 is NULL!~\newline
+ \mbox{[}CRITICAL\mbox{]} Name3 is NULL!
+
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{alloc_8h_a4310f3e2cf0b85c13534389cc7479f33}{check\+\_\+null()} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{alloc_8h_source_l00168}{168}} du fichier \mbox{\hyperlink{alloc_8h_source}{alloc.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{alloc_8h_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{alloc_8h_a4310f3e2cf0b85c13534389cc7479f33}\index{alloc.h@{alloc.h}!check\_null@{check\_null}}
+\index{check\_null@{check\_null}!alloc.h@{alloc.h}}
+\doxysubsubsection{\texorpdfstring{check\_null()}{check\_null()}}
+{\footnotesize\ttfamily \label{alloc_8h_a4310f3e2cf0b85c13534389cc7479f33} 
+void check\+\_\+null (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{function}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{int}]{line}{, }\item[{int}]{n}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+Ne pas utiliser cette fonction directement, mais à la place la macro \doxylink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{CHECK\+\_\+\+NULL()}, qui indique dans le message la position de l\textquotesingle{}erreur dans le source. 
+
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{CHECK\+\_\+\+NULL()} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{alloc_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{alloc_8c_source}{alloc.\+c}}.
+
+\Hypertarget{alloc_8h_a95dd19b1b2af33029f7ccb78d5f17039}\index{alloc.h@{alloc.h}!multiple\_free@{multiple\_free}}
+\index{multiple\_free@{multiple\_free}!alloc.h@{alloc.h}}
+\doxysubsubsection{\texorpdfstring{multiple\_free()}{multiple\_free()}}
+{\footnotesize\ttfamily \label{alloc_8h_a95dd19b1b2af33029f7ccb78d5f17039} 
+void multiple\+\_\+free (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+Fonction pour libérer de la mémoire en utilisant la fonction free(). 
+
+Appelle free sur un nombre variable d\textquotesingle{}arguments. Le dernier argument doit être NULL.
+
+Exemple d\textquotesingle{}utilisation \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ *p1,\ *p2,\ *p3;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(p1,\ 10);\ \textcolor{comment}{//\ Alloue\ un\ tableau\ de\ 10\ int.}}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(p2,\ 10);}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(p3,\ 10);}
+\DoxyCodeLine{\textcolor{comment}{//\ ...}}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8c_a95dd19b1b2af33029f7ccb78d5f17039}{multiple\_free}}(p1,\ p2,\ p3,\ NULL);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyAttention}{Attention}
+Cette fonction est dangereuse et il faut savoir ce que vous faites si vous l\textquotesingle{}utilisez ! Les pointeurs à libérer {\bfseries{ne doivent pas}} être NULL. Dans l\textquotesingle{}exemple précédent, si {\ttfamily p2} est NULL, on ne libère pas {\ttfamily p3} et cela peut créer une fuite mémoire. 
+\end{DoxyAttention}
+
+
+Définition à la ligne \mbox{\hyperlink{alloc_8c_source_l00008}{8}} du fichier \mbox{\hyperlink{alloc_8c_source}{alloc.\+c}}.
+

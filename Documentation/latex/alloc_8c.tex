@@ -1,0 +1,78 @@
+\doxysection{Référence du fichier alloc.\+c}
+\hypertarget{alloc_8c}{}\label{alloc_8c}\index{alloc.c@{alloc.c}}
+
+
+Fonctions d\textquotesingle{}allocation mémoire.  
+
+
+{\ttfamily \#include "{}alloc.\+h"{}}\newline
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{alloc_8c_a95dd19b1b2af33029f7ccb78d5f17039}{multiple\+\_\+free}} (void \texorpdfstring{$\ast$}{*}p,...)
+\begin{DoxyCompactList}\small\item\em Fonction pour libérer de la mémoire en utilisant la fonction free(). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{alloc_8c_a4310f3e2cf0b85c13534389cc7479f33}{check\+\_\+null}} (const char \texorpdfstring{$\ast$}{*}function, char \texorpdfstring{$\ast$}{*}file, int line, int n,...)
+\begin{DoxyCompactList}\small\item\em Ne pas utiliser cette fonction directement, mais à la place la macro \doxylink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{CHECK\+\_\+\+NULL()}, qui indique dans le message la position de l\textquotesingle{}erreur dans le source. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonctions d\textquotesingle{}allocation mémoire. 
+
+
+
+Définition dans le fichier \mbox{\hyperlink{alloc_8c_source}{alloc.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{alloc_8c_doc-func-members}
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{alloc_8c_a95dd19b1b2af33029f7ccb78d5f17039}\index{alloc.c@{alloc.c}!multiple\_free@{multiple\_free}}
+\index{multiple\_free@{multiple\_free}!alloc.c@{alloc.c}}
+\doxysubsubsection{\texorpdfstring{multiple\_free()}{multiple\_free()}}
+{\footnotesize\ttfamily \label{alloc_8c_a95dd19b1b2af33029f7ccb78d5f17039} 
+void multiple\+\_\+free (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+Fonction pour libérer de la mémoire en utilisant la fonction free(). 
+
+Appelle free sur un nombre variable d\textquotesingle{}arguments. Le dernier argument doit être NULL.
+
+Exemple d\textquotesingle{}utilisation \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ *p1,\ *p2,\ *p3;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(p1,\ 10);\ \textcolor{comment}{//\ Alloue\ un\ tableau\ de\ 10\ int.}}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(p2,\ 10);}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{CREATE\_MEMORY}}(p3,\ 10);}
+\DoxyCodeLine{\textcolor{comment}{//\ ...}}
+\DoxyCodeLine{\mbox{\hyperlink{alloc_8c_a95dd19b1b2af33029f7ccb78d5f17039}{multiple\_free}}(p1,\ p2,\ p3,\ NULL);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyAttention}{Attention}
+Cette fonction est dangereuse et il faut savoir ce que vous faites si vous l\textquotesingle{}utilisez ! Les pointeurs à libérer {\bfseries{ne doivent pas}} être NULL. Dans l\textquotesingle{}exemple précédent, si {\ttfamily p2} est NULL, on ne libère pas {\ttfamily p3} et cela peut créer une fuite mémoire. 
+\end{DoxyAttention}
+
+
+Définition à la ligne \mbox{\hyperlink{alloc_8c_source_l00008}{8}} du fichier \mbox{\hyperlink{alloc_8c_source}{alloc.\+c}}.
+
+\Hypertarget{alloc_8c_a4310f3e2cf0b85c13534389cc7479f33}\index{alloc.c@{alloc.c}!check\_null@{check\_null}}
+\index{check\_null@{check\_null}!alloc.c@{alloc.c}}
+\doxysubsubsection{\texorpdfstring{check\_null()}{check\_null()}}
+{\footnotesize\ttfamily \label{alloc_8c_a4310f3e2cf0b85c13534389cc7479f33} 
+void check\+\_\+null (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{function}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{int}]{line}{, }\item[{int}]{n}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+Ne pas utiliser cette fonction directement, mais à la place la macro \doxylink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{CHECK\+\_\+\+NULL()}, qui indique dans le message la position de l\textquotesingle{}erreur dans le source. 
+
+\begin{DoxySeeAlso}{Voir également}
+\doxylink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{CHECK\+\_\+\+NULL()} 
+\end{DoxySeeAlso}
+
+
+Définition à la ligne \mbox{\hyperlink{alloc_8c_source_l00018}{18}} du fichier \mbox{\hyperlink{alloc_8c_source}{alloc.\+c}}.
+

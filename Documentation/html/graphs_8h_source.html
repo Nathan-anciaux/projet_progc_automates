@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LEA:  Fichier source de graphs.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="extra.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">LEA
+   </div>
+   <div id="projectbrief">LEA : Logique, Expressions, Automates</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('graphs_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">graphs.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="graphs_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef GRAPHS_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define GRAPHS_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/*   ____ ____      _    ____  _   _ _____ ____   */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/*  / ___|  _ \    / \  |  _ \| | | | ____/ ___|  */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/* | |  _| |_) |  / _ \ | |_) | |_| |  _| \___ \  */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/* | |_| |  _ &lt;  / ___ \|  __/|  _  | |___ ___) | */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/*  \____|_| \_\/_/   \_\_|   |_| |_|_____|____/  */</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="type__basic_8h.html">type_basic.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="type__boolarray_8h.html">type_boolarray.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;stdarg.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/*******************************************************************/</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/*+ Représentations par des tableaux (type utilisé dans les NFAs) +*/</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">/*******************************************************************/</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structngraph.html">   52</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structngraph.html">ngraph</a> {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structngraph.html#a70e2887027709640e3d42750b86c1c37">   53</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structngraph.html#a70e2887027709640e3d42750b86c1c37">nb_states</a>;  </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structngraph.html#a3f774ff39aaf3c4628164bd93ca5a000">   54</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structngraph.html#a3f774ff39aaf3c4628164bd93ca5a000">nb_labels</a>;  </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structngraph.html#a5cb488d5e25b7a310b43bad70f1057fc">   55</a></span>    <span class="keywordtype">int</span> *<a class="code hl_variable" href="structngraph.html#a5cb488d5e25b7a310b43bad70f1057fc">to_array</a>;  </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structngraph.html#a150e87d6653816cc67407aef7bffe4f6">   59</a></span>    <span class="keywordtype">int</span> *<a class="code hl_variable" href="structngraph.html#a150e87d6653816cc67407aef7bffe4f6">intervals</a>; </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="graphs_8h.html#a2495134869c3421fcb3d1ce7c5f6671e">   63</a></span>} <a class="code hl_struct" href="structngraph.html">ngraph</a>;</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">/********************************************/</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">/*+ Représentation par une liste d&#39;arrêtes +*/</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">/********************************************/</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="};">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structone__edge.html">   74</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structone__edge.html#a16d981023742d3bd53f1385790714190">   75</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structone__edge.html#a16d981023742d3bd53f1385790714190">from</a>;  </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structone__edge.html#ac0ed249f3db34b8135fd2717bda56844">   76</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structone__edge.html#ac0ed249f3db34b8135fd2717bda56844">to</a>;    </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structone__edge.html#a512bd2c8e2a962b00a6a6926befc170c">   77</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structone__edge.html#a512bd2c8e2a962b00a6a6926befc170c">label</a>; </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>} <a class="code hl_struct" href="structone__edge.html">one_edge</a>;</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><a class="code hl_struct" href="structone__edge.html">one_edge</a> *<a class="code hl_function" href="graphs_8h.html#a64ed6517e0b82a3d327ec1384a4a301b">ngraph_to_edge_list</a>(</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_struct" href="structngraph.html">ngraph</a> *G, </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">int</span> *size  </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><a class="code hl_struct" href="structngraph.html">ngraph</a> *</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><a class="code hl_function" href="graphs_8h.html#a18fad7be58ac9e8a3be5a6ed5b908624">edge_list_to_ngraph</a>(<a class="code hl_struct" href="structone__edge.html">one_edge</a> *edges, </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                    <span class="keywordtype">int</span> size,        </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                    <span class="keywordtype">int</span> nb_states,   </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                    <span class="keywordtype">int</span> nb_labels </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span></div>
+<div class="foldopen" id="foldopen00133" data-start="{" data-end="};">
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="structmulti__edge.html">  133</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="structmulti__edge.html#a26aeebe75887b4360c73659342f5dc61">  134</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structmulti__edge.html#a26aeebe75887b4360c73659342f5dc61">in</a>;      </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="structmulti__edge.html#a8f140e937ea94d61be3e70d3c43534ef">  135</a></span>    <a class="code hl_struct" href="structbarray.html">barray</a> *<a class="code hl_variable" href="structmulti__edge.html#a8f140e937ea94d61be3e70d3c43534ef">lab</a>; </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="structmulti__edge.html#aa8000eda101cade7c6c4b913fce0cc9c">  136</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structmulti__edge.html#aa8000eda101cade7c6c4b913fce0cc9c">out</a>;     </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>} <a class="code hl_struct" href="structmulti__edge.html">multi_edge</a>;</div>
+</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><a class="code hl_struct" href="structmulti__edge.html">multi_edge</a> *<a class="code hl_function" href="graphs_8h.html#a76d0cc79faa0170ac09cd30b602b95a2">ngraph_to_multi_edges</a>(</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <a class="code hl_struct" href="structngraph.html">ngraph</a> *G, </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">int</span> *size  </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="agraphs_8h_html_a18fad7be58ac9e8a3be5a6ed5b908624"><div class="ttname"><a href="graphs_8h.html#a18fad7be58ac9e8a3be5a6ed5b908624">edge_list_to_ngraph</a></div><div class="ttdeci">ngraph * edge_list_to_ngraph(one_edge *edges, int size, int nb_states, int nb_labels)</div><div class="ttdoc">Conversion d&#39;une liste d&#39;arrêtes en un graphe étiqueté.</div><div class="ttdef"><b>Definition</b> <a href="graphs_8c_source.html#l00012">graphs.c:12</a></div></div>
+<div class="ttc" id="agraphs_8h_html_a64ed6517e0b82a3d327ec1384a4a301b"><div class="ttname"><a href="graphs_8h.html#a64ed6517e0b82a3d327ec1384a4a301b">ngraph_to_edge_list</a></div><div class="ttdeci">one_edge * ngraph_to_edge_list(ngraph *G, int *size)</div><div class="ttdoc">Conversion d&#39;un graphe en une liste d&#39;arrêtes.</div><div class="ttdef"><b>Definition</b> <a href="graphs_8c_source.html#l00003">graphs.c:3</a></div></div>
+<div class="ttc" id="agraphs_8h_html_a76d0cc79faa0170ac09cd30b602b95a2"><div class="ttname"><a href="graphs_8h.html#a76d0cc79faa0170ac09cd30b602b95a2">ngraph_to_multi_edges</a></div><div class="ttdeci">multi_edge * ngraph_to_multi_edges(ngraph *G, int *size)</div><div class="ttdoc">Calcul de la liste des multi-arêtes d&#39;un graphe.</div><div class="ttdef"><b>Definition</b> <a href="graphs_8c_source.html#l00018">graphs.c:18</a></div></div>
+<div class="ttc" id="astructbarray_html"><div class="ttname"><a href="structbarray.html">barray</a></div><div class="ttdoc">Type utilisé pour représenter un tableau de Booléens.</div><div class="ttdef"><b>Definition</b> <a href="type__boolarray_8h_source.html#l00023">type_boolarray.h:24</a></div></div>
+<div class="ttc" id="astructmulti__edge_html"><div class="ttname"><a href="structmulti__edge.html">multi_edge</a></div><div class="ttdoc">Type utilisé pour représenter une multi-arête.</div><div class="ttdef"><b>Definition</b> <a href="#l00133">graphs.h:133</a></div></div>
+<div class="ttc" id="astructmulti__edge_html_a26aeebe75887b4360c73659342f5dc61"><div class="ttname"><a href="structmulti__edge.html#a26aeebe75887b4360c73659342f5dc61">multi_edge::in</a></div><div class="ttdeci">int in</div><div class="ttdoc">État de départ de l&#39;arête.</div><div class="ttdef"><b>Definition</b> <a href="#l00134">graphs.h:134</a></div></div>
+<div class="ttc" id="astructmulti__edge_html_a8f140e937ea94d61be3e70d3c43534ef"><div class="ttname"><a href="structmulti__edge.html#a8f140e937ea94d61be3e70d3c43534ef">multi_edge::lab</a></div><div class="ttdeci">barray * lab</div><div class="ttdoc">Liste des étiquettes.</div><div class="ttdef"><b>Definition</b> <a href="#l00135">graphs.h:135</a></div></div>
+<div class="ttc" id="astructmulti__edge_html_aa8000eda101cade7c6c4b913fce0cc9c"><div class="ttname"><a href="structmulti__edge.html#aa8000eda101cade7c6c4b913fce0cc9c">multi_edge::out</a></div><div class="ttdeci">int out</div><div class="ttdoc">État de sortie de l&#39;arête.</div><div class="ttdef"><b>Definition</b> <a href="#l00136">graphs.h:136</a></div></div>
+<div class="ttc" id="astructngraph_html"><div class="ttname"><a href="structngraph.html">ngraph</a></div><div class="ttdoc">Type utilisé pour représenter un graphe orienté et étiqueté.</div><div class="ttdef"><b>Definition</b> <a href="#l00052">graphs.h:52</a></div></div>
+<div class="ttc" id="astructngraph_html_a150e87d6653816cc67407aef7bffe4f6"><div class="ttname"><a href="structngraph.html#a150e87d6653816cc67407aef7bffe4f6">ngraph::intervals</a></div><div class="ttdeci">int * intervals</div><div class="ttdef"><b>Definition</b> <a href="#l00059">graphs.h:59</a></div></div>
+<div class="ttc" id="astructngraph_html_a3f774ff39aaf3c4628164bd93ca5a000"><div class="ttname"><a href="structngraph.html#a3f774ff39aaf3c4628164bd93ca5a000">ngraph::nb_labels</a></div><div class="ttdeci">int nb_labels</div><div class="ttdoc">Taille de l&#39;alphabet étiquetant les transitions.</div><div class="ttdef"><b>Definition</b> <a href="#l00054">graphs.h:54</a></div></div>
+<div class="ttc" id="astructngraph_html_a5cb488d5e25b7a310b43bad70f1057fc"><div class="ttname"><a href="structngraph.html#a5cb488d5e25b7a310b43bad70f1057fc">ngraph::to_array</a></div><div class="ttdeci">int * to_array</div><div class="ttdef"><b>Definition</b> <a href="#l00055">graphs.h:55</a></div></div>
+<div class="ttc" id="astructngraph_html_a70e2887027709640e3d42750b86c1c37"><div class="ttname"><a href="structngraph.html#a70e2887027709640e3d42750b86c1c37">ngraph::nb_states</a></div><div class="ttdeci">int nb_states</div><div class="ttdoc">Nombre de sommets.</div><div class="ttdef"><b>Definition</b> <a href="#l00053">graphs.h:53</a></div></div>
+<div class="ttc" id="astructone__edge_html"><div class="ttname"><a href="structone__edge.html">one_edge</a></div><div class="ttdoc">Type utilisé pour représenter une unique arrête d&#39;un graphe étiqueté.</div><div class="ttdef"><b>Definition</b> <a href="#l00074">graphs.h:74</a></div></div>
+<div class="ttc" id="astructone__edge_html_a16d981023742d3bd53f1385790714190"><div class="ttname"><a href="structone__edge.html#a16d981023742d3bd53f1385790714190">one_edge::from</a></div><div class="ttdeci">int from</div><div class="ttdoc">État de départ.</div><div class="ttdef"><b>Definition</b> <a href="#l00075">graphs.h:75</a></div></div>
+<div class="ttc" id="astructone__edge_html_a512bd2c8e2a962b00a6a6926befc170c"><div class="ttname"><a href="structone__edge.html#a512bd2c8e2a962b00a6a6926befc170c">one_edge::label</a></div><div class="ttdeci">int label</div><div class="ttdoc">Étiquette de l&#39;arrête.</div><div class="ttdef"><b>Definition</b> <a href="#l00077">graphs.h:77</a></div></div>
+<div class="ttc" id="astructone__edge_html_ac0ed249f3db34b8135fd2717bda56844"><div class="ttname"><a href="structone__edge.html#ac0ed249f3db34b8135fd2717bda56844">one_edge::to</a></div><div class="ttdeci">int to</div><div class="ttdoc">État d&#39;arrivée.</div><div class="ttdef"><b>Definition</b> <a href="#l00076">graphs.h:76</a></div></div>
+<div class="ttc" id="atype__basic_8h_html"><div class="ttname"><a href="type__basic_8h.html">type_basic.h</a></div><div class="ttdoc">Définitions des types basiques.</div></div>
+<div class="ttc" id="atype__boolarray_8h_html"><div class="ttname"><a href="type__boolarray_8h.html">type_boolarray.h</a></div><div class="ttdoc">Implémentation des tableaux de Booléens.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="graphs_8h.html">graphs.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

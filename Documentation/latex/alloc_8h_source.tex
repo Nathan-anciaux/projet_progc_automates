@@ -1,0 +1,57 @@
+\doxysection{alloc.\+h}
+\hypertarget{alloc_8h_source}{}\label{alloc_8h_source}\mbox{\hyperlink{alloc_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00023}00023\ \textcolor{preprocessor}{\#ifndef\ ALLOC\_H\_}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ ALLOC\_H\_}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{error_8h}{error.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00057}\mbox{\hyperlink{alloc_8h_aea7a1b86d2684b290ef0ecd63623c19b}{00057}}\ \textcolor{preprocessor}{\#define\ CREATE\_MEMORY(p,\ num\_objects)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00058}00058\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00059}00059\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ DEBUG("{}Allocating\ \ \%lu\ objects."{},\ (unsigned\ long)(num\_objects));\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00060}00060\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ void\ *tmp\ =\ malloc(sizeof\ *(p)\ *\ (num\_objects));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00061}00061\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ if\ (!tmp)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00062}00062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ FATAL("{}Malloc\ error."{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00063}00063\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (p)\ =\ tmp;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00064}00064\ \textcolor{preprocessor}{\ \ \ \ \}\ while\ (0)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00092}\mbox{\hyperlink{alloc_8h_a28559bbab562cdfb5052738129597225}{00092}}\ \textcolor{preprocessor}{\#define\ CREATE\_ZERO\_MEMORY(p,\ num\_objects)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00093}00093\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00094}00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ DEBUG("{}Callocating\ \ \%lu\ objects."{},\ (unsigned\ long)(num\_objects));\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00095}00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ void\ *tmp\ =\ calloc((num\_objects),\ sizeof\ *(p));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00096}00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ if\ (!tmp)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00097}00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ FATAL("{}Calloc\ error."{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00098}00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (p)\ =\ tmp;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00099}00099\ \textcolor{preprocessor}{\ \ \ \ \}\ while\ (0)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00132}\mbox{\hyperlink{alloc_8h_a860b7c93efb27f3b07a8577c5fa93a15}{00132}}\ \textcolor{preprocessor}{\#define\ REDIMENSION\_MEMORY(p,\ num\_objects)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00133}00133\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00134}00134\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ DEBUG("{}Reallocating\ \ \%lu\ objects."{},\ (unsigned\ long)(num\_objects));\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00135}00135\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ void\ *tmp\ =\ realloc((p),\ sizeof\ *(p)\ *\ (num\_objects));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00136}00136\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ if\ (!tmp)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00137}00137\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ FATAL("{}Realloc\ error."{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00138}00138\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00139}00139\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (p)\ =\ tmp;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00140}00140\ \textcolor{preprocessor}{\ \ \ \ \}\ while\ (0)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00168}\mbox{\hyperlink{alloc_8h_aa44a749b8ec174a5780a521e07b9b86b}{00168}}\ \textcolor{preprocessor}{\#define\ CHECK\_NULL(n,\ ...)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00169}00169\ \textcolor{preprocessor}{\ \ \ \ check\_null(\_\_func\_\_,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ n\ \_\_VA\_OPT\_\_(,\ )\ \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00179}00179\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{alloc_8h_a4310f3e2cf0b85c13534389cc7479f33}{check\_null}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *function,\ \textcolor{keywordtype}{char}\ *file,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keywordtype}{int}\ n,\ ...);}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00204}00204\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{alloc_8h_a95dd19b1b2af33029f7ccb78d5f17039}{multiple\_free}}(\textcolor{keywordtype}{void}\ *p,\ ...);}
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{alloc_8h_source_l00206}00206\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ALLOC\_H\_}}
+
+\end{DoxyCode}
