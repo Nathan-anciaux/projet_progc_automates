@@ -3,7 +3,8 @@
 
 #include "system_tools.h"
 
-typedef struct {
+typedef struct
+{
     uchar *array;
     int size;
     int size_array;
