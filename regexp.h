@@ -11,7 +11,8 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef enum {
+typedef enum
+{
     EMPTY,
     EPSILON,
     CHAR,
@@ -23,7 +24,8 @@ typedef enum {
     NONE
 } regelem;
 
-typedef struct regexp {
+typedef struct regexp
+{
     regelem op;
     struct regexp *left;
     struct regexp *right;
