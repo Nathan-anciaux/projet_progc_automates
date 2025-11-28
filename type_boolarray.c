@@ -62,7 +62,7 @@ barray *copy_barray(barray *)
 // Note
 
 // Pour la fonction create_barray(int size) :
-// barray *b = calloc(1, sizeof(b)); // Pas de * pour sizeof(b) sinon on réserve la taille d'une adresse mémoire
+// barray *b = calloc(1, sizeof(b)); // Pas de * pour sizeof(b) sinon on réserve la taille d'une adresse mémoire ( euu c'est pas l'inverse ? regarde ce que j'ai fait en haut ça foncionne : nathans)
 // Mettre b->size_array = (b->size / 8) + 1; avant le if sinon on ecrase toujours la valeur de b->size_array et le if ne sert pas.
 // b->array = calloc(b->size_array, sizeof((b->array))); // Pas de * à sizeof((b->array)
 // End Arthur's Functions

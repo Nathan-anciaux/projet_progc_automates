@@ -25,34 +25,68 @@ regexp *reg_epsilon(void)
     return NULL;
 }
 
-regexp *reg_letter(char)
+// End Arthur's Functions
+
+// Begin Nathan's Functions
+
+regexp *reg_letter(char c)
 {
-    return NULL;
+    regexp *letter = malloc(sizeof(*letter));
+    letter->left = NULL;
+    letter->right = NULL;
+    letter->op = NONE;
+    letter->letter = c;
+    return letter;
 }
 
-regexp *reg_union(regexp *, regexp *)
+regexp *reg_union(regexp *left, regexp *right)
 {
-    return NULL;
+    regexp *uni = malloc(sizeof(*uni));
+    uni->left = left;
+    uni->right = right;
+    uni->op = UNION;
+    uni->letter = '\0';
+    return uni;
 }
 
-regexp *reg_inter(regexp *, regexp *)
+regexp *reg_inter(regexp *left, regexp *right)
 {
-    return NULL;
+    regexp *inte = malloc(sizeof(*inte));
+    inte->left = left;
+    inte->right = right;
+    inte->op = INTER;
+    inte->letter = '\0';
+    return inte;
 }
 
-regexp *reg_concat(regexp *, regexp *)
+regexp *reg_concat(regexp *left, regexp *right)
 {
-    return NULL;
+    regexp *conca = malloc(sizeof(*conca));
+    conca->left = left;
+    conca->right = right;
+    conca->op = CONCAT;
+    conca->letter = '\0';
+    return conca;
 }
 
 regexp *reg_star(regexp *)
 {
-    return NULL;
+    regexp *sta = malloc(sizeof(*sta));
+    sta->left = NULL;
+    sta->right = NULL;
+    sta->op = STAR;
+    sta->letter = '\0';
+    return sta;
 }
 
 regexp *reg_complement(regexp *)
 {
-    return NULL;
+    regexp *comp = malloc(sizeof(*comp));
+    comp->left = NULL;
+    comp->right = NULL;
+    comp->op = COMPLEMENT;
+    comp->letter = '\0';
+    return comp;
 }
 
 /* Affichage d'une expression: déjà écrit NE PAS MODIFIER */
