@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/arthur/Documents/university/prog_c/projet/projet_progc_automates/sources",
+      "program": "/Users/arthur/Documents/university/prog_c/projet/projet_progc_automates/sources/build/Debug/outDebug"
+    }
+  ]
+}
