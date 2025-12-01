@@ -1,18 +1,29 @@
 #include "regexp.h"
 
-bool reg_issimple(regexp *)
+// Begin Arthur's Functions
+bool reg_issimple(regexp *r)
 {
-    return false;
+    if (r->op >= CONCAT) // On ne veut pas que l'opérateur soit CONCAT, STAR ou NONE
+    {
+        return false;
+    }
+    return true;
 }
 
-void reg_free(regexp *)
+void reg_free(regexp *r)
 {
-    return;
+    free(r->left);
+    free(r->right);
+    free(r);
 }
 
-regexp *reg_copy(regexp *)
+regexp *reg_copy(regexp *r)
 {
-    return NULL;
+    regexp *r2 = malloc(sizeof(regexp));
+    r2->op = r->op;
+    r2->left = r->left;
+    r2->right = r->right;
+    r2->letter = r->letter;
 }
 
 regexp *reg_empty(void)
@@ -24,7 +35,6 @@ regexp *reg_epsilon(void)
 {
     return NULL;
 }
-
 // End Arthur's Functions
 
 // Begin Nathan's Functions
@@ -88,6 +98,7 @@ regexp *reg_complement(regexp *)
     comp->letter = '\0';
     return comp;
 }
+// End Nathan's Functions
 
 /* Affichage d'une expression: déjà écrit NE PAS MODIFIER */
 static void reg_print_helper(regexp *r, regelem parent)
