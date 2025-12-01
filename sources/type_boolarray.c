@@ -40,23 +40,52 @@ void setfalse_barray(barray *b, int index)
 // End Nathan's Functions
 
 // Begin Arthur's Functions
-bool getval_barray(barray *, int)
+bool getval_barray(barray *b, int index)
 {
-    return false;
+    return b->array[index / 8] == (1 << (index % 8));
 }
 
-barray *or_barray(barray *, barray *)
+barray *or_barray(barray *b, barray *b2)
 {
-    return NULL;
+    if (b->size == b2->size)
+    {
+        return NULL;
+    }
+    barray *b3 = malloc(sizeof(barray));
+    b3->size = b->size;
+    b3->size = b->size_array;
+    for (int i = 0; i < b->size_array; i++)
+    {
+        b3->array[i] = b->array[i] | b2->array[i];
+    }
+    return b3;
 }
-barray *and_barray(barray *, barray *)
+barray *and_barray(barray *b, barray *b2)
 {
-    return NULL;
+    if (b->size == b2->size)
+    {
+        return NULL;
+    }
+    barray *b3 = malloc(sizeof(barray));
+    b3->size = b->size;
+    b3->size = b->size_array;
+    for (int i = 0; i < b->size_array; i++)
+    {
+        b3->array[i] = b->array[i] & b2->array[i];
+    }
+    return b3;
 }
 
-barray *copy_barray(barray *)
+barray *copy_barray(barray *b)
 {
-    return NULL;
+    barray *b2 = malloc(sizeof(barray));
+    b2->size = b->size;
+    b2->size_array = b->size_array;
+    for (int i = 0; i < b->size_array; i++)
+    {
+        b2->array[i] = b->array[i];
+    }
+    return b2;
 }
 
 // Note
