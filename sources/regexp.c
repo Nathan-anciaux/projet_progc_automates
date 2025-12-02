@@ -24,16 +24,21 @@ regexp *reg_copy(regexp *r)
     r2->left = r->left;
     r2->right = r->right;
     r2->letter = r->letter;
+    return r;
 }
 
 regexp *reg_empty(void)
 {
-    return NULL;
+    regexp *r = malloc(sizeof(regexp));
+    r->op = EMPTY;
+    return r;
 }
 
 regexp *reg_epsilon(void)
 {
-    return NULL;
+    regexp *r = malloc(sizeof(regexp));
+    r->op = EPSILON;
+    return r;
 }
 // End Arthur's Functions
 
