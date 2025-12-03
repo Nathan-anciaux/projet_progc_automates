@@ -55,8 +55,40 @@ ngraph *edge_list_to_ngraph(one_edge *edges, int size, int nb_states, int nb_lab
     return g;
 }
 
-multi_edge *ngraph_to_multi_edges(ngraph *, int *)
+multi_edge *ngraph_to_multi_edges(ngraph *g, int *size)
 {
-    return NULL;
+    int *edges_nb = NULL;                                                 // On initialise à NULL un pointeur qu'on va mettre en argument de ngraph_to_edge_list pour qu'il point par la suite vers le nombre d'arète du graphe.
+    one_edge *one_edge_list = ngraph_to_edge_list(g, edges_nb);           // C'est plus facile de faire une liste de multi_edges à partir d'une liste de one_edge que à partir d'un ngraph directement car la liste de multi_edges peut se voir comme une forme contracté de liste de one_edge.
+    multi_edge *multi_edge_list = malloc(sizeof(multi_edge) * *edges_nb); // edge_nb majore toute les size potentielles.
+    size = 0;                                                             // On va utiliser size comme un compteur
+
+    for (int i = 0; i < *edges_nb; i++)
+    {
+        int couple_in_multi_edge_list_index = -1;
+        for (int j = 0; j < *size; j++)
+        { // Je vérifie si le couple dans one_edge_list existe déjà multi_edge_list
+
+            if (one_edge_list[i].from == multi_edge_list[j].in && one_edge_list[i].to == multi_edge_list[j].out)
+            {
+                couple_in_multi_edge_list_index = j;
+            }
+        }
+        if (couple_in_multi_edge_list_index == -1)
+        { // Si le couple n'existe pas, je crée une nouvelle "ligne" correspondante dans multi_edge_list
+            size++;
+            multi_edge_list[*size - 1].in = one_edge_list[i].from;
+            multi_edge_list[*size - 1].out = one_edge_list[i].to;
+            multi_edge_list[*size - 1].lab = create_barray(g->nb_labels);
+            settrue_barray(multi_edge_list[*size - 1].lab, one_edge_list[i].label);
+        }
+
+        if (couple_in_multi_edge_list_index != -1)
+        { // Si le couple existe, je change juste le barray pour dire qu'une liaison existe aussi avec une autre étiquette
+            settrue_barray(multi_edge_list[couple_in_multi_edge_list_index].lab, one_edge_list[i].label);
+        }
+    }
+
+    return multi_edge_list;
 }
+
 // End Arthur's functions
