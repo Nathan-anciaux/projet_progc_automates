@@ -9,7 +9,10 @@ barray *create_barray(int size)
     {
         b->size_array = b->size / 8;
     }
-    b->size_array = (b->size / 8) + 1;
+    else
+    {
+        b->size_array = (b->size / 8) + 1;
+    }
     b->array = calloc(b->size_array, sizeof(*(b->array)));
     return b;
 }
@@ -42,7 +45,7 @@ void setfalse_barray(barray *b, int index)
 // Begin Arthur's Functions
 bool getval_barray(barray *b, int index)
 {
-    return b->array[index / 8] == (1 << (index % 8));
+    return b->array[index / 8] | (1 << (index % 8));
 }
 
 barray *or_barray(barray *b, barray *b2)
@@ -53,7 +56,8 @@ barray *or_barray(barray *b, barray *b2)
     }
     barray *b3 = malloc(sizeof(barray));
     b3->size = b->size;
-    b3->size = b->size_array;
+    b3->size_array = b->size_array;
+    b3->array = malloc(b3->size_array * sizeof(*(b3->array)));
     for (int i = 0; i < b->size_array; i++)
     {
         b3->array[i] = b->array[i] | b2->array[i];
@@ -68,7 +72,8 @@ barray *and_barray(barray *b, barray *b2)
     }
     barray *b3 = malloc(sizeof(barray));
     b3->size = b->size;
-    b3->size = b->size_array;
+    b3->size_array = b->size_array;
+    b3->array = malloc(b3->size_array * sizeof(*(b3->array)));
     for (int i = 0; i < b->size_array; i++)
     {
         b3->array[i] = b->array[i] & b2->array[i];
@@ -81,6 +86,7 @@ barray *copy_barray(barray *b)
     barray *b2 = malloc(sizeof(barray));
     b2->size = b->size;
     b2->size_array = b->size_array;
+    b2->array = malloc(b2->size_array * sizeof(*(b2->array)));
     for (int i = 0; i < b->size_array; i++)
     {
         b2->array[i] = b->array[i];
@@ -92,6 +98,6 @@ barray *copy_barray(barray *b)
 
 // Pour la fonction create_barray(int size) :
 // barray *b = calloc(1, sizeof(b)); // Pas de * pour sizeof(b) sinon on réserve la taille d'une adresse mémoire ( euu c'est pas l'inverse ? regarde ce que j'ai fait en haut ça foncionne : nathans) / Arthur : Autant pour moi, ça fonctionne mais c'est une allocation mémoire du futur
-// Mettre b->size_array = (b->size / 8) + 1; avant le if sinon on ecrase toujours la valeur de b->size_array et le if ne sert pas.
+
 // b->array = calloc(b->size_array, sizeof((b->array))); // Pas de * à sizeof((b->array)
 // End Arthur's Functions

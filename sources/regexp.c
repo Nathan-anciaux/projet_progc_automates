@@ -3,33 +3,49 @@
 // Begin Arthur's Functions
 bool reg_issimple(regexp *r)
 {
-    if (r->op >= CONCAT) // On ne veut pas que l'opérateur soit CONCAT, STAR ou NONE
+    if (r->op == INTER || r->op == COMPLEMENT)
     {
         return false;
     }
-    return true;
+
+    if (r == NULL)
+    {
+        return true;
+    }
+    return reg_issimple(r->left) && reg_issimple(r->right);
 }
 
 void reg_free(regexp *r)
 {
-    free(r->left);
-    free(r->right);
+    if (r == NULL)
+    {
+        return;
+    }
+    reg_free(r->left);
+    reg_free(r->right);
     free(r);
 }
 
 regexp *reg_copy(regexp *r)
 {
+    if (r == NULL)
+    {
+        return NULL;
+    }
     regexp *r2 = malloc(sizeof(regexp));
     r2->op = r->op;
-    r2->left = r->left;
-    r2->right = r->right;
     r2->letter = r->letter;
-    return r;
+    r2->left = reg_copy(r->left);
+    r2->right = reg_copy(r->right);
+    return r2;
 }
 
 regexp *reg_empty(void)
 {
     regexp *r = malloc(sizeof(regexp));
+    r->left = NULL;
+    r->right = NULL;
+    r->letter = '\0';
     r->op = EMPTY;
     return r;
 }
@@ -37,6 +53,9 @@ regexp *reg_empty(void)
 regexp *reg_epsilon(void)
 {
     regexp *r = malloc(sizeof(regexp));
+    r->left = NULL;
+    r->right = NULL;
+    r->letter = '\0';
     r->op = EPSILON;
     return r;
 }
@@ -49,7 +68,7 @@ regexp *reg_letter(char c)
     regexp *letter = malloc(sizeof(*letter));
     letter->left = NULL;
     letter->right = NULL;
-    letter->op = NONE;
+    letter->op = CHAR;
     letter->letter = c;
     return letter;
 }
@@ -84,20 +103,20 @@ regexp *reg_concat(regexp *left, regexp *right)
     return conca;
 }
 
-regexp *reg_star(regexp *)
+regexp *reg_star(regexp *left)
 {
     regexp *sta = malloc(sizeof(*sta));
-    sta->left = NULL;
+    sta->left = left;
     sta->right = NULL;
     sta->op = STAR;
     sta->letter = '\0';
     return sta;
 }
 
-regexp *reg_complement(regexp *)
+regexp *reg_complement(regexp *left)
 {
     regexp *comp = malloc(sizeof(*comp));
-    comp->left = NULL;
+    comp->left = left;
     comp->right = NULL;
     comp->op = COMPLEMENT;
     comp->letter = '\0';
