@@ -45,7 +45,7 @@ void setfalse_barray(barray *b, int index)
 // Begin Arthur's Functions
 bool getval_barray(barray *b, int index)
 {
-    return b->array[index / 8] | (1 << (index % 8));
+    return (b->array[index / 8] & (1 << (index % 8))) != 0;
 }
 
 barray *or_barray(barray *b, barray *b2)
