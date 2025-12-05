@@ -6,6 +6,7 @@
 #include "system_parser.h"
 #include "system_shell_languages.h"
 #include "system_tools.h"
+#include "graphs.h"
 #include <stdio.h>
 
 void test(void)

@@ -50,7 +50,7 @@ bool getval_barray(barray *b, int index)
 
 barray *or_barray(barray *b, barray *b2)
 {
-    if (b->size == b2->size)
+    if (b->size != b2->size)
     {
         return NULL;
     }
@@ -66,7 +66,7 @@ barray *or_barray(barray *b, barray *b2)
 }
 barray *and_barray(barray *b, barray *b2)
 {
-    if (b->size == b2->size)
+    if (b->size != b2->size)
     {
         return NULL;
     }

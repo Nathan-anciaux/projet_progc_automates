@@ -35,7 +35,7 @@ ngraph *edge_list_to_ngraph(one_edge *edges, int size, int nb_states, int nb_lab
     {
         g->to_array[i] = edges[i].to;
     }
-    g->intervals = malloc(sizeof(nb_states * nb_labels + 1));
+    g->intervals = malloc((nb_states * nb_labels + 1) * sizeof(int));
     g->intervals[0] = 0;
     for (int q = 0; q < nb_states; q++)
     {
@@ -57,10 +57,10 @@ ngraph *edge_list_to_ngraph(one_edge *edges, int size, int nb_states, int nb_lab
 
 multi_edge *ngraph_to_multi_edges(ngraph *g, int *size)
 {
-    int *edges_nb = NULL;                                                 // On initialise à NULL un pointeur qu'on va mettre en argument de ngraph_to_edge_list pour qu'il point par la suite vers le nombre d'arète du graphe.
+    int *edges_nb = malloc(sizeof(int));                                  // On initialise à NULL un pointeur qu'on va mettre en argument de ngraph_to_edge_list pour qu'il point par la suite vers le nombre d'arète du graphe.
     one_edge *one_edge_list = ngraph_to_edge_list(g, edges_nb);           // C'est plus facile de faire une liste de multi_edges à partir d'une liste de one_edge que à partir d'un ngraph directement car la liste de multi_edges peut se voir comme une forme contracté de liste de one_edge.
     multi_edge *multi_edge_list = malloc(sizeof(multi_edge) * *edges_nb); // edge_nb majore toute les size potentielles.
-    size = 0;                                                             // On va utiliser size comme un compteur
+    *size = 0;                                                            // On va utiliser size comme un compteur
 
     for (int i = 0; i < *edges_nb; i++)
     {
@@ -75,7 +75,7 @@ multi_edge *ngraph_to_multi_edges(ngraph *g, int *size)
         }
         if (couple_in_multi_edge_list_index == -1)
         { // Si le couple n'existe pas, je crée une nouvelle "ligne" correspondante dans multi_edge_list
-            size++;
+            *size = *size + 1;
             multi_edge_list[*size - 1].in = one_edge_list[i].from;
             multi_edge_list[*size - 1].out = one_edge_list[i].to;
             multi_edge_list[*size - 1].lab = create_barray(g->nb_labels);
@@ -87,7 +87,8 @@ multi_edge *ngraph_to_multi_edges(ngraph *g, int *size)
             settrue_barray(multi_edge_list[couple_in_multi_edge_list_index].lab, one_edge_list[i].label);
         }
     }
-
+    free(one_edge_list);
+    free(edges_nb);
     return multi_edge_list;
 }
 
