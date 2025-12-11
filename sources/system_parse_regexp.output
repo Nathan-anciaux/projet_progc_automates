@@ -1,0 +1,337 @@
+État 11 conflits: 5 décalage/réduction
+État 16 conflits: 5 décalage/réduction
+État 18 conflits: 5 décalage/réduction
+État 19 conflits: 5 décalage/réduction
+
+
+Grammaire
+
+    0 $accept: s $end
+
+    1 s: error
+    2  | e
+
+    3 e: e PLUS_TOK e
+    4  | e e
+    5  | e STAR_TOK
+    6  | COMPL_TOK e
+    7  | e INTER_TOK e
+    8  | OPEN_TOK e CLOSE_TOK
+    9  | LETTER
+   10  | EPSILON_TOK
+   11  | EMPTY_TOK
+   12  | VARIABLE
+
+
+Terminaux, suivis des règles où ils apparaissent
+
+    $end (0) 0
+    error (256) 1
+    VARIABLE <name> (258) 12
+    LETTER <carac> (259) 9
+    EPSILON_TOK <regexp> (260) 10
+    EMPTY_TOK <regexp> (261) 11
+    OPEN_TOK (262) 8
+    CLOSE_TOK (263) 8
+    PLUS_TOK (264) 3
+    INTER_TOK (265) 7
+    CONCAT_TOK (266)
+    STAR_TOK (267) 5
+    COMPL_TOK (268) 6
+
+
+Non-terminaux, suivis des règles où ils apparaissent
+
+    $accept (14)
+        à gauche: 0
+    s (15)
+        à gauche: 1 2
+        à droite: 0
+    e <regexp> (16)
+        à gauche: 3 4 5 6 7 8 9 10 11 12
+        à droite: 2 3 4 5 6 7 8
+
+
+État 0
+
+    0 $accept: • s $end
+
+    error        décalage et aller à l'état 1
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+    COMPL_TOK    décalage et aller à l'état 7
+
+    s  aller à l'état 8
+    e  aller à l'état 9
+
+
+État 1
+
+    1 s: error •
+
+    $défaut  réduction par utilisation de la règle 1 (s)
+
+
+État 2
+
+   12 e: VARIABLE •
+
+    $défaut  réduction par utilisation de la règle 12 (e)
+
+
+État 3
+
+    9 e: LETTER •
+
+    $défaut  réduction par utilisation de la règle 9 (e)
+
+
+État 4
+
+   10 e: EPSILON_TOK •
+
+    $défaut  réduction par utilisation de la règle 10 (e)
+
+
+État 5
+
+   11 e: EMPTY_TOK •
+
+    $défaut  réduction par utilisation de la règle 11 (e)
+
+
+État 6
+
+    8 e: OPEN_TOK • e CLOSE_TOK
+
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+    COMPL_TOK    décalage et aller à l'état 7
+
+    e  aller à l'état 10
+
+
+État 7
+
+    6 e: COMPL_TOK • e
+
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+    COMPL_TOK    décalage et aller à l'état 7
+
+    e  aller à l'état 11
+
+
+État 8
+
+    0 $accept: s • $end
+
+    $end  décalage et aller à l'état 12
+
+
+État 9
+
+    2 s: e •
+    3 e: e • PLUS_TOK e
+    4  | e • e
+    5  | e • STAR_TOK
+    7  | e • INTER_TOK e
+
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+    PLUS_TOK     décalage et aller à l'état 13
+    INTER_TOK    décalage et aller à l'état 14
+    STAR_TOK     décalage et aller à l'état 15
+    COMPL_TOK    décalage et aller à l'état 7
+
+    $défaut  réduction par utilisation de la règle 2 (s)
+
+    e  aller à l'état 16
+
+
+État 10
+
+    3 e: e • PLUS_TOK e
+    4  | e • e
+    5  | e • STAR_TOK
+    7  | e • INTER_TOK e
+    8  | OPEN_TOK e • CLOSE_TOK
+
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+    CLOSE_TOK    décalage et aller à l'état 17
+    PLUS_TOK     décalage et aller à l'état 13
+    INTER_TOK    décalage et aller à l'état 14
+    STAR_TOK     décalage et aller à l'état 15
+    COMPL_TOK    décalage et aller à l'état 7
+
+    e  aller à l'état 16
+
+
+État 11
+
+    3 e: e • PLUS_TOK e
+    4  | e • e
+    5  | e • STAR_TOK
+    6  | COMPL_TOK e •
+    7  | e • INTER_TOK e
+
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+
+    COMPL_TOK  erreur (non-associative)
+
+    VARIABLE     [réduction par utilisation de la règle 6 (e)]
+    LETTER       [réduction par utilisation de la règle 6 (e)]
+    EPSILON_TOK  [réduction par utilisation de la règle 6 (e)]
+    EMPTY_TOK    [réduction par utilisation de la règle 6 (e)]
+    OPEN_TOK     [réduction par utilisation de la règle 6 (e)]
+    $défaut      réduction par utilisation de la règle 6 (e)
+
+    e  aller à l'état 16
+
+
+État 12
+
+    0 $accept: s $end •
+
+    $défaut  accepter
+
+
+État 13
+
+    3 e: e PLUS_TOK • e
+
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+    COMPL_TOK    décalage et aller à l'état 7
+
+    e  aller à l'état 18
+
+
+État 14
+
+    7 e: e INTER_TOK • e
+
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+    COMPL_TOK    décalage et aller à l'état 7
+
+    e  aller à l'état 19
+
+
+État 15
+
+    5 e: e STAR_TOK •
+
+    $défaut  réduction par utilisation de la règle 5 (e)
+
+
+État 16
+
+    3 e: e • PLUS_TOK e
+    4  | e • e
+    4  | e e •
+    5  | e • STAR_TOK
+    7  | e • INTER_TOK e
+
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+    STAR_TOK     décalage et aller à l'état 15
+    COMPL_TOK    décalage et aller à l'état 7
+
+    VARIABLE     [réduction par utilisation de la règle 4 (e)]
+    LETTER       [réduction par utilisation de la règle 4 (e)]
+    EPSILON_TOK  [réduction par utilisation de la règle 4 (e)]
+    EMPTY_TOK    [réduction par utilisation de la règle 4 (e)]
+    OPEN_TOK     [réduction par utilisation de la règle 4 (e)]
+    $défaut      réduction par utilisation de la règle 4 (e)
+
+    e  aller à l'état 16
+
+
+État 17
+
+    8 e: OPEN_TOK e CLOSE_TOK •
+
+    $défaut  réduction par utilisation de la règle 8 (e)
+
+
+État 18
+
+    3 e: e • PLUS_TOK e
+    3  | e PLUS_TOK e •
+    4  | e • e
+    5  | e • STAR_TOK
+    7  | e • INTER_TOK e
+
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+    INTER_TOK    décalage et aller à l'état 14
+    STAR_TOK     décalage et aller à l'état 15
+    COMPL_TOK    décalage et aller à l'état 7
+
+    VARIABLE     [réduction par utilisation de la règle 3 (e)]
+    LETTER       [réduction par utilisation de la règle 3 (e)]
+    EPSILON_TOK  [réduction par utilisation de la règle 3 (e)]
+    EMPTY_TOK    [réduction par utilisation de la règle 3 (e)]
+    OPEN_TOK     [réduction par utilisation de la règle 3 (e)]
+    $défaut      réduction par utilisation de la règle 3 (e)
+
+    e  aller à l'état 16
+
+
+État 19
+
+    3 e: e • PLUS_TOK e
+    4  | e • e
+    5  | e • STAR_TOK
+    7  | e • INTER_TOK e
+    7  | e INTER_TOK e •
+
+    VARIABLE     décalage et aller à l'état 2
+    LETTER       décalage et aller à l'état 3
+    EPSILON_TOK  décalage et aller à l'état 4
+    EMPTY_TOK    décalage et aller à l'état 5
+    OPEN_TOK     décalage et aller à l'état 6
+    STAR_TOK     décalage et aller à l'état 15
+    COMPL_TOK    décalage et aller à l'état 7
+
+    VARIABLE     [réduction par utilisation de la règle 7 (e)]
+    LETTER       [réduction par utilisation de la règle 7 (e)]
+    EPSILON_TOK  [réduction par utilisation de la règle 7 (e)]
+    EMPTY_TOK    [réduction par utilisation de la règle 7 (e)]
+    OPEN_TOK     [réduction par utilisation de la règle 7 (e)]
+    $défaut      réduction par utilisation de la règle 7 (e)
+
+    e  aller à l'état 16

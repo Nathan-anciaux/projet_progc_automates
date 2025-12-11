@@ -1,0 +1,351 @@
+Terminaux inutilisés dans la grammaire
+
+    EXP
+    LANGUAGES
+    AUTOS
+    MORPHISMS
+    ALPHABET
+
+
+Grammaire
+
+    0 $accept: s $end
+
+    1 s: s ';'
+    2  | s TEST
+    3  | s HELP
+    4  | s EXIT
+    5  | s GREP '(' FILENAME ',' FILENAME ')'
+    6  | s COMMAND '=' cc ';'
+    7  | s cc ';'
+    8  | s LEXICAL_ERROR ';'
+    9  | s error ';'
+   10  | ε
+
+   11 cp: cc ')'
+   12   | cc ',' cp
+
+   13 cc: COMMAND '.' cc
+   14   | COMMAND '(' cp
+   15   | COMMAND
+   16   | FILENAME
+
+
+Terminaux, suivis des règles où ils apparaissent
+
+    $end (0) 0
+    '(' (40) 5 14
+    ')' (41) 5 11
+    ',' (44) 5 12
+    '.' (46) 13
+    ';' (59) 1 6 7 8 9
+    '=' (61) 6
+    error (256) 9
+    COMMAND <name> (258) 6 13 14 15
+    FILENAME <name> (259) 5 16
+    EXP <name> (260)
+    LANGUAGES (261)
+    AUTOS (262)
+    MORPHISMS (263)
+    HELP (264) 3
+    ALPHABET <carac> (265)
+    TEST (266) 2
+    EXIT (267) 4
+    GREP (268) 5
+    LEXICAL_ERROR (269) 8
+
+
+Non-terminaux, suivis des règles où ils apparaissent
+
+    $accept (21)
+        à gauche: 0
+    s (22)
+        à gauche: 1 2 3 4 5 6 7 8 9 10
+        à droite: 0 1 2 3 4 5 6 7 8 9
+    cp <com_parameters> (23)
+        à gauche: 11 12
+        à droite: 12 14
+    cc <com_command> (24)
+        à gauche: 13 14 15 16
+        à droite: 6 7 11 12 13
+
+
+État 0
+
+    0 $accept: • s $end
+
+    $défaut  réduction par utilisation de la règle 10 (s)
+
+    s  aller à l'état 1
+
+
+État 1
+
+    0 $accept: s • $end
+    1 s: s • ';'
+    2  | s • TEST
+    3  | s • HELP
+    4  | s • EXIT
+    5  | s • GREP '(' FILENAME ',' FILENAME ')'
+    6  | s • COMMAND '=' cc ';'
+    7  | s • cc ';'
+    8  | s • LEXICAL_ERROR ';'
+    9  | s • error ';'
+
+    $end           décalage et aller à l'état 2
+    error          décalage et aller à l'état 3
+    COMMAND        décalage et aller à l'état 4
+    FILENAME       décalage et aller à l'état 5
+    HELP           décalage et aller à l'état 6
+    TEST           décalage et aller à l'état 7
+    EXIT           décalage et aller à l'état 8
+    GREP           décalage et aller à l'état 9
+    LEXICAL_ERROR  décalage et aller à l'état 10
+    ';'            décalage et aller à l'état 11
+
+    cc  aller à l'état 12
+
+
+État 2
+
+    0 $accept: s $end •
+
+    $défaut  accepter
+
+
+État 3
+
+    9 s: s error • ';'
+
+    ';'  décalage et aller à l'état 13
+
+
+État 4
+
+    6 s: s COMMAND • '=' cc ';'
+   13 cc: COMMAND • '.' cc
+   14   | COMMAND • '(' cp
+   15   | COMMAND •
+
+    '='  décalage et aller à l'état 14
+    '('  décalage et aller à l'état 15
+    '.'  décalage et aller à l'état 16
+
+    $défaut  réduction par utilisation de la règle 15 (cc)
+
+
+État 5
+
+   16 cc: FILENAME •
+
+    $défaut  réduction par utilisation de la règle 16 (cc)
+
+
+État 6
+
+    3 s: s HELP •
+
+    $défaut  réduction par utilisation de la règle 3 (s)
+
+
+État 7
+
+    2 s: s TEST •
+
+    $défaut  réduction par utilisation de la règle 2 (s)
+
+
+État 8
+
+    4 s: s EXIT •
+
+    $défaut  réduction par utilisation de la règle 4 (s)
+
+
+État 9
+
+    5 s: s GREP • '(' FILENAME ',' FILENAME ')'
+
+    '('  décalage et aller à l'état 17
+
+
+État 10
+
+    8 s: s LEXICAL_ERROR • ';'
+
+    ';'  décalage et aller à l'état 18
+
+
+État 11
+
+    1 s: s ';' •
+
+    $défaut  réduction par utilisation de la règle 1 (s)
+
+
+État 12
+
+    7 s: s cc • ';'
+
+    ';'  décalage et aller à l'état 19
+
+
+État 13
+
+    9 s: s error ';' •
+
+    $défaut  réduction par utilisation de la règle 9 (s)
+
+
+État 14
+
+    6 s: s COMMAND '=' • cc ';'
+
+    COMMAND   décalage et aller à l'état 20
+    FILENAME  décalage et aller à l'état 5
+
+    cc  aller à l'état 21
+
+
+État 15
+
+   14 cc: COMMAND '(' • cp
+
+    COMMAND   décalage et aller à l'état 20
+    FILENAME  décalage et aller à l'état 5
+
+    cp  aller à l'état 22
+    cc  aller à l'état 23
+
+
+État 16
+
+   13 cc: COMMAND '.' • cc
+
+    COMMAND   décalage et aller à l'état 20
+    FILENAME  décalage et aller à l'état 5
+
+    cc  aller à l'état 24
+
+
+État 17
+
+    5 s: s GREP '(' • FILENAME ',' FILENAME ')'
+
+    FILENAME  décalage et aller à l'état 25
+
+
+État 18
+
+    8 s: s LEXICAL_ERROR ';' •
+
+    $défaut  réduction par utilisation de la règle 8 (s)
+
+
+État 19
+
+    7 s: s cc ';' •
+
+    $défaut  réduction par utilisation de la règle 7 (s)
+
+
+État 20
+
+   13 cc: COMMAND • '.' cc
+   14   | COMMAND • '(' cp
+   15   | COMMAND •
+
+    '('  décalage et aller à l'état 15
+    '.'  décalage et aller à l'état 16
+
+    $défaut  réduction par utilisation de la règle 15 (cc)
+
+
+État 21
+
+    6 s: s COMMAND '=' cc • ';'
+
+    ';'  décalage et aller à l'état 26
+
+
+État 22
+
+   14 cc: COMMAND '(' cp •
+
+    $défaut  réduction par utilisation de la règle 14 (cc)
+
+
+État 23
+
+   11 cp: cc • ')'
+   12   | cc • ',' cp
+
+    ','  décalage et aller à l'état 27
+    ')'  décalage et aller à l'état 28
+
+
+État 24
+
+   13 cc: COMMAND '.' cc •
+
+    $défaut  réduction par utilisation de la règle 13 (cc)
+
+
+État 25
+
+    5 s: s GREP '(' FILENAME • ',' FILENAME ')'
+
+    ','  décalage et aller à l'état 29
+
+
+État 26
+
+    6 s: s COMMAND '=' cc ';' •
+
+    $défaut  réduction par utilisation de la règle 6 (s)
+
+
+État 27
+
+   12 cp: cc ',' • cp
+
+    COMMAND   décalage et aller à l'état 20
+    FILENAME  décalage et aller à l'état 5
+
+    cp  aller à l'état 30
+    cc  aller à l'état 23
+
+
+État 28
+
+   11 cp: cc ')' •
+
+    $défaut  réduction par utilisation de la règle 11 (cp)
+
+
+État 29
+
+    5 s: s GREP '(' FILENAME ',' • FILENAME ')'
+
+    FILENAME  décalage et aller à l'état 31
+
+
+État 30
+
+   12 cp: cc ',' cp •
+
+    $défaut  réduction par utilisation de la règle 12 (cp)
+
+
+État 31
+
+    5 s: s GREP '(' FILENAME ',' FILENAME • ')'
+
+    ')'  décalage et aller à l'état 32
+
+
+État 32
+
+    5 s: s GREP '(' FILENAME ',' FILENAME ')' •
+
+    $défaut  réduction par utilisation de la règle 5 (s)
