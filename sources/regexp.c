@@ -3,15 +3,15 @@
 // Begin Arthur's Functions
 bool reg_issimple(regexp *r)
 {
+    if (r == NULL)
+    {
+        return true;
+    }
     if (r->op == INTER || r->op == COMPLEMENT)
     {
         return false;
     }
 
-    if (r == NULL)
-    {
-        return true;
-    }
     return reg_issimple(r->left) && reg_issimple(r->right);
 }
 
