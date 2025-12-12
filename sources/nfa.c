@@ -79,7 +79,23 @@ nfa *create_sing_epsilon(void)
 // Begin Arthur's functions
 nfa *create_sing_letter(char)
 {
-    return NULL;
+    nfa *A = malloc(sizeof(nfa));
+    A->nb_states = 2;
+    A->nb_letters = 1;
+    A->eps_trans = false;
+    A->transitions = malloc(sizeof(ngraph));
+    A->transitions->nb_states = 2;
+    A->transitions->nb_labels = 1;
+    A->transitions->to_array = malloc(sizeof(int));
+    A->transitions->to_array[0] = 1;
+    A->transitions->intervals = malloc(sizeof(int) * ((A->nb_states * A->nb_letters) + 1));
+    A->transitions->intervals[0] = 0;
+    A->transitions->intervals[1] = 1;
+    A->transitions->intervals[2] = 1;
+    A->initials = malloc(sizeof(int));
+    A->transitions->nb_states = 2;
+
+    return A;
 }
 
 void nfa_delete(nfa *)
