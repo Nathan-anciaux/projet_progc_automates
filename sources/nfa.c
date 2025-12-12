@@ -20,7 +20,7 @@ void nfa_reset_state_names(nfa *A)
 /*********************************/
 /* Initialisation et suppression */
 /*********************************/
-
+// Begin Nathan's functions
 nfa *create_emptylang(void)
 {
     // nfa allocation
@@ -74,7 +74,9 @@ nfa *create_sing_epsilon(void)
 
     return n;
 }
+// End Nathan's functions
 
+// Begin Arthur's functions
 nfa *create_sing_letter(char)
 {
     return NULL;
@@ -84,11 +86,12 @@ void nfa_delete(nfa *)
 {
     return;
 }
-
+// End Arthur's functions
 /***********************************/
 /* Opérations simples sur les NFAs */
 /***********************************/
 
+// Begin Nathan's function
 nfa *nfa_copy(nfa *)
 {
     return NULL;
@@ -108,7 +111,9 @@ nfa *nfa_star(nfa *)
 {
     return NULL;
 }
+// End Nathan's function
 
+// Begin Arthur's function
 nfa *nfa_trim(nfa *)
 {
     return NULL;
@@ -128,3 +133,4 @@ barray *nfa_compute_runs(nfa *, const char *)
 {
     return NULL;
 }
+// End Arthur's function

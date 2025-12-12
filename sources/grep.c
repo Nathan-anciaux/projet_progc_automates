@@ -1,5 +1,8 @@
 #include "grep.h"
 
-void grep(const char *, const char *) {
+// Begin's Nathan's function
+void grep(const char *, const char *)
+{
     return;
 }
+// End Nathan's function

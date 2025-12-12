@@ -2,6 +2,9 @@
 #include "system_printing.h"
 #include "type_hash.h"
 
-nfa *nfa_intersect(nfa *, nfa *, bool) {
+// Begin Arthur's function
+nfa *nfa_intersect(nfa *, nfa *, bool)
+{
     return NULL;
 }
+// End Arthur's function
