@@ -1,4 +1,5 @@
 #include "graphs.h"
+
 // Begin Nathan's functions
 one_edge *ngraph_to_edge_list(ngraph *g, int *size)
 {
@@ -121,5 +122,4 @@ multi_edge *ngraph_to_multi_edges(ngraph *g, int *size)
     free(edges_nb);
     return multi_edge_list;
 }
-
 // End Arthur's functions

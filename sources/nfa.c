@@ -77,7 +77,7 @@ nfa *create_sing_epsilon(void)
 // End Nathan's functions
 
 // Begin Arthur's functions
-nfa *create_sing_letter(char)
+nfa *create_sing_letter(char letter)
 {
     nfa *A = malloc(sizeof(nfa));
     A->nb_states = 2;
@@ -93,13 +93,32 @@ nfa *create_sing_letter(char)
     A->transitions->intervals[1] = 1;
     A->transitions->intervals[2] = 1;
     A->initials = malloc(sizeof(int));
-    A->transitions->nb_states = 2;
-
+    A->initials[0] = 0;
+    A->nb_initials = 1;
+    A->finals = malloc(sizeof(int));
+    A->nb_finals = 1;
+    A->letter_names = malloc(sizeof(char));
+    A->letter_names[0] = letter;
+    A->state_names = malloc(sizeof(char*)*2);
+    A->state_names[0] = "Initial state";  
+    A->state_names[1] = "Recognized letter"; 
     return A;
 }
 
-void nfa_delete(nfa *)
+void nfa_delete(nfa *A)
 {
+    free(A->transitions->to_array);
+    free(A->transitions->intervals);
+    free(A->transitions);
+    free(A->initials);
+    free(A->finals);
+    free(A->letter_names);
+    if (A->state_names != NULL){
+        for (int i=0;i<A->nb_states;i++){
+        free(A->state_names[i]);
+    }
+    free(A->state_names);
+    }
     return;
 }
 // End Arthur's functions
