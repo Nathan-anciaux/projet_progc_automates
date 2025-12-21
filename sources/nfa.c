@@ -31,7 +31,7 @@ nfa *create_emptylang(void)
     n->transitions->intervals = NULL;
     n->transitions->to_array = NULL;
 
-    // mfa link with ngraph
+    // nfa link with ngraph
     n->nb_states = n->transitions->nb_states;
 
     // nfa part
@@ -53,7 +53,7 @@ nfa *create_sing_epsilon(void)
     n->transitions->nb_labels = 0;
     n->transitions->nb_states = 1;
 
-    n->transitions->intervals = NULL;
+    n->transitions->intervals = calloc(2, sizeof(*(n->transitions->intervals)));
     n->transitions->to_array = NULL;
 
     // mfa link with ngraph
@@ -99,9 +99,9 @@ nfa *create_sing_letter(char letter)
     A->nb_finals = 1;
     A->letter_names = malloc(sizeof(char));
     A->letter_names[0] = letter;
-    A->state_names = malloc(sizeof(char*)*2);
-    A->state_names[0] = "Initial state";  
-    A->state_names[1] = "Recognized letter"; 
+    A->state_names = malloc(sizeof(char *) * 2);
+    A->state_names[0] = "Initial state";
+    A->state_names[1] = "Recognized letter";
     return A;
 }
 
@@ -113,11 +113,13 @@ void nfa_delete(nfa *A)
     free(A->initials);
     free(A->finals);
     free(A->letter_names);
-    if (A->state_names != NULL){
-        for (int i=0;i<A->nb_states;i++){
-        free(A->state_names[i]);
-    }
-    free(A->state_names);
+    if (A->state_names != NULL)
+    {
+        for (int i = 0; i < A->nb_states; i++)
+        {
+            free(A->state_names[i]);
+        }
+        free(A->state_names);
     }
     return;
 }
@@ -127,8 +129,36 @@ void nfa_delete(nfa *A)
 /***********************************/
 
 // Begin Nathan's function
-nfa *nfa_copy(nfa *)
+nfa *nfa_copy(nfa *A)
 {
+    /*
+    nfa *B = malloc(sizeof(*B));
+
+    B->nb_states = A->nb_states;
+    B->nb_letters = A->nb_letters;
+    B->eps_trans = A->eps_trans;
+
+    // graph part
+    B->transitions = malloc(sizeof(*(B->transitions)));
+    B->transitions = A->transitions;
+
+    // initial tab
+    B->nb_initials = A->nb_initials;
+    B->initials = malloc(B->nb_initials * sizeof(*(B->initials)));
+    B->initials = A->initials;
+
+    // final tab
+    B->nb_finals = A->nb_finals;
+    B->finals = malloc(B->nb_finals * sizeof(*(B->finals)));
+    B->finals = A->finals;
+
+    // letter tab
+    B->nb_letters = A->nb_letters;
+    B->letter_names = malloc(B->nb_letters * sizeof(*(B->letter_names)));
+    B->letter_names = A->letter_names;
+
+    B->state_names = A->state_names;
+    */
     return NULL;
 }
 
