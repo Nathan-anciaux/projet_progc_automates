@@ -131,7 +131,6 @@ void nfa_delete(nfa *A)
 // Begin Nathan's function
 nfa *nfa_copy(nfa *A)
 {
-    /*
     nfa *B = malloc(sizeof(*B));
 
     B->nb_states = A->nb_states;
@@ -140,26 +139,50 @@ nfa *nfa_copy(nfa *A)
 
     // graph part
     B->transitions = malloc(sizeof(*(B->transitions)));
-    B->transitions = A->transitions;
+
+    B->transitions->nb_states = A->transitions->nb_states;
+    B->transitions->nb_labels = A->transitions->nb_labels;
+
+    B->transitions->to_array = malloc(B->transitions->nb_states * sizeof(*(B->transitions->to_array)));
+
+    B->transitions->intervals = malloc(((B->transitions->nb_states * B->transitions->nb_labels) + 1) * sizeof(*(B->transitions->intervals)));
+
+    for (int i = 0; i < B->transitions->nb_states; i++)
+    {
+        B->transitions->to_array[i] = A->transitions->to_array[i];
+    }
+    for (int i = 0; i < (B->transitions->nb_states * B->transitions->nb_labels) + 1; i++)
+    {
+        B->transitions->intervals[i] = A->transitions->intervals[i];
+    }
 
     // initial tab
     B->nb_initials = A->nb_initials;
     B->initials = malloc(B->nb_initials * sizeof(*(B->initials)));
-    B->initials = A->initials;
+    for (int i = 0; i < B->nb_initials; i++)
+    {
+        B->initials[i] = A->initials[i];
+    }
 
     // final tab
     B->nb_finals = A->nb_finals;
     B->finals = malloc(B->nb_finals * sizeof(*(B->finals)));
-    B->finals = A->finals;
+    for (int i = 0; i < B->nb_finals; i++)
+    {
+        B->finals[i] = A->finals[i];
+    }
 
     // letter tab
     B->nb_letters = A->nb_letters;
     B->letter_names = malloc(B->nb_letters * sizeof(*(B->letter_names)));
-    B->letter_names = A->letter_names;
+    for (int i = 0; i < B->nb_letters; i++)
+    {
+        B->letter_names[i] = A->letter_names[i];
+    }
 
     B->state_names = A->state_names;
-    */
-    return NULL;
+
+    return B;
 }
 
 nfa *nfa_union(nfa *, nfa *)
