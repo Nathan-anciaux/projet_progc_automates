@@ -192,7 +192,8 @@ nfa *nfa_union(nfa *, nfa *)
 
 nfa *nfa_concat(nfa *, nfa *)
 {
-    return NULL;
+
+        return NULL;
 }
 
 nfa *nfa_star(nfa *)
