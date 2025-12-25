@@ -410,14 +410,251 @@ nfa *nfa_union(nfa *A, nfa *B)
     return C;
 }
 
-nfa *nfa_concat(nfa *, nfa *)
+bool is_state_final(nfa *A, int state)
 {
-
-    return NULL;
+    for (int i = 0; i < A->nb_finals; i++)
+    {
+        if (state == A->finals[i])
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
-nfa *nfa_star(nfa *)
+nfa *nfa_concat(nfa *A, nfa *B)
 {
+    nfa *C = malloc(sizeof(*C));
+
+    // letter tab
+    C->letter_names = malloc((A->nb_letters + B->nb_letters) * sizeof(*(C->letter_names)));
+    for (int i = 0; i < A->nb_letters; i++)
+    {
+        C->letter_names[i] = A->letter_names[i];
+    }
+    int u = 0;
+    int v = A->nb_letters;
+    while (u < B->nb_letters)
+    {
+        bool is_letter = false;
+        for (int j = 0; j < A->nb_letters; j++)
+        {
+            if (B->letter_names[u] == A->letter_names[j])
+            {
+                is_letter = true;
+            }
+        }
+        if (is_letter == false)
+        {
+            C->letter_names[v] = B->letter_names[u];
+            v++;
+            u++;
+        }
+        else
+        {
+            u++;
+        }
+    }
+    C->nb_letters = v;
+
+    // initial tab
+    C->nb_initials = A->nb_initials;
+    C->initials = malloc(C->nb_initials * sizeof(*(C->initials)));
+    for (int i = 0; i < A->nb_initials; i++)
+    {
+        C->initials[i] = A->initials[i];
+    }
+
+    // final tab
+    C->nb_finals = B->nb_finals;
+    C->finals = malloc(C->nb_finals * sizeof(*(C->finals)));
+    for (int i = 0; i < B->nb_finals; i++)
+    {
+        C->finals[i] = B->finals[i] + A->nb_states;
+    }
+
+    C->nb_states = A->nb_states + B->nb_states;
+    C->eps_trans = true;
+
+    // state name part
+    if ((A->state_names == NULL) || (B->state_names == NULL))
+    {
+        C->state_names = NULL;
+    }
+    else
+    {
+        C->state_names = malloc(C->nb_states * sizeof(*(C->state_names)));
+        for (int j = 0; j < A->nb_states; j++)
+        {
+            C->state_names[j] = strdup(A->state_names[j]);
+        }
+        for (int j = 0; j < B->nb_states; j++)
+        {
+            C->state_names[j + A->nb_states] = strdup(B->state_names[j]);
+        }
+    }
+
+    // graph part
+    C->transitions = malloc(sizeof(*(C->transitions)));
+
+    C->transitions->nb_states = A->transitions->nb_states + B->transitions->nb_states;
+    C->transitions->nb_labels = C->nb_letters + 1;
+    int epsilon_index = C->nb_letters;
+
+    C->transitions->intervals = malloc(((C->transitions->nb_states * C->transitions->nb_labels) + 1) * sizeof(*(C->transitions->intervals)));
+
+    // tab creation to help interval tab creation
+    int *ind_A = malloc(C->transitions->nb_labels * sizeof(*ind_A));
+    int *ind_B = malloc(C->transitions->nb_labels * sizeof(*ind_B));
+
+    for (int i = 0; i < C->transitions->nb_labels; i++)
+    {
+        ind_A[i] = -1;
+        ind_B[i] = -1;
+
+        for (int k = 0; k < A->transitions->nb_labels; k++)
+        {
+            if (A->letter_names[k] == C->letter_names[i])
+            {
+                ind_A[i] = k;
+                break;
+            }
+        }
+        for (int k = 0; k < B->transitions->nb_labels; k++)
+        {
+            if (B->letter_names[k] == C->letter_names[i])
+            {
+                ind_B[i] = k;
+                break;
+            }
+        }
+    }
+
+    int index_in_interval = 0;
+    int write_in_interval = 0;
+    // fill interval tab
+    C->transitions->intervals[0] = 0;
+    for (int i = 0; i < A->transitions->nb_states; i++)
+    {
+        for (int j = 0; j < C->transitions->nb_labels; j++)
+        {
+            int count = 0;
+            if (j == epsilon_index && is_state_final(A, i))
+            {
+                write_in_interval = write_in_interval + B->nb_initials;
+            }
+            if (ind_A[j] != -1)
+            {
+                int a = ind_A[j];
+                count = A->transitions->intervals[(i * A->nb_letters) + a + 1] - A->transitions->intervals[(i * A->nb_letters) + a];
+                write_in_interval = write_in_interval + count;
+            }
+
+            index_in_interval++;
+            C->transitions->intervals[index_in_interval] = write_in_interval;
+        }
+    }
+    for (int i = A->transitions->nb_states; i < C->transitions->nb_states; i++)
+    {
+        for (int j = 0; j < C->transitions->nb_labels; j++)
+        {
+            int count = 0;
+            if (ind_B[j] != -1)
+            {
+                int b = ind_B[j];
+                count = B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + b + 1] - B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + b];
+                write_in_interval = write_in_interval + count;
+            }
+            index_in_interval++;
+            C->transitions->intervals[index_in_interval] = write_in_interval;
+        }
+    }
+
+    // fill to_array
+    int size_to_array = C->transitions->intervals[(C->transitions->nb_labels * C->transitions->nb_states)];
+    C->transitions->to_array = malloc(size_to_array * sizeof(*(C->transitions->to_array)));
+
+    for (int i = 0; i < A->transitions->nb_states; i++)
+    {
+        for (int j = 0; j < C->transitions->nb_labels; j++)
+        {
+            int write_pos = C->transitions->intervals[(i * C->transitions->nb_labels) + j];
+            if (ind_A[j] != -1)
+            {
+                int l_a = ind_A[j];
+
+                int deb = A->transitions->intervals[(i * A->nb_letters) + l_a];
+                int fin = A->transitions->intervals[((i * A->nb_letters) + l_a) + 1];
+
+                for (int k = deb; k < fin; k++)
+                {
+                    C->transitions->to_array[write_pos] = A->transitions->to_array[k];
+                    write_pos++;
+                }
+            }
+            if (j == epsilon_index && is_state_final(A, i))
+            {
+                for (int k = 0; k < B->nb_initials; k++)
+                {
+                    C->transitions->to_array[write_pos] = B->initials[k] + A->nb_states;
+                    write_pos++;
+                }
+            }
+        }
+    }
+    for (int i = A->transitions->nb_states; i < C->transitions->nb_states; i++)
+    {
+        for (int j = 0; j < C->transitions->nb_labels; j++)
+        {
+            int write_pos = C->transitions->intervals[(i * C->transitions->nb_labels) + j];
+            if (ind_B[j] != -1)
+            {
+                int l_b = ind_B[j];
+
+                int deb = B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + l_b];
+                int fin = B->transitions->intervals[(((i - A->transitions->nb_states) * B->nb_letters) + l_b) + 1];
+
+                for (int k = deb; k < fin; k++)
+                {
+                    C->transitions->to_array[write_pos] = B->transitions->to_array[k] + A->nb_states;
+                    write_pos++;
+                }
+            }
+        }
+    }
+
+    free(ind_A);
+    free(ind_B);
+    return C;
+}
+
+nfa *nfa_star(nfa *A)
+{
+    nfa *C = malloc(sizeof(*C));
+
+    // letter tab
+    C->letter_names = malloc(A->nb_letters * sizeof(*(C->letter_names)));
+    C->nb_letters = A->nb_letters;
+    for (int i = 0; i < C->nb_letters; i++)
+    {
+        C->letter_names[i] = A->letter_names[i];
+    }
+
+    // dim
+    C->nb_states = A->nb_states + 2; // final and initial
+
+    C->eps_trans = true;
+
+    // initial tab
+    C->nb_initials = 1;
+    C->initials = malloc(sizeof(*(C->initials)));
+    C->initials[0] = 1;
+
+    // final tab
+    C->nb_finals = 1;
+    C->finals = malloc(sizeof(*(C->finals)));
+    C->finals[0] = A->nb_states + 1;
+
     return NULL;
 }
 // End Nathan's function

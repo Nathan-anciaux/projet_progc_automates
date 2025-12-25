@@ -9,7 +9,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct {
+typedef struct
+{
     int nb_states;
     int nb_letters;
     bool eps_trans;
@@ -49,6 +50,8 @@ void nfa_delete(nfa *A);
 nfa *nfa_copy(nfa *A);
 
 nfa *nfa_union(nfa *A1, nfa *A2);
+
+bool is_state_final(nfa *A, int state);
 
 nfa *nfa_concat(nfa *A1, nfa *A2);
 
