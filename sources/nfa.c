@@ -28,7 +28,7 @@ nfa *create_emptylang(void)
 
     // graph part
     n->transitions = calloc(1, sizeof(*(n->transitions)));
-    n->transitions->intervals = NULL;
+    n->transitions->intervals = calloc(1, sizeof(*(n->transitions->intervals)));
     n->transitions->to_array = NULL;
 
     // nfa link with ngraph
@@ -61,13 +61,13 @@ nfa *create_sing_epsilon(void)
 
     // nfa part
     n->nb_letters = 0;
-    n->eps_trans = 0;
+    n->eps_trans = true;
     n->nb_initials = 1;
     n->nb_finals = 1;
 
-    n->finals = malloc(n->nb_finals * sizeof(*(n->transitions->intervals)));
+    n->finals = malloc(n->nb_finals * sizeof(*(n->finals)));
     n->finals[0] = 0;
-    n->initials = malloc(n->nb_initials * sizeof(*(n->transitions->intervals)));
+    n->initials = malloc(n->nb_initials * sizeof(*(n->initials)));
     n->initials[0] = 0;
     n->letter_names = NULL;
     n->state_names = NULL;
@@ -96,12 +96,13 @@ nfa *create_sing_letter(char letter)
     A->initials[0] = 0;
     A->nb_initials = 1;
     A->finals = malloc(sizeof(int));
+    A->finals[0] = 1;
     A->nb_finals = 1;
     A->letter_names = malloc(sizeof(char));
     A->letter_names[0] = letter;
     A->state_names = malloc(sizeof(char *) * 2);
-    A->state_names[0] = "Initial state";
-    A->state_names[1] = "Recognized letter";
+    A->state_names[0] = strdup("Initial state");
+    A->state_names[1] = strdup("Recognized letter");
     return A;
 }
 
@@ -121,6 +122,7 @@ void nfa_delete(nfa *A)
         }
         free(A->state_names);
     }
+    free(A);
     return;
 }
 // End Arthur's functions
@@ -189,7 +191,7 @@ nfa *nfa_copy(nfa *A)
         B->state_names = malloc(A->nb_states * sizeof(*(B->state_names)));
         for (int i = 0; i < B->nb_states; i++)
         {
-            B->state_names[i] = A->state_names[i];
+            B->state_names[i] = strdup(A->state_names[i]);
         }
     }
 
@@ -259,14 +261,21 @@ nfa *nfa_union(nfa *A, nfa *B)
     C->eps_trans = A->eps_trans || B->eps_trans;
 
     // state name part
-    C->state_names = malloc(C->nb_states * sizeof(*(C->state_names)));
-    for (int j = 0; j < A->nb_states; j++)
+    if ((A->state_names == NULL) || (B->state_names == NULL))
     {
-        C->state_names[j] = A->state_names[j];
+        C->state_names = NULL;
     }
-    for (int j = 0; j < B->nb_states; j++)
+    else
     {
-        C->state_names[j + A->nb_states] = B->state_names[j];
+        C->state_names = malloc(C->nb_states * sizeof(*(C->state_names)));
+        for (int j = 0; j < A->nb_states; j++)
+        {
+            C->state_names[j] = strdup(A->state_names[j]);
+        }
+        for (int j = 0; j < B->nb_states; j++)
+        {
+            C->state_names[j + A->nb_states] = strdup(B->state_names[j]);
+        }
     }
 
     // graph part
