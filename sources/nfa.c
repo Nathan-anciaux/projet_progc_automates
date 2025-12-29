@@ -648,14 +648,119 @@ nfa *nfa_star(nfa *A)
     // initial tab
     C->nb_initials = 1;
     C->initials = malloc(sizeof(*(C->initials)));
-    C->initials[0] = 1;
+    C->initials[0] = 0;
 
     // final tab
     C->nb_finals = 1;
     C->finals = malloc(sizeof(*(C->finals)));
     C->finals[0] = A->nb_states + 1;
 
-    return NULL;
+    // fill interval
+    C->transitions = malloc(sizeof(*(C->transitions)));
+    C->transitions->nb_states = C->nb_states;
+    C->transitions->nb_labels = C->nb_letters + 1;
+    int epsilon_index = C->nb_letters;
+    C->transitions->intervals = calloc(((C->transitions->nb_states * C->transitions->nb_labels) + 1), sizeof(*(C->transitions->intervals)));
+
+    int index_interval = 0;
+    int write_in_interval = 0;
+    for (int i = 0; i < C->transitions->nb_states; i++)
+    {
+        int idx_A = i - 1;
+        for (int j = 0; j < C->transitions->nb_labels; j++)
+        {
+            int count = 0;
+            if ((i == 0) && (j == epsilon_index))
+            {
+                count = A->nb_initials + 1;
+            }
+            else if ((i > 0) && (i < A->nb_states + 1))
+            {
+                int col_A = -1;
+                if (j < C->nb_letters)
+                {
+                    col_A = j;
+                }
+                else if (j == epsilon_index && A->eps_trans)
+                {
+                    col_A = A->transitions->nb_labels - 1;
+                }
+                if (col_A != -1)
+                {
+                    count = A->transitions->intervals[(idx_A * A->transitions->nb_labels) + col_A + 1] - A->transitions->intervals[(idx_A * A->transitions->nb_labels) + col_A];
+                }
+
+                if (j == epsilon_index && is_state_final(A, idx_A))
+                {
+                    count = count + A->nb_initials + 1;
+                }
+            }
+            write_in_interval = write_in_interval + count;
+            index_interval++;
+            C->transitions->intervals[index_interval] = write_in_interval;
+        }
+    }
+
+    // array part
+    C->transitions->to_array = malloc(C->transitions->intervals[index_interval] * sizeof(*(C->transitions->to_array)));
+    for (int i = 0; i < C->transitions->nb_states; i++)
+    {
+        int idx_A = i - 1;
+        for (int j = 0; j < C->transitions->nb_labels; j++)
+        {
+            int write_pos = C->transitions->intervals[(i * C->transitions->nb_labels) + j];
+
+            if (j == epsilon_index && (i == 0))
+            {
+                C->transitions->to_array[write_pos] = C->transitions->nb_states - 1;
+                write_pos++;
+
+                for (int k = 0; k < A->nb_initials; k++)
+                {
+                    C->transitions->to_array[write_pos] = A->initials[k] + 1;
+                    write_pos++;
+                }
+            }
+            else if ((i > 0) && (i < A->nb_states + 1))
+            {
+                int col_A = -1;
+                if (j < C->nb_letters)
+                {
+                    col_A = j;
+                }
+                else if (j == epsilon_index && A->eps_trans)
+                {
+                    col_A = A->transitions->nb_labels - 1;
+                }
+
+                if (col_A != -1)
+                {
+                    int deb = A->transitions->intervals[(idx_A * A->transitions->nb_labels) + col_A];
+                    int fin = A->transitions->intervals[((idx_A * A->transitions->nb_labels) + col_A) + 1];
+
+                    for (int k = deb; k < fin; k++)
+                    {
+                        C->transitions->to_array[write_pos] = A->transitions->to_array[k] + 1;
+                        write_pos++;
+                    }
+                }
+
+                if (j == epsilon_index && is_state_final(A, idx_A))
+                {
+
+                    for (int k = 0; k < A->nb_initials; k++)
+                    {
+                        C->transitions->to_array[write_pos] = A->initials[k] + 1;
+                        write_pos++;
+                    }
+
+                    C->transitions->to_array[write_pos] = C->transitions->nb_states - 1;
+                    write_pos++;
+                }
+            }
+        }
+    }
+    return C;
 }
 // End Nathan's function
 
