@@ -50,7 +50,7 @@ nfa *create_sing_epsilon(void)
 
     // graph part
     n->transitions = malloc(sizeof(*(n->transitions)));
-    n->transitions->nb_labels = 0;
+    n->transitions->nb_labels = 1;
     n->transitions->nb_states = 1;
 
     n->transitions->intervals = calloc(2, sizeof(*(n->transitions->intervals)));
@@ -282,7 +282,16 @@ nfa *nfa_union(nfa *A, nfa *B)
     C->transitions = malloc(sizeof(*(C->transitions)));
 
     C->transitions->nb_states = A->transitions->nb_states + B->transitions->nb_states;
-    C->transitions->nb_labels = C->nb_letters;
+    int epsilon_idx = -1;
+    if (C->eps_trans)
+    {
+        C->transitions->nb_labels = C->nb_letters + 1;
+        epsilon_idx = C->nb_letters;
+    }
+    else
+    {
+        C->transitions->nb_labels = C->nb_letters;
+    }
 
     C->transitions->intervals = malloc(((C->transitions->nb_states * C->transitions->nb_labels) + 1) * sizeof(*(C->transitions->intervals)));
 
@@ -295,7 +304,7 @@ nfa *nfa_union(nfa *A, nfa *B)
         ind_A[i] = -1;
         ind_B[i] = -1;
 
-        for (int k = 0; k < A->transitions->nb_labels; k++)
+        for (int k = 0; k < A->nb_letters; k++)
         {
             if (A->letter_names[k] == C->letter_names[i])
             {
@@ -303,7 +312,7 @@ nfa *nfa_union(nfa *A, nfa *B)
                 break;
             }
         }
-        for (int k = 0; k < B->transitions->nb_labels; k++)
+        for (int k = 0; k < B->nb_letters; k++)
         {
             if (B->letter_names[k] == C->letter_names[i])
             {
@@ -315,6 +324,8 @@ nfa *nfa_union(nfa *A, nfa *B)
 
     int index_in_interval = 0;
     int write_in_interval = 0;
+    int epsilon_A = A->transitions->nb_labels - 1;
+    int epsilon_B = B->transitions->nb_labels - 1;
     // fill interval tab
     C->transitions->intervals[0] = 0;
     for (int i = 0; i < A->transitions->nb_states; i++)
@@ -322,19 +333,18 @@ nfa *nfa_union(nfa *A, nfa *B)
         for (int j = 0; j < C->transitions->nb_labels; j++)
         {
             int count = 0;
-            if (ind_A[j] != -1)
+            if (j < C->nb_letters && ind_A[j] != -1)
             {
                 int a = ind_A[j];
-                index_in_interval++;
                 count = A->transitions->intervals[(i * A->nb_letters) + a + 1] - A->transitions->intervals[(i * A->nb_letters) + a];
-                write_in_interval = write_in_interval + count;
-                C->transitions->intervals[index_in_interval] = write_in_interval;
             }
-            else
+            else if (j == epsilon_idx && A->eps_trans)
             {
-                index_in_interval++;
-                C->transitions->intervals[index_in_interval] = write_in_interval;
+                count = A->transitions->intervals[(i * A->nb_letters) + epsilon_A + 1] - A->transitions->intervals[(i * A->nb_letters) + epsilon_A];
             }
+            write_in_interval = write_in_interval + count;
+            index_in_interval++;
+            C->transitions->intervals[index_in_interval] = write_in_interval;
         }
     }
     for (int i = A->transitions->nb_states; i < C->transitions->nb_states; i++)
@@ -342,19 +352,18 @@ nfa *nfa_union(nfa *A, nfa *B)
         for (int j = 0; j < C->transitions->nb_labels; j++)
         {
             int count = 0;
-            if (ind_B[j] != -1)
+            if (j < C->nb_letters && ind_B[j] != -1)
             {
                 int b = ind_B[j];
-                index_in_interval++;
                 count = B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + b + 1] - B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + b];
-                write_in_interval = write_in_interval + count;
-                C->transitions->intervals[index_in_interval] = write_in_interval;
             }
-            else
+            else if (j == epsilon_idx && B->eps_trans)
             {
-                index_in_interval++;
-                C->transitions->intervals[index_in_interval] = write_in_interval;
+                count = B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + epsilon_B + 1] - B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + epsilon_B];
             }
+            write_in_interval = write_in_interval + count;
+            index_in_interval++;
+            C->transitions->intervals[index_in_interval] = write_in_interval;
         }
     }
 
@@ -366,12 +375,25 @@ nfa *nfa_union(nfa *A, nfa *B)
     {
         for (int j = 0; j < C->transitions->nb_labels; j++)
         {
-            if (ind_A[j] != -1)
+            if (j < C->nb_letters && ind_A[j] != -1)
             {
                 int l_a = ind_A[j];
 
                 int deb = A->transitions->intervals[(i * A->nb_letters) + l_a];
                 int fin = A->transitions->intervals[((i * A->nb_letters) + l_a) + 1];
+
+                int write_pos = C->transitions->intervals[(i * C->nb_letters) + j];
+
+                for (int k = deb; k < fin; k++)
+                {
+                    C->transitions->to_array[write_pos] = A->transitions->to_array[k];
+                    write_pos++;
+                }
+            }
+            else if (j == epsilon_idx && A->eps_trans)
+            {
+                int deb = A->transitions->intervals[(i * A->nb_letters) + epsilon_A];
+                int fin = A->transitions->intervals[((i * A->nb_letters) + epsilon_A) + 1];
 
                 int write_pos = C->transitions->intervals[(i * C->nb_letters) + j];
 
@@ -387,7 +409,7 @@ nfa *nfa_union(nfa *A, nfa *B)
     {
         for (int j = 0; j < C->transitions->nb_labels; j++)
         {
-            if (ind_B[j] != -1)
+            if (j < C->nb_letters && ind_B[j] != -1)
             {
                 int l_b = ind_B[j];
 
@@ -402,9 +424,21 @@ nfa *nfa_union(nfa *A, nfa *B)
                     write_pos++;
                 }
             }
+            else if (j == epsilon_idx && B->eps_trans)
+            {
+                int deb = B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + epsilon_B];
+                int fin = B->transitions->intervals[(((i - A->transitions->nb_states) * B->nb_letters) + epsilon_B) + 1];
+
+                int write_pos = C->transitions->intervals[(i * C->nb_letters) + j];
+
+                for (int k = deb; k < fin; k++)
+                {
+                    C->transitions->to_array[write_pos] = B->transitions->to_array[k] + A->nb_states;
+                    write_pos++;
+                }
+            }
         }
     }
-
     free(ind_A);
     free(ind_B);
     return C;
@@ -504,8 +538,8 @@ nfa *nfa_concat(nfa *A, nfa *B)
     C->transitions->intervals = malloc(((C->transitions->nb_states * C->transitions->nb_labels) + 1) * sizeof(*(C->transitions->intervals)));
 
     // tab creation to help interval tab creation
-    int *ind_A = malloc(C->transitions->nb_labels * sizeof(*ind_A));
-    int *ind_B = malloc(C->transitions->nb_labels * sizeof(*ind_B));
+    int *ind_A = calloc(C->transitions->nb_labels, sizeof(*ind_A));
+    int *ind_B = calloc(C->transitions->nb_labels, sizeof(*ind_B));
 
     for (int i = 0; i < C->transitions->nb_labels; i++)
     {
@@ -532,6 +566,8 @@ nfa *nfa_concat(nfa *A, nfa *B)
 
     int index_in_interval = 0;
     int write_in_interval = 0;
+    int epsilon_A = A->transitions->nb_labels - 1;
+    int epsilon_B = B->transitions->nb_labels - 1;
     // fill interval tab
     C->transitions->intervals[0] = 0;
     for (int i = 0; i < A->transitions->nb_states; i++)
@@ -543,13 +579,16 @@ nfa *nfa_concat(nfa *A, nfa *B)
             {
                 write_in_interval = write_in_interval + B->nb_initials;
             }
-            if (ind_A[j] != -1)
+            if (j < C->nb_letters && ind_A[j] != -1)
             {
                 int a = ind_A[j];
                 count = A->transitions->intervals[(i * A->nb_letters) + a + 1] - A->transitions->intervals[(i * A->nb_letters) + a];
-                write_in_interval = write_in_interval + count;
             }
-
+            else if (j == epsilon_index && A->eps_trans)
+            {
+                count = A->transitions->intervals[(i * A->nb_letters) + epsilon_A + 1] - A->transitions->intervals[(i * A->nb_letters) + epsilon_A];
+            }
+            write_in_interval = write_in_interval + count;
             index_in_interval++;
             C->transitions->intervals[index_in_interval] = write_in_interval;
         }
@@ -559,12 +598,16 @@ nfa *nfa_concat(nfa *A, nfa *B)
         for (int j = 0; j < C->transitions->nb_labels; j++)
         {
             int count = 0;
-            if (ind_B[j] != -1)
+            if (j < C->nb_letters && ind_B[j] != -1)
             {
                 int b = ind_B[j];
                 count = B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + b + 1] - B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + b];
-                write_in_interval = write_in_interval + count;
             }
+            else if (j == epsilon_index && B->eps_trans)
+            {
+                count = B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + epsilon_B + 1] - B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + epsilon_B];
+            }
+            write_in_interval = write_in_interval + count;
             index_in_interval++;
             C->transitions->intervals[index_in_interval] = write_in_interval;
         }
@@ -579,12 +622,23 @@ nfa *nfa_concat(nfa *A, nfa *B)
         for (int j = 0; j < C->transitions->nb_labels; j++)
         {
             int write_pos = C->transitions->intervals[(i * C->transitions->nb_labels) + j];
-            if (ind_A[j] != -1)
+            if (j < C->nb_letters && ind_A[j] != -1)
             {
                 int l_a = ind_A[j];
 
                 int deb = A->transitions->intervals[(i * A->nb_letters) + l_a];
                 int fin = A->transitions->intervals[((i * A->nb_letters) + l_a) + 1];
+
+                for (int k = deb; k < fin; k++)
+                {
+                    C->transitions->to_array[write_pos] = A->transitions->to_array[k];
+                    write_pos++;
+                }
+            }
+            else if (j == epsilon_index && A->eps_trans)
+            {
+                int deb = A->transitions->intervals[(i * A->nb_letters) + epsilon_A];
+                int fin = A->transitions->intervals[((i * A->nb_letters) + epsilon_A) + 1];
 
                 for (int k = deb; k < fin; k++)
                 {
@@ -607,7 +661,7 @@ nfa *nfa_concat(nfa *A, nfa *B)
         for (int j = 0; j < C->transitions->nb_labels; j++)
         {
             int write_pos = C->transitions->intervals[(i * C->transitions->nb_labels) + j];
-            if (ind_B[j] != -1)
+            if (j < C->nb_letters && ind_B[j] != -1)
             {
                 int l_b = ind_B[j];
 
@@ -620,9 +674,19 @@ nfa *nfa_concat(nfa *A, nfa *B)
                     write_pos++;
                 }
             }
+            else if (j == epsilon_index && B->eps_trans)
+            {
+                int deb = B->transitions->intervals[((i - A->transitions->nb_states) * B->nb_letters) + epsilon_B];
+                int fin = B->transitions->intervals[(((i - A->transitions->nb_states) * B->nb_letters) + epsilon_B) + 1];
+
+                for (int k = deb; k < fin; k++)
+                {
+                    C->transitions->to_array[write_pos] = B->transitions->to_array[k] + A->nb_states;
+                    write_pos++;
+                }
+            }
         }
     }
-
     free(ind_A);
     free(ind_B);
     return C;
