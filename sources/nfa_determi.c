@@ -2,8 +2,9 @@
 #include "system_printing.h"
 #include "type_hash.h"
 // Begin Arthur's function
-nfa *nfa_determinize(nfa *, bool)
+nfa *nfa_determinize(nfa *A, bool names)
 {
+    
     return NULL;
 }
 // End Arthur's function

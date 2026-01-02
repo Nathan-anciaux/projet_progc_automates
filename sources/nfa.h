@@ -51,6 +51,8 @@ nfa *nfa_copy(nfa *A);
 
 nfa *nfa_union(nfa *A1, nfa *A2);
 
+bool is_state_initial(nfa *A, int state);
+
 bool is_state_final(nfa *A, int state);
 
 nfa *nfa_concat(nfa *A1, nfa *A2);

@@ -33,7 +33,7 @@ typedef struct
 
 one_edge *ngraph_to_edge_list(ngraph *G, int *size);
 
-int compare_one_edge(one_edge oe1, one_edge oe2);
+int compare_one_edge(const void* p1, const void* p2);
 
 ngraph *edge_list_to_ngraph(one_edge *edges, int size, int nb_states,
                             int nb_labels);

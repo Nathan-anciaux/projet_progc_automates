@@ -26,39 +26,42 @@ one_edge *ngraph_to_edge_list(ngraph *g, int *size)
 // End Nathan's functions
 
 // Begin Arthur's functions
-/*
-int compare_one_edge(one_edge oe1, one_edge oe2)
+
+int compare_one_edge(const void* p1, const void* p2)
 { // L'ordre de priorité est : from > label > to
-    if (oe1.from > oe2.from)
-    {
-        return 1;./
-    }
-    if (oe1.from < oe2.from)
-    {
-        return -1;
-    }
-    if (oe1.label > oe2.label)
+    one_edge* oe1 = (one_edge*)p1;
+    one_edge* oe2 = (one_edge*)p2;
+    
+    if (oe1->from > oe2->from)
     {
         return 1;
     }
-    if (oe1.label < oe2.label)
+    if (oe1->from < oe2->from)
     {
         return -1;
     }
-    if (oe1.to > oe2.to)
+    if (oe1->label > oe2->label)
     {
         return 1;
     }
-    if (oe1.to < oe2.to)
+    if (oe1->label < oe2->label)
+    {
+        return -1;
+    }
+    if (oe1->to > oe2->to)
+    {
+        return 1;
+    }
+    if (oe1->to < oe2->to)
     {
         return -1;
     }
     return 0;
 }
-*/
+
 ngraph *edge_list_to_ngraph(one_edge *edges, int size, int nb_states, int nb_labels)
 {
-    // qsort(edges, size, sizeof(one_edge), compare_one_edge);
+    qsort(edges, size, sizeof(one_edge), compare_one_edge);
     ngraph *g = malloc(sizeof(ngraph));
     g->nb_states = nb_states;
     g->nb_labels = nb_labels;
