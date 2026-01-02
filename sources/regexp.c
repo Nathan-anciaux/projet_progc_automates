@@ -75,6 +75,10 @@ regexp *reg_letter(char c)
 
 regexp *reg_union(regexp *left, regexp *right)
 {
+    if (left == NULL)
+        return right;
+    if (right == NULL)
+        return left;
     regexp *uni = malloc(sizeof(*uni));
     uni->left = left;
     uni->right = right;
