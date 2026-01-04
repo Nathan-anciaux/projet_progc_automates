@@ -831,31 +831,41 @@ nfa *nfa_star(nfa *A)
 
 // Begin Arthur's function
 
-bool is_state_initial(nfa *A, int state){
+bool is_state_initial(nfa *A, int state)
+{
     bool output = false;
-    for (int i = 0; i<A->nb_initials;){
-        if (A->initials[i] == state){
-        output = true;
-        break;
+    for (int i = 0; i < A->nb_initials;)
+    {
+        if (A->initials[i] == state)
+        {
+            output = true;
+            break;
         }
     }
     return output;
 }
 
 nfa *nfa_trim(nfa *A)
-{   
+{
     nfa *A2 = nfa_copy(A);
-    for (int i = 0; i < A2->nb_states; i++){
-        if (!is_state_final(A2, i) && !is_state_initial(A2, i)) { // On regarde si l'état considéré n'est ni initial ni final
+    for (int i = 0; i < A2->nb_states; i++)
+    {
+        if (!is_state_final(A2, i) && !is_state_initial(A2, i))
+        { // On regarde si l'état considéré n'est ni initial ni final
             bool is_accessible = false;
-            for (int j = 0; j < A2->transitions->nb_labels; j++){  
-                if (A2->transitions->to_array[j] == i){ // On regarde si l'état n'est accessible pas par un autre état
+            for (int j = 0; j < A2->transitions->nb_labels; j++)
+            {
+                if (A2->transitions->to_array[j] == i)
+                { // On regarde si l'état n'est accessible pas par un autre état
                     is_accessible = true;
                 }
             }
-            if (!is_accessible){    // On échange l'état inaccessible avec le dernier  
-                for (int k = 0; k < A2->transitions->nb_labels; k++){
-                    if (A2->transitions->to_array[k] == A2->nb_states - 1){
+            if (!is_accessible)
+            { // On échange l'état inaccessible avec le dernier
+                for (int k = 0; k < A2->transitions->nb_labels; k++)
+                {
+                    if (A2->transitions->to_array[k] == A2->nb_states - 1)
+                    {
                         A2->transitions->to_array[k] = i;
                     }
                 }
@@ -883,34 +893,38 @@ nfa *nfa_mirror(nfa *A)
         nfa *A2 = nfa_copy(A);
         A2->transitions = g;
 
-        int *tmp = A2->initials;
-        A2->initials = A2->finals;
-        A2->finals = tmp;
-        free(tmp);
+    int *tmp = A2->initials;
+    A2->initials = A2->finals;
+    A2->finals = tmp;
+    free(tmp);
 
-        int temp = A2->nb_initials;
-        A2->nb_initials = A2->nb_finals;
-        A2->nb_finals = temp;
-        return A2;
+    int temp = A2->nb_initials;
+    A2->nb_initials = A2->nb_finals;
+    A2->nb_finals = temp;
+    return A2;
 }
 
-nfa *nfa_elimeps(nfa *A) 
+nfa *nfa_elimeps(nfa *A)
 {
     int *size_one_edge_list = NULL;
     one_edge *oe = ngraph_to_edge_list(A->transitions, size_one_edge_list); // on va passer par une one_edge_list encore une fois, plus facile à manipuler
     int esp_count = 0;
 
-    for (int i = 0; i < *size_one_edge_list; i++){          // On compte les transitions epsilons pour les soustraire à la création de oe2
-        if (oe[i].label == A->transitions->nb_labels){
+    for (int i = 0; i < *size_one_edge_list; i++)
+    { // On compte les transitions epsilons pour les soustraire à la création de oe2
+        if (oe[i].label == A->transitions->nb_labels)
+        {
             esp_count++;
         }
     }
     one_edge *oe2 = malloc(sizeof(one_edge) * (*size_one_edge_list - esp_count));
     int j = 0; // Variable d'incrémentation pour oe2
-    for (int i = 0 ; i < *size_one_edge_list - esp_count; i ++){
-        if (oe[i].label < A->transitions->nb_labels){
+    for (int i = 0; i < *size_one_edge_list - esp_count; i++)
+    {
+        if (oe[i].label < A->transitions->nb_labels)
+        {
             oe2[j] = oe[i];
-            j++;            
+            j++;
         }
     }
     free(oe);
@@ -930,22 +944,29 @@ barray *nfa_compute_runs(nfa *A, const char *s)
     int *one_edge_list_size = NULL;                              // On va utiliser un multi_edge pour faire des & bits à bits
     one_edge *oe = ngraph_to_edge_list(A->transitions, one_edge_list_size);
 
-    for (int i = 0; i< A->nb_initials; i++){             // On initialise le barray qu'on va rendre à la fin de la fonction
+    for (int i = 0; i < A->nb_initials; i++)
+    { // On initialise le barray qu'on va rendre à la fin de la fonction
         settrue_barray(b, A->initials[i]);
     }
 
-    for (int i=0; i<(int)strlen(s); i++){
+    for (int i = 0; i < strlen(s); i++)
+    {
         char letter = s[i];
         int index_letter = -1;
-        for (int j= 0; j<A->nb_letters; j++){           // On cherche si la lettre fait partie de l'alphabet.
-            if (letter == A->letter_names[j]){
+        for (int j = 0; j < A->nb_letters; j++)
+        { // On cherche si la lettre fait partie de l'alphabet.
+            if (letter == A->letter_names[j])
+            {
                 index_letter = j;
             }
         }
-        if (index_letter != -1){                        
-            barray * new_b = create_barray(A->nb_states);    // On crée un barray par lettre de la chaine que l'on supprime en passant à la prochaine lettre
-            for (int j = 0; j < *one_edge_list_size;j++){
-                if (getval_barray(b,oe[j].from) && oe[j].label == index_letter){ // On 
+        if (index_letter != -1)
+        {
+            barray *new_b = create_barray(A->nb_states); // On crée un barray par lettre de la chaine que l'on supprime en passant à la prochaine lettre
+            for (int j = 0; j < *one_edge_list_size; j++)
+            {
+                if (getval_barray(b, oe[j].from) && oe[j].label == index_letter)
+                {
                     settrue_barray(new_b, oe[j].to);
                 }
             }
@@ -955,7 +976,6 @@ barray *nfa_compute_runs(nfa *A, const char *s)
     }
 
     return b;
-
 
 }
 // End Arthur's function
