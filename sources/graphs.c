@@ -27,11 +27,11 @@ one_edge *ngraph_to_edge_list(ngraph *g, int *size)
 
 // Begin Arthur's functions
 
-int compare_one_edge(const void* p1, const void* p2)
+int compare_one_edge(const void *p1, const void *p2)
 { // L'ordre de priorité est : from > label > to
-    one_edge* oe1 = (one_edge*)p1;
-    one_edge* oe2 = (one_edge*)p2;
-    
+    const one_edge *oe1 = (const one_edge *)p1;
+    const one_edge *oe2 = (const one_edge *)p2;
+
     if (oe1->from > oe2->from)
     {
         return 1;
