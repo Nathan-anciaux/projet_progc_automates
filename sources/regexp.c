@@ -99,6 +99,8 @@ regexp *reg_inter(regexp *left, regexp *right)
 
 regexp *reg_concat(regexp *left, regexp *right)
 {
+    if (left == NULL || right == NULL)
+        return NULL;
     regexp *conca = malloc(sizeof(*conca));
     conca->left = left;
     conca->right = right;
@@ -109,6 +111,10 @@ regexp *reg_concat(regexp *left, regexp *right)
 
 regexp *reg_star(regexp *left)
 {
+    if (left == NULL)
+        return reg_epsilon();
+    if (left->op == EPSILON)
+        return left;
     regexp *sta = malloc(sizeof(*sta));
     sta->left = left;
     sta->right = NULL;

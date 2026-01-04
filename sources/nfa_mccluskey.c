@@ -7,6 +7,19 @@ int index_in_matrix_reg(nfa *A, int i, int j)
     return (i * (A->transitions->nb_states + 2)) + j;
 }
 
+regexp *concat_without_epsilon(regexp *r1, regexp *r2)
+{
+    if (r1 == NULL || r1->op == EPSILON)
+    {
+        return r2;
+    }
+    if (r2 == NULL || r2->op == EPSILON)
+    {
+        return r1;
+    }
+    return reg_concat(r1, r2);
+}
+
 regexp *nfa_mccluskey(nfa *A)
 {
 
@@ -93,25 +106,32 @@ regexp *nfa_mccluskey(nfa *A)
                 {
                     if (i != k && j != k)
                     {
-                        regexp *kk;
+                        regexp *transfo_2;
                         if (matrix_reg[index_in_matrix_reg(A, k, k)] != NULL)
                         {
-                            kk = matrix_reg[index_in_matrix_reg(A, k, k)];
+                            // in this case just concat
+                            regexp *k_kleene = reg_star(matrix_reg[index_in_matrix_reg(A, k, k)]);
+                            transfo_2 = concat_without_epsilon(matrix_reg[index_in_matrix_reg(A, i, k)], reg_concat(k_kleene, matrix_reg[index_in_matrix_reg(A, k, j)]));
                         }
                         else
                         {
-                            kk = reg_epsilon();
+                            // normal case
+                            transfo_2 = concat_without_epsilon(matrix_reg[index_in_matrix_reg(A, i, k)], matrix_reg[index_in_matrix_reg(A, k, j)]);
                         }
-                        regexp *k_kleene = reg_star(kk);
-                        regexp *transfo_2 = reg_concat(matrix_reg[index_in_matrix_reg(A, i, k)], reg_concat(k_kleene, matrix_reg[index_in_matrix_reg(A, k, j)]));
 
-                        matrix_reg[index_in_matrix_reg(A, i, j)] = reg_union(matrix_reg[index_in_matrix_reg(A, i, j)], transfo_2);
+                        if (matrix_reg[index_in_matrix_reg(A, i, j)] == NULL)
+                        {
+                            matrix_reg[index_in_matrix_reg(A, i, j)] = transfo_2;
+                        }
+                        else
+                        {
+                            matrix_reg[index_in_matrix_reg(A, i, j)] = reg_union(matrix_reg[index_in_matrix_reg(A, i, j)], transfo_2);
+                        }
                     }
                 }
             }
         }
     }
-
     return matrix_reg[index_in_matrix_reg(A, qi, qf)];
 }
 // End Nathan's function
