@@ -949,7 +949,7 @@ barray *nfa_compute_runs(nfa *A, const char *s)
         settrue_barray(b, A->initials[i]);
     }
 
-    for (int i = 0; i < strlen(s); i++)
+    for (int i = 0; i < (int)strlen(s); i++)
     {
         char letter = s[i];
         int index_letter = -1;
