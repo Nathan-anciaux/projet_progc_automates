@@ -871,7 +871,7 @@ nfa *nfa_trim(nfa *A)
 
 nfa *nfa_mirror(nfa *A)
     {
-        int *size_one_edge_list; // On passe par une liste de multi_edge pour inverser les in et les out facilement
+        int *size_one_edge_list = NULL; // On passe par une liste de multi_edge pour inverser les in et les out facilement
         one_edge *oe = ngraph_to_edge_list(A->transitions, size_one_edge_list);
         for (int i = 0; i < *size_one_edge_list; i++){
             int tmp = oe[i].from;
@@ -896,7 +896,7 @@ nfa *nfa_mirror(nfa *A)
 
 nfa *nfa_elimeps(nfa *A) 
 {
-    int *size_one_edge_list;
+    int *size_one_edge_list = NULL;
     one_edge *oe = ngraph_to_edge_list(A->transitions, size_one_edge_list); // on va passer par une one_edge_list encore une fois, plus facile à manipuler
     int esp_count = 0;
 
@@ -927,14 +927,14 @@ nfa *nfa_elimeps(nfa *A)
 barray *nfa_compute_runs(nfa *A, const char *s)
 {    
     barray * b = create_barray(A->nb_states);
-    int *one_edge_list_size;                              // On va utiliser un multi_edge pour faire des & bits à bits
+    int *one_edge_list_size = NULL;                              // On va utiliser un multi_edge pour faire des & bits à bits
     one_edge *oe = ngraph_to_edge_list(A->transitions, one_edge_list_size);
 
     for (int i = 0; i< A->nb_initials; i++){             // On initialise le barray qu'on va rendre à la fin de la fonction
         settrue_barray(b, A->initials[i]);
     }
 
-    for (int i=0; i<strlen(s); i++){
+    for (int i=0; i<(int)strlen(s); i++){
         char letter = s[i];
         int index_letter = -1;
         for (int j= 0; j<A->nb_letters; j++){           // On cherche si la lettre fait partie de l'alphabet.
@@ -945,7 +945,7 @@ barray *nfa_compute_runs(nfa *A, const char *s)
         if (index_letter != -1){                        
             barray * new_b = create_barray(A->nb_states);    // On crée un barray par lettre de la chaine que l'on supprime en passant à la prochaine lettre
             for (int j = 0; j < *one_edge_list_size;j++){
-                if (getval_barray(b,oe[j].from) && oe[j].label == index_letter){
+                if (getval_barray(b,oe[j].from) && oe[j].label == index_letter){ // On 
                     settrue_barray(new_b, oe[j].to);
                 }
             }
